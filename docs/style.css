@@ -1,0 +1,29 @@
+ .fa-2x, .fa-3x{
+    vertical-align: middle;
+} 
+ a, a:link, a:visited {
+    color: #000000;
+    cursor: pointer;
+    text-decoration: none;
+}
+  
+.mark {
+    animation: 5s linear 1s infinite alternate highlight;
+    background: linear-gradient(90deg, #000000 50%, rgba(255, 255, 255, 0) 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+}
+@keyframes highlight {
+0% {
+    background-position: 100% 0;
+    color: #000000;
+    }
+50% {
+    background-position: 0 0;
+    color: #FFFFFF;
+    }
+100% {
+    background-position: 0 0;
+    color: #FFFFFF;
+    }  
+}

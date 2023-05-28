@@ -24,6 +24,7 @@ $(document).ready(function(){
   $("#TableContent").hide(); // Hide table content and show only when button is clicked
   $("#Welcome").show(); // Show welcome message
   $("#SearchSpecieGenome").hide();
+  $("#ChloroplastGenes").hide();
 
   $('#CopyClipboard').click(function(){
     var dataText = document.getElementById("ResultQuery");
@@ -130,7 +131,7 @@ $(document).ready(function(){
         $("#TableContent").removeClass("row-cols-2");
         $("#TableContent").addClass("row-cols-3");
         $("#MitochondrialGenes").hide("slow");
-        // add Chloroplast genes
+        $("#ChloroplastGenes").show("slow");
         }, 250);
       } else {
         $("#MitochondrialGenes").hide();

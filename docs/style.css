@@ -6,7 +6,28 @@
     cursor: pointer;
     text-decoration: none;
 }
-  
+mark{
+   -webkit-animation: 2.5s highlight 1.5s 1 normal forwards;
+          animation: 2.5s highlight 1.5s 1 normal forwards;
+    background: linear-gradient(90deg, #000000 50%, rgba(255, 255, 255, 0) 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+}
+@keyframes highlight {
+0% {
+    background-position: 100% 0;
+    color: #000000;
+    }
+50% {
+    background-position: 0 0;
+    color: #FFFFFF;
+    }
+100% {
+    background-position: 0 0;
+    color: #FFFFFF;
+    }  
+
+}
 .mark {
     animation: 5s linear 1s infinite alternate highlight;
     background: linear-gradient(90deg, #000000 50%, rgba(255, 255, 255, 0) 50%);
@@ -26,4 +47,12 @@
     background-position: 0 0;
     color: #FFFFFF;
     }  
+}
+
+.NorWork{
+    background: red;
+    color: white;
+}
+.Hidden {
+    display: none;
 }

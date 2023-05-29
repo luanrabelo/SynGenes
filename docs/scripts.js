@@ -21,10 +21,12 @@ const Genomes = {
 };
 
 $(document).ready(function(){
+  $("#Step1").val("").change();
   $("#TableContent").hide(); // Hide table content and show only when button is clicked
   $("#Welcome").show(); // Show welcome message
-  $("#SearchSpecieGenome").hide();
+  //$("#SearchSpecieGenome").hide();
   $("#ChloroplastGenes").hide();
+  $("#SearchSpecieGenome").addClass("Hidden");
 
   $('#CopyClipboard').click(function(){
     var dataText = document.getElementById("ResultQuery");
@@ -60,37 +62,55 @@ $(document).ready(function(){
   
   $("#Results").hide();
 
-  // OK
-  $("#Step1").change(function(){
-    var StepOne = $("#Step1").val();
-    if (StepOne == "Gene") {
-      $("#LabelStep1").removeClass("bg-danger");
-      $("#LabelStep1").addClass("bg-success");
-      setTimeout(function(){
-      $("#TableContent").removeClass("row-cols-1");
-      $("#TableContent").addClass("row-cols-2");
-      $("#GenomeType").show("slow");
-      }, 250);
-      // add text to span
-      $("#StringGenomeType").text("Gene");
-    } else if (StepOne == "Genome") {
-      $("#LabelStep1").removeClass("bg-danger");
-      $("#LabelStep1").addClass("bg-success");
-      setTimeout(function(){
-      $("#TableContent").removeClass("row-cols-1");
-      $("#TableContent").addClass("row-cols-2");
-      $("#GenomeType").show("slow");
-      }, 250);
-      $("#StringGenomeType").text("Genome");
-    } else {
-      $("#GenomeType").hide();
-      $("#GenomeChoice").hide();
-      $("#GeneChoice").hide();
-      $("#TableContent").removeClass("row-cols-2");
-      $("#TableContent").addClass("row-cols-1");      
-      $("#LabelStep1").removeClass("bg-success");
-      $("#LabelStep1").addClass("bg-danger");
-    }});
+$("#Step1").change(function(){
+var StepOne = $("#Step1").val();
+if (StepOne == "Gene") {
+    $("#SearchButton").hide("slow");
+    $("#ResetButton").hide("slow");
+    $("#Results").hide("slow");
+    $("#Step2").val("").change();
+    $("#Step3").val("nan").change();
+    $("#GenomeType").hide("slow");
+    $("#MitochondrialGenes").hide("slow");
+    $("#SearchSpecie").hide("slow");
+    $("#SearchSpecieGenome").addClass("Hidden");
+    $("#LabelStep1").removeClass("bg-danger");
+    $("#LabelStep1").addClass("bg-success");
+    setTimeout(function(){
+    $("#GenomeType").show("slow");
+    }, 250);
+    $("#StringGenomeType").text("Genes");
+} else if (StepOne == "Genome") {
+    $("#SearchButton").hide("slow");
+    $("#ResetButton").hide("slow");
+    $("#Results").hide("slow");
+    $("#Step2").val("").change();
+    $("#Step3").val("nan").change();
+    $("#GenomeType").hide("slow");
+    $("#MitochondrialGenes").hide("slow");
+    $("#SearchSpecieGenome").addClass("Hidden");
+    $("#LabelStep1").removeClass("bg-danger");
+    $("#LabelStep1").addClass("bg-success");
+    $("#SearchSpecie").hide("slow");
+    setTimeout(function(){
+    $("#GenomeType").show("slow");
+    }, 250);
+    $("#StringGenomeType").text("Genomes");
+} else {
+    $("#SearchButton").hide("slow");
+    $("#ResetButton").hide("slow");
+    $("#Results").hide("slow");
+    $("#Step2").val("").change();
+    $("#Step3").val("nan").change();
+    $("#GenomeType").hide("slow");
+    $("#MitochondrialGenes").hide("slow");
+    $("#GenomeChoice").hide("slow");
+    $("#SearchSpecieGenome").addClass("Hidden");
+    $("#SearchSpecie").hide("slow");
+    $("#GeneChoice").hide("slow");   
+    $("#LabelStep1").removeClass("bg-success");
+    $("#LabelStep1").addClass("bg-danger");
+}});
 
 
 
@@ -102,41 +122,31 @@ $(document).ready(function(){
         $("#LabelStep2").removeClass("bg-danger");
         $("#LabelStep2").addClass("bg-success");
         setTimeout(function(){
-        $("#TableContent").removeClass("row-cols-2");
-        $("#TableContent").addClass("row-cols-3");
         $("#MitochondrialGenes").show("slow");
         }, 250);
       } else if (StepOne == "Genome" && StepTwo == "Mitochondrial") {
         $("#LabelStep2").removeClass("bg-danger");
         $("#LabelStep2").addClass("bg-success");
         setTimeout(function(){
-        $("#TableContent").removeClass("row-cols-2");
-        $("#TableContent").addClass("row-cols-3");
         $("#MitochondrialGenes").hide("slow");
-        $("#SearchSpecieGenome").show("slow");
+        $("#SearchSpecieGenome").removeClass("Hidden");
         }, 250);
       } else if (StepOne == "Genome" && StepTwo == "Chloroplast") {
         $("#LabelStep2").removeClass("bg-danger");
         $("#LabelStep2").addClass("bg-success");
         setTimeout(function(){
-        $("#TableContent").removeClass("row-cols-2");
-        $("#TableContent").addClass("row-cols-3");
         $("#MitochondrialGenes").hide("slow");
-        $("#SearchSpecieGenome").show("slow");
+        $("#SearchSpecieGenome").removeClass("Hidden");
         }, 250);
       } else if (StepOne == "Gene" && StepTwo == "Chloroplast") {
         $("#LabelStep2").removeClass("bg-danger");
         $("#LabelStep2").addClass("bg-success");
         setTimeout(function(){
-        $("#TableContent").removeClass("row-cols-2");
-        $("#TableContent").addClass("row-cols-3");
         $("#MitochondrialGenes").hide("slow");
         $("#ChloroplastGenes").show("slow");
         }, 250);
       } else {
         $("#MitochondrialGenes").hide();
-        $("#TableContent").removeClass("row-cols-1");
-        $("#TableContent").addClass("row-cols-2");
         $("#LabelStep2").removeClass("bg-success");
         $("#LabelStep2").addClass("bg-danger");
       }
@@ -144,7 +154,8 @@ $(document).ready(function(){
 
 $('#Step3Genomes').keyup(function () {
   var StringCount = $('#Step3Genomes').val().length;
-  if (StringCount >= 10) {
+  
+  if (StringCount >= 5) {
     $("#LabelStep3Genome").removeClass("bg-danger");
     $("#LabelStep3Genome").addClass("bg-success");
     setTimeout(function(){
@@ -171,10 +182,14 @@ $('#Step3').on('change', function () {
   if (StepOne == "Gene" && StepTwo == "Mitochondrial" && StepTree != 'nan') {
     $("#LabelStep3").removeClass("bg-danger");
     $("#LabelStep3").addClass("bg-success");
+    $("#LabelStepMitochondrial").removeClass("bg-danger");
+    $("#LabelStepMitochondrial").addClass("bg-success");
+
     setTimeout(function(){
-        $("#TableContent").removeClass("row-cols-3");
-        $("#TableContent").addClass("row-cols-4");
+        //$("#TableContent").removeClass("row-cols-3");
+        //$("#TableContent").addClass("row-cols-4");
         $("#SearchSpecie").show("slow");
+        $("#GeneSearch").text(StepTree);
         }, 300);
   } else {
     $("#SearchSpecie").hide();
@@ -188,7 +203,7 @@ $('#Step3').on('change', function () {
 // Count characters in Step4 input field each time a key is pressed
 $('#Step4').keyup(function () {
   var characterCount = $(this).val().length;
-  if (characterCount >= 10) {
+  if (characterCount >= 5) {
     $("#LabelStep4").removeClass("bg-danger");
     $("#LabelStep4").addClass("bg-success");
     setTimeout(function(){
@@ -222,11 +237,13 @@ $("#SearchButton").click(function(){
     setTimeout(function(){
       $("#Loading").modal('hide');
       $("#toNCBI").attr('href', 'https://www.ncbi.nlm.nih.gov/nuccore/?term='+Query);
+      
     }, 5000);
     setTimeout(function(){
       $("#Results").show();
       $("#ResultQuery").val(Query);
       $("#toNCBI").attr('href', 'https://www.ncbi.nlm.nih.gov/nuccore/?term='+Query);
+      $(document).scrollTop($(document).height());
     }, 5200);
     
   } else if (Gene == "Genome" && Genome == "Mitochondrial") {
@@ -245,6 +262,7 @@ $("#SearchButton").click(function(){
       $("#Results").show();
       $("#ResultQuery").val(Query);
       $("#toNCBI").attr('href', 'https://www.ncbi.nlm.nih.gov/nuccore/?term='+Query);
+      $(document).scrollTop($(document).height());
     }, 5200);
 
   }

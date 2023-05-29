@@ -16,7 +16,7 @@
         <meta property="og:url" content="https://luanrabelo.github.io/SynGenes/">
     </head>
 
-    <body class="container">
+    <body class="container-fluid">
         <header>
             <picture>
                 <div class="text-center mt-1 mb-1">
@@ -72,34 +72,39 @@
                 </div>
             </div>
 
-            <div id="TableContent" class="row row-cols-1 mt-5">
+<div id="TableContent" class="row row-cols-1 row-cols-sm-1 row-cols-md-1 mt-5">
 
+<div class="container mt-5">
 <div class="col">
-<label class="form-label h5"><b><mark>Step 1</mark></b> - Are you interested in obtaining <b>Gene</b> or <b>Genome</b>?</label>
+<label class="form-label h5"><b><mark>Step 1</mark></b> - <mark>Hello!</mark> Are you interested in obtaining <mark><b>Genes</b></mark> or <mark><b>Genomes</b></mark>?</label>
 <div class="input-group">
 <label id="LabelStep1" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
 <select id="Step1" class="form-select form-select-lg">
-<option selected>Choose a option</option>
-<option value="Gene">Gene</option>
-<option value="Genome">Genome</option>
+<option value="" selected>Choose a option</option>
+<option value="Gene">Genes</option>
+<option value="Genome">Genomes</option>
 </select>
 </div>
 </div>
+</div>
 
+<div class="container mt-5">
 <div id="GenomeType" class="col">
-<label class="form-label h5"><b><mark>Step 2</mark></b> - What type of <b><span id="StringGenomeType"></span></b> are you interested in?</label>
+<label class="form-label h5"><b><mark>Step 2</mark></b> - What specific type of <mark><b><span id="StringGenomeType"></span></b></mark> are you looking for: <mark><b>Mitochondrial</b></mark> or <mark><b>Chloroplast</b></mark>?</label>
 <div class="input-group">
 <label id="LabelStep2" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
 <select id="Step2" class="form-select form-select-lg">
-<option selected>Choose a option</option>
+<option value="" selected>Choose a option</option>
 <option value="Mitochondrial">Mitochondrial</option>
-<option value="Chloroplast">Chloroplast</option>
+<option value="Chloroplast" class="NorWork">Chloroplast - Not working</option>
 </select>
 </div>
 </div>
+</div>
 
+<div class="container mt-5">
 <div id="MitochondrialGenes" class="col">
-<label class="form-label h5"><b><mark>Step 3</mark></b> - What <b>Gene</b> (Mitochondrial) are you interested in?</label>
+<label class="form-label h5"><b><mark>Step 3</mark></b> - Please select a <mark><b>Gene (Mitochondrial)</b></mark> of interest for your search using <mark>SynGenes</mark></label>
 <div class="input-group">
 <label id="LabelStepMitochondrial" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
 <select id="Step3" class="form-select form-select-lg">
@@ -127,8 +132,29 @@
 </select>
 </div>
 </div>
+</div>
 
+<div id="SearchSpecie" class="container mt-5">
+<div class="col">
+<label class="form-label h5"><b><mark>Step 4</mark></b> - Specify the <mark><i><b>Specie</b></i></mark>, <mark><i><b>Genus</b></i></mark> or <mark><b>Family</b></mark> for search <mark><b><span id="GeneSearch"></span></b></mark> gene.</mark></label>
+<div class="input-group">
+<label id="LabelStep4" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
+<input id="Step4" class="form-control form-control-lg" type="text" placeholder="Enter the specie name">
+</div>
+</div>
+</div>
 
+<div id="SearchSpecieGenome" class="container">
+<div class="col">
+<label class="form-label h5"><b><mark>Step 3</mark></b> - Specify the <mark><i><b>Specie</b></i></mark>, <mark><i><b>Genus</b></i></mark> or <mark><b>Family</b></mark> to search for a <mark><b>Genome</b></mark>?</label>
+<div class="input-group">
+<label id="LabelStep3Genome" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
+<input id="Step3Genomes" class="form-control form-control-lg" type="text" placeholder="Enter the specie name">
+</div>
+</div>
+</div>
+
+<div class="container mt-5 Hidden">
 <div id="ChloroplastGenes" class="col">
 <label class="form-label h5"><b><mark>Step 3</mark></b> - What <b>Gene</b> (Chloroplast) are you interested in?</label>
 <div class="input-group">
@@ -146,22 +172,11 @@
 </select>
 </div>
 </div>
-
-<div id="SearchSpecie" class="col">
-<label class="form-label h5"><b><mark>Step 4</mark></b> - What <b>Specie</b> are you interested in?</label>
-<div class="input-group">
-<label id="LabelStep4" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
-<input id="Step4" class="form-control form-control-lg" type="text" placeholder="Enter the specie name">
-</div>
 </div>
 
-<div id="SearchSpecieGenome" class="col">
-<label class="form-label h5"><b><mark>Step 3</mark></b> - What <b>Specie</b> are you interested in?</label>
-<div class="input-group">
-<label id="LabelStep3Genome" class="input-group-text"><b>&nbsp;&nbsp;3&nbsp;&nbsp;</b></label>
-<input id="Step3Genomes" class="form-control form-control-lg" type="text" placeholder="Enter the specie name">
-</div>
-</div>
+
+
+
       
       
 </div>

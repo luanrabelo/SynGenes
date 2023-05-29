@@ -154,10 +154,15 @@ if (StepOne == "Gene") {
 
 $('#Step3Genomes').keyup(function () {
   var StringCount = $('#Step3Genomes').val().length;
+  var StepOne = $("#Step1").val();
+  var StepTwo = $("#Step2").val();
+
   
   if (StringCount >= 5) {
     $("#LabelStep3Genome").removeClass("bg-danger");
     $("#LabelStep3Genome").addClass("bg-success");
+    $("#SearchButtonText").text("Search "+StepTwo +" "+ StepOne +" for "+$('#Step3Genomes').val());
+    SearchButtonText
     setTimeout(function(){
     $("#SearchButton").show("slow");
     $("#ResetButton").show("slow");
@@ -167,6 +172,7 @@ $('#Step3Genomes').keyup(function () {
     $("#LabelStep3Genome").addClass("bg-danger");
     $("#SearchButton").hide("slow");
     $("#ResetButton").hide("slow");
+    $("#SearchButtonText").text("Search");
     
   }
 });
@@ -184,7 +190,7 @@ $('#Step3').on('change', function () {
     $("#LabelStep3").addClass("bg-success");
     $("#LabelStepMitochondrial").removeClass("bg-danger");
     $("#LabelStepMitochondrial").addClass("bg-success");
-
+    
     setTimeout(function(){
         //$("#TableContent").removeClass("row-cols-3");
         //$("#TableContent").addClass("row-cols-4");
@@ -193,8 +199,8 @@ $('#Step3').on('change', function () {
         }, 300);
   } else {
     $("#SearchSpecie").hide();
-    $("#TableContent").removeClass("row-cols-3");
-    $("#TableContent").addClass("row-cols-2");
+    //$("#TableContent").removeClass("row-cols-3");
+    //$("#TableContent").addClass("row-cols-2");
     $("#LabelStep3").removeClass("bg-success");
     $("#LabelStep3").addClass("bg-danger");
   }
@@ -202,10 +208,14 @@ $('#Step3').on('change', function () {
 
 // Count characters in Step4 input field each time a key is pressed
 $('#Step4').keyup(function () {
+  var StepOne = $("#Step1").val();
+  var StepTwo = $("#Step2").val();
+  var StepTree = $("#Step3").val();
   var characterCount = $(this).val().length;
   if (characterCount >= 5) {
     $("#LabelStep4").removeClass("bg-danger");
     $("#LabelStep4").addClass("bg-success");
+    $("#SearchButtonText").text("Search "+StepTwo +" "+ StepOne + " ("+ StepTree+") for "+$('#Step4').val());
     setTimeout(function(){
     $("#SearchButton").show("slow");
     $("#ResetButton").show("slow");

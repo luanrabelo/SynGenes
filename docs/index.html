@@ -19,14 +19,16 @@
     <body class="container-fluid">
         <header>
             <picture>
-                <div class="text-center mt-1 mb-1">
+                <div class="text-center mt-2 mb-1">
                     <img src="assets/SynGenes.png" alt="SynGenes Logo, Created by @lprabelo" width="300px">
                       <figcaption class="figure-caption">v0.9.9 beta</figcaption>
                 </div>
             </picture>
-            <div class="text-center h5 mt-2 mb-2">Created by <b>Luan Rabelo</b>;</div>
-            <div class="text-center h5 mt-2 mb-2">Collaborators: Marcelo Vallinoto; Iracilda Sampaio.</div>
-            <div class="text-center h5 mt-2 mb-2">Cite us: <i>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</i></div>
+            <div class="text-center h5 mt-2 mb-2">Developed by</div>
+            <div class="text-center h5 mt-2 mb-2"><span class="mark"><b>Luan Rabelo</b></span></div>
+            <div class="text-center h5 mt-2 mb-2">Collaborators:</div>
+            <div class="text-center h5 mt-2 mb-2"><span class="mark"><b>Marcelo Vallinoto</b> and <b>Iracilda Sampaio</b></span></div>
+            <!-- <div class="text-center h5 mt-2 mb-2">Cite us: <i>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</i></div> -->
             <div id="BuyMeCoffee" class="text-center h1 mt-5 mb-5">
                 <div class="mt-1 mb-1"><i class="fa-solid fa-2x fa-mug-hot"></i></div>
                 <div><a href="https://www.buymeacoffee.com/lprabelo" target="_blank"></a></div>
@@ -72,7 +74,7 @@
                 </div>
             </div>
 
-<div id="TableContent" class="row row-cols-1 mt-5">
+<div id="TableContent" class="mt-5 row row-cols-1 row-cols-md-1 row-cols-lg-1">
 
 <div class="container mt-5">
 <div class="col">
@@ -90,7 +92,7 @@
 
 <div class="container mt-5">
 <div id="GenomeType" class="col">
-<label class="form-label h5"><b><mark>Step 2</mark></b> - What specific type of <mark><b><span id="StringGenomeType"></span></b></mark> are you looking for: <mark><b>Mitochondrial</b></mark> or <mark><b>Chloroplast</b></mark>?</label>
+<label class="form-label h5"><b><mark>Step 2</mark></b> - What specific type of <mark><b><span id="StringGenomeType"></span></b></mark> are you looking for: <mark><b>Mitochondrial</b></mark> or <mark><b>Chloroplast*</b></mark>? <sup>* Functionality to be implemented in the future.</sup></label>
 <div class="input-group">
 <label id="LabelStep2" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
 <select id="Step2" class="form-select form-select-lg">
@@ -104,7 +106,7 @@
 
 <div class="container mt-5">
 <div id="MitochondrialGenes" class="col">
-<label class="form-label h5"><b><mark>Step 3</mark></b> - Please select a <mark><b>Gene (Mitochondrial)</b></mark> of interest for your search using <mark>SynGenes</mark></label>
+<label class="form-label h5"><b><mark>Step 3</mark></b> - Please select a <mark><b>Mitochondrial Gene</b></mark> of interest for your search using <mark><b>SynGenes</b></mark></label>
 <div class="input-group">
 <label id="LabelStepMitochondrial" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
 <select id="Step3" class="form-select form-select-lg">
@@ -182,7 +184,7 @@
 </div>
 
 <div id="Buttons" class="d-grid gap-2 col-6 mx-auto mt-5">
-<button id="SearchButton" type="button" class="btn btn-success btn-lg"><i class="fa-brands fa-2x fa-connectdevelop fa-spin"></i> Search</button>
+<button id="SearchButton" type="button" class="btn btn-success btn-lg"><i class="fa-brands fa-2x fa-connectdevelop fa-spin"></i> <span id="SearchButtonText"></span></button>
 <button id="ResetButton" type="button" class="btn btn-danger btn-lg"><i class="fa-solid fa-2x fa-eraser"></i> Reset</button>
 </div>
 

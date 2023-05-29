@@ -10,6 +10,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <link rel="stylesheet" href="style.css">
         <script src="scripts.js"></script>
+        <script src="json.js"></script>
         <meta property="og:title" content="SynGenes">
         <meta property="og:description" content="SynGenes: Reliable repository of synonymous genes for genetic research. Comprehensive gene synonym information, alternate names, and standardization. Open for contributions, diverse file formats.">
         <meta property="og:image" content="https://github.com/luanrabelo/SynGenes/blob/stable/docs/assets/SynGenes250x250.jpg">
@@ -78,7 +79,7 @@
 
 <div class="container mt-5">
 <div class="col">
-<label class="form-label h5"><b><mark>Step 1</mark></b> - <mark>Hello!</mark> Are you interested in obtaining <mark><b>Genes</b></mark> or <mark><b>Genomes</b></mark>?</label>
+<label class="form-label h5 text-break"><b><mark>Step 1</mark></b> - <mark>Hello!</mark> Are you interested in obtaining <mark><b>Genes</b></mark> or <mark><b>Genomes</b></mark>?</label>
 <div class="input-group">
 <label id="LabelStep1" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
 <select id="Step1" class="form-select form-select-lg">
@@ -92,7 +93,7 @@
 
 <div class="container mt-5">
 <div id="GenomeType" class="col">
-<label class="form-label h5"><b><mark>Step 2</mark></b> - What specific type of <mark><b><span id="StringGenomeType"></span></b></mark> are you looking for: <mark><b>Mitochondrial</b></mark> or <mark><b>Chloroplast*</b></mark>? <sup>* Functionality to be implemented in the future.</sup></label>
+<label class="form-label h5 text-break"><b><mark>Step 2</mark></b> - What specific type of <mark><b><span id="StringGenomeType"></span></b></mark> are you looking for: <mark><b>Mitochondrial</b></mark> or <mark><b>Chloroplast*</b></mark>? <sup>* Functionality to be implemented in the future.</sup></label>
 <div class="input-group">
 <label id="LabelStep2" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
 <select id="Step2" class="form-select form-select-lg">
@@ -106,7 +107,7 @@
 
 <div class="container mt-5">
 <div id="MitochondrialGenes" class="col">
-<label class="form-label h5"><b><mark>Step 3</mark></b> - Please select a <mark><b>Mitochondrial Gene</b></mark> of interest for your search using <mark><b>SynGenes</b></mark></label>
+<label class="form-label h5 text-break"><b><mark>Step 3</mark></b> - Please select a <mark><b>Mitochondrial Gene</b></mark> of interest for your search using <mark><b>SynGenes</b></mark></label>
 <div class="input-group">
 <label id="LabelStepMitochondrial" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
 <select id="Step3" class="form-select form-select-lg">
@@ -138,7 +139,7 @@
 
 <div id="SearchSpecie" class="container mt-5">
 <div class="col">
-<label class="form-label h5"><b><mark>Step 4</mark></b> - Specify the <mark><i><b>Specie</b></i></mark>, <mark><i><b>Genus</b></i></mark> or <mark><b>Family</b></mark> for search <mark><b><span id="GeneSearch"></span></b></mark> gene.</mark></label>
+<label class="form-label h5 text-break"><b><mark>Step 4</mark></b> - Specify the <mark><i><b>Specie</b></i></mark>, <mark><i><b>Genus</b></i></mark> or <mark><b>Family</b></mark> for search <mark><b><span id="GeneSearch"></span></b></mark> gene.</mark></label>
 <div class="input-group">
 <label id="LabelStep4" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
 <input id="Step4" class="form-control form-control-lg" type="text" placeholder="Enter the specie name">
@@ -148,7 +149,7 @@
 
 <div id="SearchSpecieGenome" class="container">
 <div class="col">
-<label class="form-label h5"><b><mark>Step 3</mark></b> - Specify the <mark><i><b>Specie</b></i></mark>, <mark><i><b>Genus</b></i></mark> or <mark><b>Family</b></mark> to search for a <mark><b>Genome</b></mark>?</label>
+<label class="form-label h5 text-break"><b><mark>Step 3</mark></b> - Specify the <mark><i><b>Specie</b></i></mark>, <mark><i><b>Genus</b></i></mark> or <mark><b>Family</b></mark> to search for a <mark><b>Genome</b></mark>?</label>
 <div class="input-group">
 <label id="LabelStep3Genome" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
 <input id="Step3Genomes" class="form-control form-control-lg" type="text" placeholder="Enter the specie name">

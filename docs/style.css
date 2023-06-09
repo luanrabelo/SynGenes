@@ -1,36 +1,28 @@
- .fa-2x, .fa-3x{
+@font-face {
+    font-family: "Yanone Kaffeesatz";
+    src: url("../fonts/YanoneKaffeesatz-Regular.ttf");
+}
+
+*{
+    line-height: 200%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: #FAF7F0;
+}
+.fa-2x, .fa-3x{
     vertical-align: middle;
 } 
- a, a:link, a:visited {
+
+a, a:link, a:visited {
     color: #000000;
     cursor: pointer;
     text-decoration: none;
 }
-mark{
-   -webkit-animation: 2.5s highlight 1.5s 1 normal forwards;
-          animation: 2.5s highlight 1.5s 1 normal forwards;
-    background: linear-gradient(90deg, #000000 50%, rgba(255, 255, 255, 0) 50%);
-    background-size: 200% 100%;
-    background-position: 100% 0;
-}
-@keyframes highlight {
-0% {
-    background-position: 100% 0;
-    color: #000000;
-    }
-50% {
-    background-position: 0 0;
-    color: #FFFFFF;
-    }
-100% {
-    background-position: 0 0;
-    color: #FFFFFF;
-    }  
 
-}
-.mark {
+.mark, mark {
     animation: 5s linear 1s infinite alternate highlight;
-    background: linear-gradient(90deg, #000000 50%, rgba(255, 255, 255, 0) 50%);
+    background: linear-gradient(90deg, #D8D8D8 50%, rgba(255, 255, 255, 0) 50%);
     background-size: 200% 100%;
     background-position: 100% 0;
 }
@@ -41,11 +33,11 @@ mark{
     }
 50% {
     background-position: 0 0;
-    color: #FFFFFF;
+    color: #000000;
     }
 100% {
     background-position: 0 0;
-    color: #FFFFFF;
+    color: #000000;
     }  
 }
 
@@ -55,4 +47,14 @@ mark{
 }
 .Hidden {
     display: none;
+}
+
+.stepper {
+  .line {
+    width: 2px;
+    background-color: lightgrey !important;
+  }
+  .lead {
+    font-size: 1.1rem;
+  }
 }

@@ -20,19 +20,24 @@
     <body class="container-fluid">
         <header>
             <picture>
-                <div class="text-center mt-2 mb-1">
-                    <img src="assets/SynGenes.png" alt="SynGenes Logo, Created by @lprabelo" width="300px">
-                      <figcaption class="figure-caption">v0.9.9 beta</figcaption>
-                </div>
+            <div class="text-center mt-2 mb-1">
+                <img src="assets/SynGenes.png" alt="SynGenes Logo, Created by @lprabelo" width="200px">
+                 <!--<figcaption class="figure-caption">v0.9.9 beta <i class="fa-sharp fa-solid fa-circle-info fa-1x"></i></figcaption> -->
+            </div>
             </picture>
-            <div class="text-center h5 mt-2 mb-2">Developed by</div>
-            <div class="text-center h5 mt-2 mb-2"><span class="mark"><b>Luan Rabelo</b></span></div>
-            <div class="text-center h5 mt-2 mb-2">Collaborators:</div>
-            <div class="text-center h5 mt-2 mb-2"><span class="mark"><b>Marcelo Vallinoto</b> and <b>Iracilda Sampaio</b></span></div>
+
+            <div class="text-center h4 mt-2 mb-2">Developed by</div>
+            <div class="text-center h5 mt-2 mb-2"><span class="mark"><b><a href="https://twitter.com/lprabelo" target="_blank">Luan Rabelo</a></b> and <b><a href="https://twitter.com/mvallinoto01" target="_blank">Marcelo Vallinoto</a></b></span></div>
+            <div class="text-center h5 mt-2 mb-2">v0.9.9 beta <i style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#About" class="fa-sharp fa-solid fa-circle-info fa-1x"></i>&nbsp;<i  style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Donate" class="fa-solid fa-1x fa-mug-hot"></i></div>
             <!-- <div class="text-center h5 mt-2 mb-2">Cite us: <i>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</i></div> -->
-            <div id="BuyMeCoffee" class="text-center h1 mt-5 mb-5">
-                <div class="mt-1 mb-1"><i class="fa-solid fa-2x fa-mug-hot"></i></div>
-                <div><a href="https://www.buymeacoffee.com/lprabelo" target="_blank"></a></div>
+            
+            <div class="d-grid gap-2 col-6 mx-auto mt-5">
+            <button id="btnData" class="btn btn-lg btn-outline-dark"><i class="fa-solid fa-2x fa-square-plus"></i> New Search</button>
+            </div>
+            
+            <div style="cursor: pointer;" id="BuyMeCoffee" class="text-center h5 mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#Donate">
+                <div class="mt-1 mb-1">
+                <i class="fa-solid fa-2x fa-mug-hot"></i></div>
                 <div class="mt-3"><b><span class="mark">Did you like my scripts?</span></b></div>
                 <div class="mt-3"><b><span class="mark">So, please, buy me a coffee to keep me working on it..</span></b></a>
             </div>
@@ -51,28 +56,91 @@
                 </div>
             </div>
 
-                <!-- Modal Loading data -->
+            <!-- Modal Loading data -->
             <div id="Loading" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-xl">
-                <div class="modal-content">
-                <div class="modal-header bg-dark text-white">
-                <div class="modal-title h2">..:: SynGenes ::..</div>
-                </div>
-                <div class="modal-body text-center">
-                <img src="assets/SynGenes.png" class="rounded me-2" alt="SynGenes" width="25%">
-                <div class="h2 mt-5 mb-5"><b>Please wait, consulting the SynGenes database...</b></div>
-                <div class="d-flex justify-content-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
-                </div>
-                </div>
+                    <div class="modal-content">
+                        <div class="modal-header bg-dark text-white">
+                            <div class="modal-title h2">..:: SynGenes ::..</div>
+                        </div>
+                        <div class="modal-body text-center">
+                        <img src="assets/SynGenes.png" class="rounded me-2" alt="SynGenes" width="25%">
+                        <div class="h2 mt-5 mb-5"><b>Please wait, consulting the SynGenes database...</b></div>
+                        <div class="d-flex justify-content-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div id="Welcome" class="mt-5 mb-5">
+            <div id="About" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header bg-dark text-white">
+                            <div class="modal-title h2">SynGenes</div>
+                        </div>
+                        <div class="modal-body text-center">
+                        <img src="assets/SynGenes.png" class="rounded me-2" alt="SynGenes" width="15%">
+                        <div class="h2 mt-5 mb-5"><b>Created by Luan Rabelo (@lprabelo) and Marcelo Vallinoto (@mvallinoto01)</b></div>
+                        <div class="h5 mt-5 mb-5">v0.9.9 beta</div>
+                        <div class="h3 mt-5 mb-5">SynGenes database - Last Update: 09/06/2023</div>
+                        <div class="h3 mt-5 mb-5">Number of Genomes Analyzed:<br>Chordata (99,203)<br>Embryophyta (69,087)</div>
+                        </div>
+                        <div class="modal-footer bg-dark text-white">
+                            <button type="button" class="btn btn-lg btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Donate" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header bg-dark text-white">
+                            <div class="modal-title h2">SynGenes</div>
+                        </div>
+                        <div class="modal-body text-center">
+                        <img src="assets/SynGenes.png" class="rounded me-2" alt="SynGenes" width="15%">
+                        <div class="h2 mt-3 mb-3">Dear user</div>
+                        <div class="h6 mt-3 mb-1 text-center">We hope our tool has been helpful to you. If it has served your needs and you wish to encourage the development of other similar tools (and perhaps ensure our coffee supply), we would like to ask for your contribution.</div>
+                        <div class="h6 mt-3 mb-1 text-center">If you are in <b>Brazil</b>, you can support us by making a donation via Pix. Please use the Pix qrCode:</div>
+                        <div class="h6 mt-3 mb-1 text-center"><img src="assets/Pix.png" class="rounded me-2" alt="Pix" width="20%"></div>
+                        <div class="h6 mt-3 mb-1 text-center">Please note that a portion of the donations will be allocated towards purchasing coffee to keep our team wide awake and energized.</div>
+                        <div class="h6 mt-3 mb-1 text-center">If you are outside of Brazil, we offer the option of donating via PayPal. Visit [insert PayPal link] to make your contribution and help us secure our international coffee supply.</div>
+                        <div class="h6 mt-3 mb-1 text-center">Your generosity will assist us in further improving our services and ensuring that we never run out of coffee in our cups.</div>
+                        <div class="h6 mt-3 mb-1 text-center">With gratitude (and caffeine),</div>
+                        <div class="h4 mt-3 mb-1 text-left"><b>SynGenes Team</b></div>
+                        </div>
+                        <div class="modal-footer bg-dark text-white">
+                            <button type="button" class="btn btn-lg btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                </div>
+            </div>
+            </div>
+            
+                
+
+
+            <div id="Tutorial" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header bg-dark text-white">
+                            <div class="modal-title h2">SynGenes Tutorial</div>
+                        </div>
+                        <div class="modal-body text-center">
+                        <img src="assets/SynGenes.png" class="rounded me-2" alt="SynGenes" width="15%">
+                        <div class="d-flex">
+                            <div class="vr">Step 1:</div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="Welcome" class="mt-2 mb-2">
                 <div class="text-center h1 mt-2 mb-2">Welcome to <b>SynGenes</b>!</div>
                 <div class="text-center h3 mt-2 mb-2">To use it, just follow the steps below!</div>
-                <div class="text-center h5 mt-5 mb-5 d-grid gap-2 mx-auto col-6">
-                <button id="Start" type="button" class="btn btn-dark btn-lg mt-5 mb-5"><i class="fa-solid fa-play fa-shake fa-2x"></i>&nbsp;&nbsp;Start!</button>
-                </div>
+               <!-- <div class="text-center h3 mt-5 mb-2">Need help using SynGenes? <button type="button" class="btn btn-lg btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Tutorial">Click here</button> for a step-by-step tutorial!</div>-->
+                <div class="text-center h5 mt-5 mb-5 d-grid gap-2 mx-auto col-6"><button id="Start" type="button" class="btn btn-dark btn-lg mt-5 mb-5"><i class="fa-solid fa-play fa-shake fa-2x"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start!</button></div>
             </div>
 
 <div id="TableContent" class="mt-5 row row-cols-1 row-cols-md-1 row-cols-lg-1">
@@ -83,7 +151,7 @@
 <div class="input-group">
 <label id="LabelStep1" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
 <select id="Step1" class="form-select form-select-lg">
-<option value="" selected>Choose a option</option>
+<option value="nan" selected>Choose a option</option>
 <option value="Gene">Genes</option>
 <option value="Genome">Genomes</option>
 </select>
@@ -91,26 +159,133 @@
 </div>
 </div>
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5">
 <div id="GenomeType" class="col">
-<label class="form-label h5 text-break"><b><mark>Step 2</mark></b> - What specific type of <mark><b><span id="StringGenomeType"></span></b></mark> are you looking for: <mark><b>Mitochondrial</b></mark> or <mark><b>Chloroplast*</b></mark>? <sup>* Functionality to be implemented in the future.</sup></label>
+<label class="form-label h5 text-break"><b><mark>Step 2</mark></b> - What specific type of <mark><b><span id="StringGenomeType"></span></b></mark> are you looking for: <mark><b>Mitochondrial</b></mark> or <mark><b>Chloroplast</b></mark>?</label>
 <div class="input-group">
 <label id="LabelStep2" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
 <select id="Step2" class="form-select form-select-lg">
-<option value="" selected>Choose a option</option>
+<option value="nan" selected>Choose a option</option>
 <option value="Mitochondrial">Mitochondrial</option>
-<!-- <option value="Chloroplast" class="NorWork">Chloroplast - Not working</option> -->
+<option value="Chloroplast">Chloroplast</option>
 </select>
 </div>
 </div>
 </div>
 
-<div class="container mt-5">
+<div class="container">
+<div id="ChloroplastGenes" class="col">
+<label class="form-label h5 text-break"><b><mark>Step 3</mark></b> - Please select a <mark><b>Chloroplast Gene</b></mark> of interest for your search using <mark><b>SynGenes</b></mark></label>
+<div class="input-group">
+<label id="LabelStepChloroplast" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
+<select id="Step3ChloroplastGenes" class="form-select form-select-lg">
+
+<option value="nan" selected>Choose a option</option>
+<optgroup label="ATP Synthase">
+<option value="atpA">atpA</option>
+<option value="atpB">atpB</option>
+<option value="atpE">atpE</option>
+<option value="atpF">atpF</option>
+<option value="atpH">atpH</option>
+<option value="atpI">atpI</option>
+</output>
+<optgroup label="Cytochrome b/6f Complex">
+<option value="petA">petA</option>
+<option value="petB">petB</option>
+<option value="petD">petD</option>
+<option value="petG">petG</option>
+<option value="petL">petL</option>
+<option value="petN">petN</option>
+</output>
+<optgroup label="DNA dependent RNA polymerase">
+<option value="rpoA">rpoA</option>
+<option value="rpoB">rpoB</option>
+<option value="rpoC1">rpoC1</option>
+<option value="rpoC2">rpoC2</option>
+</output>
+<optgroup label="Large Subunit of Ribosome">
+<option value="rpl2">rpl2</option>
+<option value="rpl14">rpl14</option>
+<option value="rpl16">rpl16</option>
+<option value="rpl20">rpl20</option>
+<option value="rpl22">rpl22</option>
+<option value="rpl23">rpl23</option>
+<option value="rpl32">rpl32</option>
+<option value="rpl33">rpl33</option>
+<option value="rpl36">rpl36</option>
+</output>
+<optgroup label="NADH-dehydrogenase">
+<option value="ndhA">ndhA</option>
+<option value="ndhB">ndhB</option>
+<option value="ndhC">ndhC</option>
+<option value="ndhD">ndhD</option>
+<option value="ndhE">ndhE</option>
+<option value="ndhF">ndhF</option>
+<option value="ndhG">ndhG</option>
+<option value="ndhH">ndhH</option>
+<option value="ndhI">ndhI</option>
+<option value="ndhJ">ndhJ</option>
+<option value="ndhK">ndhK</option>
+</output>
+<optgroup label="PhotoSystem I">
+<option value="psaA">psaA</option>
+<option value="psaB">psaB</option>
+<option value="psaC">psaC</option>
+<option value="psaI">psaI</option>
+<option value="psaJ">psaJ</option>
+</optgroup>
+<optgroup label="PhotoSystem II">
+<option value="psbA">psbA</option>
+<option value="psbB">psbB</option>
+<option value="psbC">psbC</option>
+<option value="psbD">psbD</option>
+<option value="psbE">psbE</option>
+<option value="psbF">psbF</option>
+<option value="psbH">psbH</option>
+<option value="psbI">psbI</option>
+<option value="psbJ">psbJ</option>
+<option value="psbK">psbK</option>
+<option value="psbL">psbL</option>
+<option value="psbM">psbM</option>
+<option value="psbN">psbN</option>
+<option value="psbZ">psbZ</option>
+<option value="ycf3">ycf3</option>
+</optgroup>
+<optgroup label="rRNA">
+<option value="rpoA">rpoA</option>
+<option value="rpoB">rpoB</option>
+<option value="rpoC1">rpoC1</option>
+<option value="rpoC2">rpoC2</option>
+</output>
+<optgroup label="Rubisco">
+<option value="rbcL">rbcL</option>
+</output>
+<optgroup label="Small  Subunit of Ribosome">
+<option value="rps2">rps2</option>
+<option value="rps3">rps3</option>
+<option value="rps4">rps4</option>
+<option value="rps7">rps7</option>
+<option value="rps8">rps8</option>
+<option value="rps11">rps11</option>
+<option value="rps12">rps12</option>
+<option value="rps14">rps14</option>
+<option value="rps15">rps15</option>
+<option value="rps16">rps16</option>
+<option value="rps18">rps18</option>
+<option value="rps19">rps19</option>
+</output>
+</select>
+</div>
+</div>
+</div>
+
+
+<div class="container">
 <div id="MitochondrialGenes" class="col">
 <label class="form-label h5 text-break"><b><mark>Step 3</mark></b> - Please select a <mark><b>Mitochondrial Gene</b></mark> of interest for your search using <mark><b>SynGenes</b></mark></label>
 <div class="input-group">
 <label id="LabelStepMitochondrial" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
-<select id="Step3" class="form-select form-select-lg">
+<select id="Step3MitochondrialGenes" class="form-select form-select-lg">
 <option value="nan" selected>Choose a option</option>
 <optgroup label="CDS">
 <option value="ATP-6">ATP-6</option>
@@ -131,6 +306,9 @@
 <optgroup label="rRNA">
 <option value="12S">12S</option>
 <option value="16S">16S</option>
+</output>
+<optgroup label="Control Region">
+<option value="dloop">Control Region</option>
 </output>
 </select>
 </div>
@@ -153,26 +331,6 @@
 <div class="input-group">
 <label id="LabelStep3Genome" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
 <input id="Step3Genomes" class="form-control form-control-lg" type="text" placeholder="Enter the specie name">
-</div>
-</div>
-</div>
-
-<div class="container mt-5 Hidden">
-<div id="ChloroplastGenes" class="col">
-<label class="form-label h5"><b><mark>Step 3</mark></b> - What <b>Gene</b> (Chloroplast) are you interested in?</label>
-<div class="input-group">
-<label id="LabelStepChloroplast" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
-<select id="Step3" class="form-select form-select-lg">
-<option value="nan" selected>Choose a option</option>
-<optgroup label="CDS">
-<option value="atpA">atpA</option>
-</optgroup>
-</optgroup>
-<optgroup label="rRNA">
-<option value="12S">12S</option>
-<option value="16S">16S</option>
-</output>
-</select>
 </div>
 </div>
 </div>

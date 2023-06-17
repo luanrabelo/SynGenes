@@ -18,4 +18,17 @@ setup(
     packages=['SynGenes'],
     license='MIT License',
     keywords='SynGenes Genes Bioinformatics Synonymous',
-    install_requires=['requests', 'pandas', 'openpyxl'],)
+    install_requires=['requests', 'pandas', 'openpyxl'],
+    classifiers= [
+        "Development Status :: 5 - Production/Stable",
+        "Intended Audience :: Science/Research",
+        "Environment :: Web Environment",
+        "Topic :: Scientific/Engineering :: Bio-Informatics",
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 3.7",
+        "Operating System :: Microsoft :: Windows",
+        "Operating System :: MacOS :: MacOS X",
+        "Operating System :: POSIX :: Linux",
+    ],
+    
+    )

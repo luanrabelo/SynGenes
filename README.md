@@ -1,9 +1,14 @@
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/luanrabelo/SynGenes/stable/docs/assets/SynGenes.png" alt="SynGenes" width="50%"></p>
-<h1 style="text-align: center;"><b>Syn</b><i>Genes</i></h1>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/luanrabelo/SynGenes/stable/docs/assets/SynGenes.png" alt="SynGenes" width="50%">
+</p>
+<h1 align="center">
+  <b>Syn</b><i>Genes</i>
+</h1>
+<h1 align="center">
+  Welcome to <b>Syn</b><i>Genes</i> documentation!
+</h1>
 
-<h2 style="text-align: center;"> Welcome to <b>Syn</b><i>Genes</i> documentation!</h2>
-
-<p style="text-align: center;">
+<p align="center">
 <img src="https://img.shields.io/github/license/luanrabelo/SynGenes?style=for-the-badge&label=License&labelColor=191919&color=647E68" alt="License"/>
 <img src="https://img.shields.io/github/v/release/luanrabelo/SynGenes?style=for-the-badge&label=Release&labelColor=191919&color=647E68" alt="Release"/>
 <img src="https://img.shields.io/github/stars/luanrabelo/SynGenes?style=for-the-badge&label=Stars&labelColor=191919&color=647E68" alt="Stars"/>
@@ -11,64 +16,63 @@
 <img src="https://img.shields.io/github/downloads/luanrabelo/SynGenes/total?style=for-the-badge&label=Downloads&labelColor=191919&color=647E68" alt="Releases"/>
 <img src="https://img.shields.io/github/languages/top/luanrabelo/SynGenes?style=for-the-badge&label=Python&labelColor=191919&color=647E68" alt="Language"/>
 <img src="https://img.shields.io/github/commit-activity/t/luanrabelo/SynGenes?style=for-the-badge&label=Commits&labelColor=191919&color=647E68" alt="Commits"/>
-<img src="https://img.shields.io/endpoint?url=https://hits.dwyl.com/luanrabelo/SynGenes.json?&labelColor=191919&color=647E68&style=for-the-badge&label=Users" alt="Users"/>
 </p>  
   
 
-### **SynGenes** is a Python class for standardizing gene nomenclatures, this class is capable of recognizing and converting the different nomenclature variations into a standardized form.
-# Getting Started
-***
+<h1 align="left">
+ <b>Syn</b><i>Genes</i> is a Python class for standardizing gene nomenclatures, this class is capable of recognizing and converting the different nomenclature variations into a standardized form.
+</h1>  
 
-## 1. Install **SynGenes**
-***
-### Before installing **SynGenes**, you need to make sure that you have the following prerequisites installed:
-* #### Python Environment
-    * ##### [Python 3.6 or higher](https://www.python.org/downloads/) *
-    * ##### [conda](https://www.anaconda.com/download)
-* #### Dependencies
+# Getting Started
+# 1. Install **SynGenes**
+## Before installing **SynGenes**, you need to make sure that you have the following prerequisites installed:
+* ## Python Environment
+    * ## [Python 3.6 or higher](https://www.python.org/downloads/) *
+    * ## [conda](https://www.anaconda.com/download)
+* ## Dependencies
     * **requests** *
     * **pandas** *
     * **openpyxl** *
  
-> #### These dependencies are automaticatically installed using the pip commands below.
-##### * obrigatory
+> These dependencies are automaticatically installed using the pip commands below.
+### * obrigatory
 ***
-### There are **three** ways to install **SynGenes**:    
+# There are **three** ways to install **SynGenes**:    
 
-#### 1.1. **Through pip**: You can install **SynGenes** directly through pip using the following command:
+## 1.1. **Through pip**: You can install **SynGenes** directly through pip using the following command:
 ```bash
 pip install SynGenes
 ```
-###### This will install **SynGenes** and its dependencies in your Python environment.  
-#### 1.2. **By cloning the source code from GitHub**: You can clone the source code of **SynGenes** from GitHub using the following command:
+### This will install **SynGenes** and its dependencies in your Python environment.  
+## 1.2. **By cloning the source code from GitHub**: You can clone the source code of **SynGenes** from GitHub using the following command:
 ```bash
 git clone https://github.com/luanrabelo/SynGenes.git
 ```
-###### This will clone the repository to your local machine. You can then navigate to the cloned directory and install **SynGenes** and its dependencies using pip:
+### This will clone the repository to your local machine. You can then navigate to the cloned directory and install **SynGenes** and its dependencies using pip:
 ```bash
 cd SynGenes
 pip install -r requirements.txt
 ```
 
-#### 1.3. **Through conda**: You can install **SynGenes** through conda using the following command:
+## 1.3. **Through conda**: You can install **SynGenes** through conda using the following command:
 ```bash
 conda create -n SynGenes -c conda-forge -c bioconda SynGenes
 conda activate SynGenes
 ```
-###### This will install **SynGenes** and its dependencies in your conda environment.
+### This will install **SynGenes** and its dependencies in your conda environment.
 ***
 ## Usage
 ```python
 from SynGenes import SynGenes
 geneNames = SynGenes()
 ```
-#### To update **SynGenes** database in your computer, run:
+### To update **SynGenes** database in your computer, run:
 ```python
 geneNames.updateSynGenes()
 ```
-###### This command will delete the database from your computer and download a new one from the **SynGenes** repository.
+### This command will delete the database from your computer and download a new one from the **SynGenes** repository.
 
-#### Basic Example
+## Basic Example
 ```python
 # Mitochondrial
 # Convert nomenclature 'cytochrome oxidase subunit I' to 'COI'
@@ -97,8 +101,8 @@ print(FullGeneName2)
 atpA
 atpA
 ```
-###### Here, the user needs to provide the **geneName** parameter (**str**) and the **type** parameter (**str**), where **type='mt'** for **mitochondrial genes** and **type='cp'** for **chloroplast genes**.
-### Usage Example with Biopython
+### Here, the user needs to provide the **geneName** parameter (**str**) and the **type** parameter (**str**), where **type='mt'** for **mitochondrial genes** and **type='cp'** for **chloroplast genes**.
+## Usage Example with Biopython
 ```python
 from SynGenes import SynGenes
 from Bio import SeqIO
@@ -187,18 +191,11 @@ for feature in gbFile.features:
         NADH-6
         CYTB
 ```
-
-#### Through an example with two genomes, it is possible to observe that they have different nomenclatures for genes. However, by using SynGenes, it is possible to standardize these nomenclatures. This allows, for example, writing the standardized forms in fasta files or in input files of other tools such as CREx. This way, it is possible to ensure the consistency and compatibility of genomic data when performing subsequent analyzes.
-
-***
-## 2. Web Form
-### We also created a web form (https://luanrabelo.github.io/SynGenes) to researchers who wish to perform individual searches using different names associated with the same gene. This web form generates a command that incorporates multiple names, enabling precise searches on the National Center for Biotechnology Information (NCBI) - GenBank platform.
-
-***
-## Authors
-##### Developers
+### Through an example with two genomes, it is possible to observe that they have different nomenclatures for genes. However, by using SynGenes, it is possible to standardize these nomenclatures. This allows, for example, writing the standardized forms in fasta files or in input files of other tools such as CREx. This way, it is possible to ensure the consistency and compatibility of genomic data when performing subsequent analyzes.
+## 2. Web Form  
+### We also created a web form (https://luanrabelo.github.io/SynGenes) to researchers who wish to perform individual searches using different names associated with the same gene. This web form generates a command that incorporates multiple names, enabling precise searches on the National Center for Biotechnology Information (NCBI) - GenBank platform.  
+## Developers
 * [Luan Rabelo](https://twitter.com/lprabelo)
 * [Marcelo Vallinoto](https://twitter.com/mvallinoto01)
-***
 ## Citation
 > Rabelo et al.

@@ -37,7 +37,7 @@
 > These dependencies are automaticatically installed using the pip commands below.
 ### * obrigatory
 ***
-# There are **three** ways to install **SynGenes**:    
+# There are **two** ways to install **SynGenes**:    
 
 ## 1.1. **Through pip**: You can install **SynGenes** directly through pip using the following command:
 ```bash
@@ -48,6 +48,7 @@ pip install SynGenes
 ```bash
 git clone https://github.com/luanrabelo/SynGenes.git
 ```
+<!---
 ### This will clone the repository to your local machine. You can then navigate to the cloned directory and install **SynGenes** and its dependencies using pip:
 ```bash
 cd SynGenes
@@ -60,6 +61,7 @@ conda create -n SynGenes -c conda-forge -c bioconda SynGenes
 conda activate SynGenes
 ```
 ### This will install **SynGenes** and its dependencies in your conda environment.
+-->
 ***
 ## Usage
 ```python

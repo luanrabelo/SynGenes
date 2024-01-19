@@ -21,14 +21,14 @@
 </p>
 
 <h3 align="left">
-  <b>Syn</b><i>Genes</i> is a Python class designed for standardizing gene nomenclatures. It can recognize and convert various nomenclature variations into a standardized format.
+  <b>Syn</b><i>Genes</i> is a Python class designed for standardizing <b>Mitochondrial</b> or <b>Chloroplast</b> gene nomenclatures. It can recognize and convert various nomenclature variations into a standardized format.
 </h3>
 
 ## License
 
-SynGenes is released under the MIT License. This license permits reuse within proprietary software provided that all copies of the licensed software include a copy of the MIT License terms and the copyright notice.
+**SynGenes** is **released** under the **MIT License**. This license permits reuse within proprietary software provided that all copies of the licensed software include a copy of the MIT License terms and the copyright notice.
 
-For more details, please see the MIT License.
+For more details, please see the **MIT License**.
 
 ## Getting Started
 ### Prerequisites

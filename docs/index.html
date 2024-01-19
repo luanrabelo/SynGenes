@@ -4,10 +4,16 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>SynGenes</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/7d94912b47.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script
+			  src="https://code.jquery.com/jquery-3.7.1.js"
+			  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+			  crossorigin="anonymous">
+        </script>
+        
+        <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />-->
         <link rel="stylesheet" href="style.css">
         <script src="scripts.js"></script>
         <script src="json.js"></script>
@@ -17,357 +23,404 @@
         <meta property="og:url" content="https://luanrabelo.github.io/SynGenes/">
     </head>
 
-    <body class="container-fluid">
-        <header>
-            <picture>
-            <div class="text-center mt-2 mb-1">
-                <img src="assets/SynGenes.png" alt="SynGenes Logo, Created by @lprabelo" width="200px">
-                 <!--<figcaption class="figure-caption">v0.9.9 beta <i class="fa-sharp fa-solid fa-circle-info fa-1x"></i></figcaption> -->
-            </div>
-            </picture>
-
-            <div class="text-center h4 mt-2 mb-2">Developed by</div>
-            <div class="text-center h5 mt-2 mb-2"><span class="mark"><b><a href="https://twitter.com/lprabelo" target="_blank">Luan Rabelo</a></b> and <b><a href="https://twitter.com/mvallinoto01" target="_blank">Marcelo Vallinoto</a></b></span></div>
-            <div class="text-center h5 mt-2 mb-2">v0.9.9 beta <i style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#About" class="fa-sharp fa-solid fa-circle-info fa-1x"></i>&nbsp;<i  style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#Donate" class="fa-solid fa-1x fa-mug-hot"></i></div>
-            <div class="row row-cols-1 text-center container d-grid-4 mx-auto">
-                <div class="col-12">
-                <img alt="GitHub" src="https://img.shields.io/github/license/luanrabelo/SynGenes?color=A0C49D&logoColor=000000&style=for-the-badge&namedLogo=readthedocs">
-                <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/luanrabelo/SynGenes?color=A0C49D&style=for-the-badge">
-                <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/luanrabelo/SynGenes?color=A0C49D&style=for-the-badge">
-                <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/luanrabelo/SynGenes?color=A0C49D&style=for-the-badge">
-                <img src="https://img.shields.io/endpoint?url=https://hits.dwyl.com/luanrabelo/SynGenes.json?color=A0C49D&style=for-the-badge&label=Users" alt="Users" />
+    <body>
+        <!-- Modal How Use -->
+        <div id="About" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header bg-dark text-white">
+                        <div class="modal-title h1">SynGenes</div>
+                    </div>
+                    <div class="modal-body text-center">
+                    <img src="assets/SynGenes.png" class="rounded me-2" alt="SynGenes" width="15%">
+                    <div class="w1 mt-0 mb-0">Created by</div>
+                    <div style="font-size: 3rem;" class="CreatedByAbout">
+                        <b><a href="https://x.com/lprabelo" target="_blank" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-delay='{"show": 100, "hide": 200}' data-bs-title="@lprabelo">Luan Rabelo</a></b> and <b><a href="https://x.com/mvallinoto01" target="_blank" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-delay='{"show": 100, "hide": 200}' data-bs-title="@mvallinoto01">Marcelo Vallinoto</a></b> and <b><a href="https://x.com/IracildaSampaio" target="_blank" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-delay='{"show": 100, "hide": 200}' data-bs-title="@IracildaSampaio">Iracilda Sampaio</a></b></div>
+                    <hr width="100%">
+                    <div class="h5 mt-3 mb-3">v1.0.1 stable</div>
+                    <div class="h5 mt-2 mb-1">SynGenes database - Last Update: 15/12/2023</div>
+                    <div class="h5 mt-2 mb-1">Number of Genomes Analyzed:<br>Chordata (99203) | Embryophyta (69087)</div>
+                    </div>
+                    <div class="modal-footer bg-dark text-white">
+                        <button type="button" class="btn btn-lg btn-danger" data-bs-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
-            <!-- <div class="text-center h5 mt-2 mb-2">Cite us: <i>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</i></div> -->
-            
-            <div class="d-grid gap-2 col-6 mx-auto mt-5">
-            <button id="btnData" class="btn btn-lg btn-outline-dark"><i class="fa-solid fa-2x fa-square-plus"></i> New Search</button>
+        </div>
+
+
+        <div id="ModalSearchPubMedCentral" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header bg-dark text-white">
+                        <div class="modal-title h3">SynGenes Query Builder to PubMedCentral</div>
+                    </div>
+                    <div class="modal-body text-center">
+                    <img src="assets/SynGenes.png" class="rounded me-2" alt="SynGenes" width="25%">
+                    <div class="h1"><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div></div>
+                    </div>
+                    <div class="modal-footer bg-dark text-white text-right">Please wait, consulting the SynGenes database...</div>
+                </div>
             </div>
-            
-            <div style="cursor: pointer;" id="BuyMeCoffee" class="text-center h5 mt-2 mb-2" data-bs-toggle="modal" data-bs-target="#Donate">
-                <div class="mt-1 mb-1">
-                <i class="fa-solid fa-2x fa-mug-hot"></i></div>
-                <div class="mt-3"><b><span class="mark">Did you like my scripts?</span></b></div>
-                <div class="mt-3"><b><span class="mark">So, please, buy me a coffee to keep me working on it..</span></b></a>
-            </div>
+        </div>
+
+        <header>
+            <nav class="navbar navbar-expand-xxl">
+                <div class="container-fluid">
+                    <a class="navbar-brand h1 d-inline-block align-top text-white" href="https://luanrabelo.github.io/SynGenes/">
+                        <img src="assets/SynGenes.png" alt="SynGenes" width="75" height="75">
+                        SynGenes<sup><small>v1.0.1</small></sup>
+                    </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#headerMenu" aria-controls="headerMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i style="color: #FFFFFF;" class="fa-solid fa-bars fa-2x"></i>
+                </button>
+                    
+
+                  <div class="collapse navbar-collapse" id="headerMenu">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <button class="btn btn-lg nav-link w-100"><i class="fa-solid fa-house"></i> Home</button>
+                      </li>
+                      <li class="nav-item">
+                        <a class="btn btn-lg nav-link" href="https://github.com/luanrabelo/SynGenes/" role="button" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+                      </li>
+                      <li class="nav-item">
+                        <button class="btn btn-lg nav-link w-100" data-bs-toggle="modal" data-bs-target="#HowUser"><i class="fa-solid fa-chalkboard-user"></i> How Use?</button>
+                      </li>
+                      <li class="nav-item">
+                        <button class="btn btn-lg nav-link w-100" data-bs-toggle="modal" data-bs-target="#CiteUs"><i class="fa-solid fa-file"></i> Cite Us</button>
+                      </li>
+                      <li class="nav-item">
+                        <button class="btn btn-lg nav-link w-100" data-bs-toggle="modal" data-bs-target="#Donate"><i class="fa-solid fa-circle-dollar-to-slot"></i> Donate</button>
+                      </li>
+                      <li class="nav-item">
+                        <button class="btn btn-lg nav-link w-100" data-bs-toggle="modal" data-bs-target="#About"><i class="fa-solid fa-circle-info"></i> About</button>
+                      </li>
+                    </ul>
+                  </div>
+
+                </div>
+              </nav>
         </header>
 
-        <main>
-            <div class="toast-container top-0 end-0 p-3">
-                <div id="ToastShow" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                <div class="toast-header">
-                <img src="assets/SynGenes.png" class="rounded me-2" alt="..." width="10%">
-                <strong class="me-auto">SynGenes</strong>
-                <small class="text-body-secondary">just now</small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                </div>
-                <div class="toast-body">The data of SynGenes was successfully copied to your clipboard! Go to NCBI and paste it in the search bar.</div>
-                </div>
-            </div>
-
-            <!-- Modal Loading data -->
-            <div id="Loading" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-xl">
-                    <div class="modal-content">
-                        <div class="modal-header bg-dark text-white">
-                            <div class="modal-title h2">..:: SynGenes ::..</div>
-                        </div>
-                        <div class="modal-body text-center">
-                        <img src="assets/SynGenes.png" class="rounded me-2" alt="SynGenes" width="25%">
-                        <div class="h2 mt-5 mb-5"><b>Please wait, consulting the SynGenes database...</b></div>
-                        <div class="d-flex justify-content-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="About" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-xl">
-                    <div class="modal-content">
-                        <div class="modal-header bg-dark text-white">
-                            <div class="modal-title h2">SynGenes</div>
-                        </div>
-                        <div class="modal-body text-center">
-                        <img src="assets/SynGenes.png" class="rounded me-2" alt="SynGenes" width="15%">
-                        <div class="h2 mt-5 mb-5"><b>Created by Luan Rabelo (@lprabelo) and Marcelo Vallinoto (@mvallinoto01)</b></div>
-                        <div class="h5 mt-5 mb-5">v0.9.9 beta</div>
-                        <div class="h3 mt-5 mb-5">SynGenes database - Last Update: 09/06/2023</div>
-                        <div class="h3 mt-5 mb-5">Number of Genomes Analyzed:<br>Chordata (99,203)<br>Embryophyta (69,087)</div>
-                        </div>
-                        <div class="modal-footer bg-dark text-white">
-                            <button type="button" class="btn btn-lg btn-danger" data-bs-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="Donate" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header bg-dark text-white">
-                            <div class="modal-title h2">SynGenes</div>
-                        </div>
-                        <div class="modal-body text-center">
-                        <img src="assets/SynGenes.png" class="rounded me-2" alt="SynGenes" width="15%">
-                        <div class="h2 mt-3 mb-3">Dear user</div>
-                        <div class="h6 mt-3 mb-1 text-center">We hope our tool has been helpful to you. If it has served your needs and you wish to encourage the development of other similar tools (and perhaps ensure our coffee supply), we would like to ask for your contribution.</div>
-                        <div class="h6 mt-3 mb-1 text-center">If you are in <b>Brazil</b>, you can support us by making a donation via Pix. Please use the Pix qrCode:</div>
-                        <div class="h6 mt-3 mb-1 text-center"><img src="assets/Pix.png" class="rounded me-2" alt="Pix" width="20%"></div>
-                        <div class="h6 mt-3 mb-1 text-center">Please note that a portion of the donations will be allocated towards purchasing coffee to keep our team wide awake and energized.</div>
-                        <div class="h6 mt-3 mb-1 text-center">If you are outside of Brazil, we offer the option of donating via PayPal. Visit [insert PayPal link] to make your contribution and help us secure our international coffee supply.</div>
-                        <div class="h6 mt-3 mb-1 text-center">Your generosity will assist us in further improving our services and ensuring that we never run out of coffee in our cups.</div>
-                        <div class="h6 mt-3 mb-1 text-center">With gratitude (and caffeine),</div>
-                        <div class="h4 mt-3 mb-1 text-left"><b>SynGenes Team</b></div>
-                        </div>
-                        <div class="modal-footer bg-dark text-white">
-                            <button type="button" class="btn btn-lg btn-danger" data-bs-dismiss="modal">Close</button>
-                        </div>
-                </div>
-            </div>
-            </div>
+        <main class="d-xxl-flex-12 align-items-center">
             
+            <div class="row d-grid-2 mx-auto">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 col-xxl-2">
+                    <img alt="GitHub" src="https://img.shields.io/github/license/luanrabelo/SynGenes?color=A0C49D&logoColor=000000&style=for-the-badge&namedLogo=readthedocs&label=GitHub Licence">
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 col-xxl-2">
+                    <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/luanrabelo/SynGenes?color=A0C49D&style=for-the-badge&label=Stars Repository">
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 col-xxl-2">
+                    <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/luanrabelo/SynGenes?color=A0C49D&style=for-the-badge&label=Release">
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 col-xxl-2">
+                    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/luanrabelo/SynGenes?color=A0C49D&style=for-the-badge">
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 col-xxl-2">
+                    <img src="https://img.shields.io/pypi/v/SynGenes?color=A0C49D&style=for-the-badge&label=PyPI - Version" alt="PyPI - Version" />
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-2 col-xl-2 col-xxl-2">
+                    <img src="https://img.shields.io/endpoint?url=https://hits.dwyl.com/luanrabelo/SynGenes.json?color=A0C49D&style=for-the-badge&label=Users WebForm" alt="Users" />
+                </div>
+            </div>
+
+            <div class="Welcome card justify-content-center align-items-center border-0">
+                <div class="mt-0 mb-0">
+                    <div  class="w1 text-center mt-1 mb-1">Welcome to <strong>SynGenes</strong>!</div>
+                    <div class="text-center h3 mt-1 mb-1">To use it, just follow the steps below!</div>
+                    <div class="row">
+                        <div class="text-center h5 mt-1 mb-0 d-grid mx-auto col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                            <button id="Start" type="button" class="btn btn-dark btn-lg mt-1 mb-5 h4" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-delay='{"show": 100, "hide": 200}' data-bs-html="true" data-bs-title="Start: Activate the <b>SynGenes</b> search form by clicking on this button.">Start SynGenes!</button>
+                        </div>
+                        <!--<div class="text-center h5 mt-1 mb-0 d-grid mx-auto col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
+                            <input id="toggle_switch" name="toggle_switch" type="checkbox" />
+                            <label class="labelHellper" for="toggle_switch">SynGenes Helper?</label>
+                        </div>-->
+                    </div> 
+                </div>
+            </div>
+
+            <div id="dataForm" class="mt-5 container-fluid mx-auto">
+                <div id="ProgressBar" class="progress border-0" style="height: 50px; background-color: #EEEEEE;"></div>
+                
+                <div id="TypeSearch" class="row container-fluid mx-auto">
+                    <div class="mb-5 mt-5">For search <b>Manuscripts</b>, use the <b>PubMedCentral</b> button. For search <b>Genes/Genomes</b>, use <b>GenBank</b> button.</div>
+                    <div class="d-grid gap-2 mx-auto col-6 col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
+                        <button id="PubMedCentralbtn" type="button" class="btn w-100 btn-lg btn-dark">PubMedCentral</button>
+                    </div>
+                    <div class="d-grid mx-auto col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
+                        <button id="GenBankbtn" type="button" class="btn w-100 btn-lg btn-dark">GenBank</button>
+                    </div>
+                </div>
+
+                <div id="GenBankTypeSearch" class="row container-fluid mx-auto">
+                    <div class="mb-5 mt-5">For search <b>Genes</b>, use the <b>Genes</b> button. For search <b>Genomes</b>, use <b>Genomes</b> button.</div>
+                    <div class="d-grid gap-2 mx-auto col-6 col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
+                        <button id="GenesTypeBtn" type="button" class="btn w-100 btn-lg btn-dark">Genes</button>
+                    </div>
+                    <div class="d-grid mx-auto col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
+                        <button id="GenomesTypeBtn" type="button" class="btn w-100 btn-lg btn-dark">Genomes</button>
+                    </div>
+                </div>
+
+                <div id="GenesTypeSearch" class="row container-fluid mx-auto">
+                    <div class="mb-5 mt-5">For search <b>Mitochondrial Genes</b>, use the <b>Mitochondrial</b> button. For search <b>Chloroplast Genes</b>, use <b>Chloroplast</b> button.</div>
+                    <div class="d-grid gap-2 mx-auto col-6 col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
+                        <button id="" type="button" class="btn w-100 btn-lg btn-dark">Mitochondrial</button>
+                    </div>
+                    <div class="d-grid mx-auto col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
+                        <button id="" type="button" class="btn w-100 btn-lg btn-dark">Chloroplast</button>
+                    </div>
+                </div>
+
+                <div id="GenomeTypeSearch" class="row container-fluid mx-auto">
+                    <div class="mb-5 mt-5">For search <b>Mitochondrial Genomes</b>, use the <b>Mitochondrial</b> button. For search <b>Chloroplast Genomes</b>, use <b>Chloroplast</b> button.</div>
+                    <div class="d-grid gap-2 mx-auto col-6 col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
+                        <button id="mtGenomeBtn" type="button" class="btn w-100 btn-lg btn-dark">Mitochondrial</button>
+                    </div>
+                    <div class="d-grid mx-auto col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
+                        <button id="chGenomeBtn" type="button" class="btn w-100 btn-lg btn-dark">Chloroplast</button>
+                    </div>
+                </div>
+
+                <div id="mtGenomeSearchTax" class="mx-auto mt-5">
+                    <div>Specify the <b>Specie</b>, <b>Genus</b> or <b>Family</b> for a search for <b>Mitochondrial Complete Genome</b> in <b>GenBank</b>.</div>
+                    <div class="input-group">
+                        <label id="LabelPubMedCentralTax" class="input-group-text"></label>
+                        <select id="SelectPubMedCentralTax" class="form-select form-select-lg">
+                            <option value="nan" selected>Choose a option</option>
+                            <option value="Specie">Specie</option>
+                            <option value="Genus">Genus</option>
+                            <option value="Family">Family</option>
+                        </select>
+                        <input id="txt_mt_Genome_Tax" type="text" class="form-control" disabled>
+                        <button id="btn_Search_GenBank_mt_Genome" class="btn btn-lg btn-dark disabled" type="button"><i class="fa-solid fa-2x fa-magnifying-glass"></i> Builder GenBank Search</button>
+                    </div>
+                </div>
+
+                <div id="PubMedCentralSearch" class="container-fluid mx-auto">
+                    <div>Specify the <b>Gene</b> of interest for a search within the <b>PubMed Central</b> repository.</div>
+                    <div class="input-group w-100">
+                        <label id="LabelPubMedCentralSearch" class="input-group-text"></label>
+                        <select id="SelectPubMedCentralSearch" class="form-select form-select-lg">
+                            <option value="nan" selected>Choose a option</option>
+                            <optgroup label="Mitochondrial">
+                                <optgroup label="CDS">
+                                    <option value="ATP6">ATP6</option>
+                                    <option value="ATP8">ATP8</option>
+                                    <option value="COI">COI</option>
+                                    <option value="COII">COII</option>
+                                    <option value="COIII">COIII</option>
+                                    <option value="CYTB">CYTB</option>
+                                    <option value="ND1">ND1</option>
+                                    <option value="ND2">ND2</option>
+                                    <option value="ND3">ND3</option>
+                                    <option value="ND4">ND4</option>
+                                    <option value="ND4L">ND4L</option>
+                                    <option value="ND5">ND5</option>
+                                    <option value="ND6">ND6</option>
+                                </optgroup>
+                                <optgroup label="rRNA">
+                                    <option value="12S">12S</option>
+                                    <option value="16S">16S</option>
+                                </output>
+                                <optgroup label="Control Region">
+                                    <option value="Control Region">Control Region</option>
+                                </output>
+                            </optgroup>
+                            <optgroup label=""></optgroup>
+
+                            <optgroup label="Chloroplast">
+                                <optgroup label="ATP Synthase">
+                                    <option value="atpA">atpA</option>
+                                    <option value="atpB">atpB</option>
+                                    <option value="atpE">atpE</option>
+                                    <option value="atpF">atpF</option>
+                                    <option value="atpH">atpH</option>
+                                    <option value="atpI">atpI</option>
+                                </output>
+                                <optgroup label="Cytochrome b/6f Complex">
+                                    <option value="petA">petA</option>
+                                    <option value="petB">petB</option>
+                                    <option value="petD">petD</option>
+                                    <option value="petG">petG</option>
+                                    <option value="petL">petL</option>
+                                    <option value="petN">petN</option>
+                                </output>
+                                <optgroup label="DNA dependent RNA polymerase">
+                                    <option value="rpoA">rpoA</option>
+                                    <option value="rpoB">rpoB</option>
+                                    <option value="rpoC1">rpoC1</option>
+                                    <option value="rpoC2">rpoC2</option>
+                                </output>
+                                <optgroup label="Large Subunit of Ribosome">
+                                    <option value="rpl2">rpl2</option>
+                                    <option value="rpl14">rpl14</option>
+                                    <option value="rpl16">rpl16</option>
+                                    <option value="rpl20">rpl20</option>
+                                    <option value="rpl22">rpl22</option>
+                                    <option value="rpl23">rpl23</option>
+                                    <option value="rpl32">rpl32</option>
+                                    <option value="rpl33">rpl33</option>
+                                    <option value="rpl36">rpl36</option>
+                                </output>
+                                <optgroup label="NADH-dehydrogenase">
+                                    <option value="ndhA">ndhA</option>
+                                    <option value="ndhB">ndhB</option>
+                                    <option value="ndhC">ndhC</option>
+                                    <option value="ndhD">ndhD</option>
+                                    <option value="ndhE">ndhE</option>
+                                    <option value="ndhF">ndhF</option>
+                                    <option value="ndhG">ndhG</option>
+                                    <option value="ndhH">ndhH</option>
+                                    <option value="ndhI">ndhI</option>
+                                    <option value="ndhJ">ndhJ</option>
+                                    <option value="ndhK">ndhK</option>
+                                </output>
+                                <optgroup label="PhotoSystem I">
+                                    <option value="psaA">psaA</option>
+                                    <option value="psaB">psaB</option>
+                                    <option value="psaC">psaC</option>
+                                    <option value="psaI">psaI</option>
+                                    <option value="psaJ">psaJ</option>
+                                </optgroup>
+                                <optgroup label="PhotoSystem II">
+                                    <option value="psbA">psbA</option>
+                                    <option value="psbB">psbB</option>
+                                    <option value="psbC">psbC</option>
+                                    <option value="psbD">psbD</option>
+                                    <option value="psbE">psbE</option>
+                                    <option value="psbF">psbF</option>
+                                    <option value="psbH">psbH</option>
+                                    <option value="psbI">psbI</option>
+                                    <option value="psbJ">psbJ</option>
+                                    <option value="psbK">psbK</option>
+                                    <option value="psbL">psbL</option>
+                                    <option value="psbM">psbM</option>
+                                    <option value="psbN">psbN</option>
+                                    <option value="psbZ">psbZ</option>
+                                    <option value="ycf3">ycf3</option>
+                                </optgroup>
+                                <optgroup label="rRNA">
+                                    <option value="rpoA">rpoA</option>
+                                    <option value="rpoB">rpoB</option>
+                                    <option value="rpoC1">rpoC1</option>
+                                    <option value="rpoC2">rpoC2</option>
+                                </output>
+                                <optgroup label="Rubisco">
+                                    <option value="rbcL">rbcL</option>
+                                </output>
+                                <optgroup label="Small  Subunit of Ribosome">
+                                    <option value="rps2">rps2</option>
+                                    <option value="rps3">rps3</option>
+                                    <option value="rps4">rps4</option>
+                                    <option value="rps7">rps7</option>
+                                    <option value="rps8">rps8</option>
+                                    <option value="rps11">rps11</option>
+                                    <option value="rps12">rps12</option>
+                                    <option value="rps14">rps14</option>
+                                    <option value="rps15">rps15</option>
+                                    <option value="rps16">rps16</option>
+                                    <option value="rps18">rps18</option>
+                                    <option value="rps19">rps19</option>
+                                </output>
+                            </optgroup>
+                        </select>
+                        <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>-->
+                </div>
+
+                <div id="PubMedCentralSearchField" class="mx-auto mt-5">
+                    <div>Identify the field in which you wish to find the Gene (<b><span id="PubMedGenes"></span></b>) of interest using <b>SynGenes</b>.</div>
+                    <div class="input-group w-100">
+                        <label id="LabelPubMedCentralField" class="input-group-text"></label>
+                        <select id="SelectPubMedCentralField" class="form-select form-select-lg">
+                            <option value="nan" selected>Choose a option</option>
+                            <option value="All Fields">All Fields</option>
+                            <option value="Title">Title</option>
+                            <option value="Abstract">Abstract</option>
+                            <option value="Mesh Terms">Mesh Terms</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="PubMedCentralSearchTax" class="mx-auto mt-5">
+                    <div>Specify the <b>Specie</b>, <b>Genus</b> or <b>Family</b> for a search for <b><span id="PubMedTax"></span></b> in <b>PubMed Central</b> repository.</div>
+                    <div class="input-group">
+                        <label id="LabelPubMedCentralTax" class="input-group-text"></label>
+                        <select id="SelectPubMedCentralTax" class="form-select form-select-lg">
+                            <option value="nan" selected>Choose a option</option>
+                            <option value="Specie">Specie</option>
+                            <option value="Genus">Genus</option>
+                            <option value="Family">Family</option>
+                        </select>
+                        <input id="txtPubMedTax" type="text" class="form-control" disabled>
+                        <button id="btnSearchPMC" class="btn btn-lg btn-dark disabled" type="button"><i class="fa-solid fa-2x fa-magnifying-glass"></i> Builder PMC Search</button>
+                    </div>
+                </div>
+
+                <div id="AlertPMCClipboard" class="mt-5">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <div><b>SynGenes</b> <b>PubMedCentral</b> Search Command <b>Copied to Clipboard</b></div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+
+                <div id="txtFieldPMC" class="mx-auto mt-5">
+                    <div>aaaaaaaaaaaaaa</div>
+                    <div class="input-group">
+                        <span id="CopyPMCClipboard" style="cursor: pointer;" class="input-group-text bg-dark text-white"><i class="fa-solid fa-2x fa-copy"></i>&nbsp;&nbsp;Copy to clipboard</span>
+                        <textarea id="PMCResultQuery" class="form-control" aria-label="With textarea" rows="10" spellcheck="false"></textarea>
+                        <span style="cursor: pointer;" class="input-group-text bg-dark text-white">
+                            <a class="text-white" id="toPMC" href="" target="_blank"><i class="fa-solid fa-1x fa-arrow-up-right-from-square"></i>&nbsp;&nbsp;View in PMC</a></span>
+                    </div>
+                </div>
+
                 
 
-
-            <div id="Tutorial" class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-xl">
-                    <div class="modal-content">
-                        <div class="modal-header bg-dark text-white">
-                            <div class="modal-title h2">SynGenes Tutorial</div>
-                        </div>
-                        <div class="modal-body text-center">
-                        <img src="assets/SynGenes.png" class="rounded me-2" alt="SynGenes" width="15%">
-                        <div class="d-flex">
-                            <div class="vr">Step 1:</div>
-                        </div>
-                        </div>
-                    </div>
-                </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             </div>
 
-            <div id="Welcome" class="mt-2 mb-2">
-                <div class="text-center h1 mt-2 mb-2">Welcome to <b>SynGenes</b>!</div>
-                <div class="text-center h3 mt-2 mb-2">To use it, just follow the steps below!</div>
-               <!-- <div class="text-center h3 mt-5 mb-2">Need help using SynGenes? <button type="button" class="btn btn-lg btn-outline-dark" data-bs-toggle="modal" data-bs-target="#Tutorial">Click here</button> for a step-by-step tutorial!</div>-->
-                <div class="text-center h5 mt-5 mb-5 d-grid gap-2 mx-auto col-6"><button id="Start" type="button" class="btn btn-dark btn-lg mt-5 mb-5"><i class="fa-solid fa-play fa-shake fa-2x"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Start!</button></div>
-            </div>
+                
+                
+                
 
-<div id="TableContent" class="mt-5 row row-cols-1 row-cols-md-1 row-cols-lg-1">
-
-<div class="container mt-5">
-<div class="col">
-<label class="form-label h5 text-break"><b><mark>Step 1</mark></b> - <mark>Hello!</mark> Are you interested in obtaining <mark><b>Genes</b></mark> or <mark><b>Genomes</b></mark>?</label>
-<div class="input-group">
-<label id="LabelStep1" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
-<select id="Step1" class="form-select form-select-lg">
-<option value="nan" selected>Choose a option</option>
-<option value="Gene">Genes</option>
-<option value="Genome">Genomes</option>
-</select>
-</div>
-</div>
-</div>
-
-<div class="container mt-5 mb-5">
-<div id="GenomeType" class="col">
-<label class="form-label h5 text-break"><b><mark>Step 2</mark></b> - What specific type of <mark><b><span id="StringGenomeType"></span></b></mark> are you looking for: <mark><b>Mitochondrial</b></mark> or <mark><b>Chloroplast</b></mark>?</label>
-<div class="input-group">
-<label id="LabelStep2" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
-<select id="Step2" class="form-select form-select-lg">
-<option value="nan" selected>Choose a option</option>
-<option value="Mitochondrial">Mitochondrial</option>
-<option value="Chloroplast">Chloroplast</option>
-</select>
-</div>
-</div>
-</div>
-
-<div class="container">
-<div id="ChloroplastGenes" class="col">
-<label class="form-label h5 text-break"><b><mark>Step 3</mark></b> - Please select a <mark><b>Chloroplast Gene</b></mark> of interest for your search using <mark><b>SynGenes</b></mark></label>
-<div class="input-group">
-<label id="LabelStepChloroplast" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
-<select id="Step3ChloroplastGenes" class="form-select form-select-lg">
-
-<option value="nan" selected>Choose a option</option>
-<optgroup label="ATP Synthase">
-<option value="atpA">atpA</option>
-<option value="atpB">atpB</option>
-<option value="atpE">atpE</option>
-<option value="atpF">atpF</option>
-<option value="atpH">atpH</option>
-<option value="atpI">atpI</option>
-</output>
-<optgroup label="Cytochrome b/6f Complex">
-<option value="petA">petA</option>
-<option value="petB">petB</option>
-<option value="petD">petD</option>
-<option value="petG">petG</option>
-<option value="petL">petL</option>
-<option value="petN">petN</option>
-</output>
-<optgroup label="DNA dependent RNA polymerase">
-<option value="rpoA">rpoA</option>
-<option value="rpoB">rpoB</option>
-<option value="rpoC1">rpoC1</option>
-<option value="rpoC2">rpoC2</option>
-</output>
-<optgroup label="Large Subunit of Ribosome">
-<option value="rpl2">rpl2</option>
-<option value="rpl14">rpl14</option>
-<option value="rpl16">rpl16</option>
-<option value="rpl20">rpl20</option>
-<option value="rpl22">rpl22</option>
-<option value="rpl23">rpl23</option>
-<option value="rpl32">rpl32</option>
-<option value="rpl33">rpl33</option>
-<option value="rpl36">rpl36</option>
-</output>
-<optgroup label="NADH-dehydrogenase">
-<option value="ndhA">ndhA</option>
-<option value="ndhB">ndhB</option>
-<option value="ndhC">ndhC</option>
-<option value="ndhD">ndhD</option>
-<option value="ndhE">ndhE</option>
-<option value="ndhF">ndhF</option>
-<option value="ndhG">ndhG</option>
-<option value="ndhH">ndhH</option>
-<option value="ndhI">ndhI</option>
-<option value="ndhJ">ndhJ</option>
-<option value="ndhK">ndhK</option>
-</output>
-<optgroup label="PhotoSystem I">
-<option value="psaA">psaA</option>
-<option value="psaB">psaB</option>
-<option value="psaC">psaC</option>
-<option value="psaI">psaI</option>
-<option value="psaJ">psaJ</option>
-</optgroup>
-<optgroup label="PhotoSystem II">
-<option value="psbA">psbA</option>
-<option value="psbB">psbB</option>
-<option value="psbC">psbC</option>
-<option value="psbD">psbD</option>
-<option value="psbE">psbE</option>
-<option value="psbF">psbF</option>
-<option value="psbH">psbH</option>
-<option value="psbI">psbI</option>
-<option value="psbJ">psbJ</option>
-<option value="psbK">psbK</option>
-<option value="psbL">psbL</option>
-<option value="psbM">psbM</option>
-<option value="psbN">psbN</option>
-<option value="psbZ">psbZ</option>
-<option value="ycf3">ycf3</option>
-</optgroup>
-<optgroup label="rRNA">
-<option value="rpoA">rpoA</option>
-<option value="rpoB">rpoB</option>
-<option value="rpoC1">rpoC1</option>
-<option value="rpoC2">rpoC2</option>
-</output>
-<optgroup label="Rubisco">
-<option value="rbcL">rbcL</option>
-</output>
-<optgroup label="Small  Subunit of Ribosome">
-<option value="rps2">rps2</option>
-<option value="rps3">rps3</option>
-<option value="rps4">rps4</option>
-<option value="rps7">rps7</option>
-<option value="rps8">rps8</option>
-<option value="rps11">rps11</option>
-<option value="rps12">rps12</option>
-<option value="rps14">rps14</option>
-<option value="rps15">rps15</option>
-<option value="rps16">rps16</option>
-<option value="rps18">rps18</option>
-<option value="rps19">rps19</option>
-</output>
-</select>
-</div>
-</div>
-</div>
+            
 
 
-<div class="container">
-<div id="MitochondrialGenes" class="col">
-<label class="form-label h5 text-break"><b><mark>Step 3</mark></b> - Please select a <mark><b>Mitochondrial Gene</b></mark> of interest for your search using <mark><b>SynGenes</b></mark></label>
-<div class="input-group">
-<label id="LabelStepMitochondrial" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
-<select id="Step3MitochondrialGenes" class="form-select form-select-lg">
-<option value="nan" selected>Choose a option</option>
-<optgroup label="CDS">
-<option value="ATP-6">ATP-6</option>
-<option value="ATP-8">ATP-8</option>
-<option value="COI">COI</option>
-<option value="COII">COII</option>
-<option value="COIII">COIII</option>
-<option value="CYTB">CYTB</option>
-<option value="NADH-1">NADH-1</option>
-<option value="NADH-2">NADH-2</option>
-<option value="NADH-3">NADH-3</option>
-<option value="NADH-4">NADH-4</option>
-<option value="NADH-4L">NADH-4L</option>
-<option value="NADH-5">NADH-5</option>
-<option value="NADH-6">NADH-6</option>
-</optgroup>
-</optgroup>
-<optgroup label="rRNA">
-<option value="12S">12S</option>
-<option value="16S">16S</option>
-</output>
-<optgroup label="Control Region">
-<option value="Control Region">Control Region</option>
-</output>
-</select>
-</div>
-</div>
-</div>
+           
+                    
+               
 
-<div id="SearchSpecie" class="container mt-5">
-<div class="col">
-<label class="form-label h5 text-break"><b><mark>Step 4</mark></b> - Specify the <mark><i><b>Specie</b></i></mark>, <mark><i><b>Genus</b></i></mark> or <mark><b>Family</b></mark> for search <mark><b><span id="GeneSearch"></span></b></mark> gene.</mark></label>
-<div class="input-group">
-<label id="LabelStep4" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
-<input id="Step4" class="form-control form-control-lg" type="text" placeholder="Enter the specie name">
-</div>
-</div>
-</div>
-
-<div id="SearchSpecieGenome" class="container">
-<div class="col">
-<label class="form-label h5 text-break"><b><mark>Step 3</mark></b> - Specify the <mark><i><b>Specie</b></i></mark>, <mark><i><b>Genus</b></i></mark> or <mark><b>Family</b></mark> to search for a <mark><b>Genome</b></mark>?</label>
-<div class="input-group">
-<label id="LabelStep3Genome" class="input-group-text"><b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b></label>
-<input id="Step3Genomes" class="form-control form-control-lg" type="text" placeholder="Enter the specie name">
-</div>
-</div>
-</div>
+            
 
 
+            
+
+        </main>
 
 
-      
-      
-</div>
-
-<div id="Buttons" class="d-grid gap-2 col-6 mx-auto mt-5">
-<button id="SearchButton" type="button" class="btn btn-success btn-lg"><i class="fa-brands fa-2x fa-connectdevelop fa-spin"></i> <span id="SearchButtonText"></span></button>
-<button id="ResetButton" type="button" class="btn btn-danger btn-lg"><i class="fa-solid fa-2x fa-eraser"></i> Reset</button>
-</div>
-
-<div id="Results" class="input-group mt-5 mb-5">
-<span id="CopyClipboard" style="cursor: pointer;" class="input-group-text bg-warning"><i class="fa-solid fa-2x fa-copy ml-3 mr-3"></i>Copy to clipboard</span>
-<textarea id="ResultQuery" class="form-control" aria-label="With textarea" rows="10"></textarea>
-<span style="cursor: pointer;" class="input-group-text bg-info"><a id="toNCBI" href="" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View in NCBI</a></span>
-</div>
-</main>
-
-<footer class="footer text-center mt-5 mb-1">
-<div><a href="https://github.com/luanrabelo/SynGenes"><i class="fa-brands fa-github fa-2x"></i> https://github.com/luanrabelo/SynGenes</a></div>
-<div><a href="https://twitter.com/lprabelo" target="_blank">Created by @lprabelo</a></div>
-<div class="mt-2"><a href="https://www.buymeacoffee.com/lprabelo" target="_blank"><i class="fa-solid fa-2x fa-mug-hot"></i> Buy me a coffee</a></div>
-</footer>
+        <footer class="footer text-center container-fluid">
+            <div class="GitHubLink lead"><a href="https://github.com/luanrabelo/SynGenes"><i class="fa-brands fa-github fa-2x" aria-hidden="true"></i> https://github.com/luanrabelo/SynGenes</a></div>
+            <div class="CreatedBy lead">Created by <b><a href="https://x.com/lprabelo" target="_blank" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-delay='{"show": 100, "hide": 200}' data-bs-title="@lprabelo">Luan Rabelo</a></b> and <b><a href="https://x.com/mvallinoto01" target="_blank" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-delay='{"show": 100, "hide": 200}' data-bs-title="@mvallinoto01">Marcelo Vallinoto</a></b> and <b><a href="https://x.com/IracildaSampaio" target="_blank" data-bs-custom-class="custom-tooltip" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-delay='{"show": 100, "hide": 200}' data-bs-title="@IracildaSampaio">Iracilda Sampaio</a></b></div>
+        </footer>
         
     </body>
 </html>

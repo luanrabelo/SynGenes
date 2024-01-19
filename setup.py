@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 setup(
     name = 'SynGenes',
     version = '1.0.2',
-    description = 'SynGenes is a Python class for standardizing gene nomenclatures, this class is capable of recognizing and converting the different nomenclature variations into a standardized form.',
+    description = 'SynGenes is a Python class for standardizing Mitochondrial or Chloroplast gene nomenclatures, this class is capable of recognizing and converting the different nomenclature variations into a standardized form.',
     long_description = Readme,
     long_description_content_type="text/markdown",
     author = 'Luan Rabelo',
@@ -30,5 +30,4 @@ setup(
         "Operating System :: MacOS :: MacOS X",
         "Operating System :: POSIX :: Linux",
     ],
-    
     )

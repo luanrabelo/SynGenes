@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+
+[tool.poetry]
+name = "SynGenes"
+version = "1.0.2"
+description = "SynGenes is a Python class for standardizing Mitochondrial or Chloroplast gene nomenclatures, this class is capable of recognizing and converting the different nomenclature variations into a standardized form."
+authors = ["Luan Rabelo <luanrabelo@outlook.com>"]
+maintainers = ["Luan Rabelo <luanrabelo@outlook.com>"]
+license = "MIT License"
+readme = "README.md"
+homepage = "https://github.com/luanrabelo/SynGenes"
+repository = "https://github.com/luanrabelo/SynGenes"
+keywords = ["SynGenes", "Genes", "Bioinformatics", "Synonymous"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "Environment :: Web Environment",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.7",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS :: MacOS X",
+    "Operating System :: POSIX :: Linux"
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = "*"
+pandas = "*"
+openpyxl = "*"
+
+[tool.poetry.dev-dependencies]

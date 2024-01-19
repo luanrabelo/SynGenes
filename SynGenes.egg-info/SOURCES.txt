@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+SynGenes/SynGenes.py
+SynGenes/__init__.py
+SynGenes.egg-info/PKG-INFO
+SynGenes.egg-info/SOURCES.txt
+SynGenes.egg-info/dependency_links.txt
+SynGenes.egg-info/requires.txt
+SynGenes.egg-info/top_level.txt

@@ -31,22 +31,8 @@ jobs:
     - name: Construir pacote
       run: |
         python -m build
-    - name: Gerar token OIDC
-      id: gerar_token_oidc
-      uses: actions/github-script@v5
-      with:
-        script: |
-          const resp = await github.oidc.create({
-            client_id: 'pypi',
-            audience: 'https://upload.pypi.org/legacy/'
-          });
-          const json_data = JSON.stringify({token: resp.data.value});
-          core.setOutput('oidc_token', json_data);
     - name: Enviar distribuições do pacote para PyPI
-      uses: pypa/gh-action-pypi-publish@v1.8.11
+      uses: pypa/gh-action-pypi-publish@release/v1
       with:
         verbose: true
         packages-dir: dist/
-        user: __token__
-        password: ${{ steps.gerar_token_oidc.outputs.oidc_token }}
-

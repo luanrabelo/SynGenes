@@ -5,34 +5,48 @@
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
 # documentation.
-name: Upload to PyPI
+name: Enviar para PyPI
 
 on:
   release:
     types: [published]
 
 jobs:
-  build-and-publish:
-    name: Build and Upload release to PyPI
+  construir-e-publicar:
+    name: Construir e Enviar versão para PyPI
     runs-on: ubuntu-latest
     permissions:
       id-token: write
     steps:
-    - name: Check out repository
+    - name: Verificar repositório
       uses: actions/checkout@v2
-    - name: Set up Python
+    - name: Configurar Python
       uses: actions/setup-python@v2
       with:
         python-version: '3.x'
-    - name: Install dependencies
+    - name: Instalar dependências
       run: |
         python -m pip install --upgrade pip
         pip install setuptools wheel twine build
-    - name: Build package
+    - name: Construir pacote
       run: |
         python -m build
-    - name: Publish package distributions to PyPI
-      uses: pypa/gh-action-pypi-publish@release/v1
+    - name: Gerar token OIDC
+      id: gerar_token_oidc
+      uses: actions/github-script@v5
+      with:
+        script: |
+          const resp = await github.oidc.create({
+            client_id: 'pypi',
+            audience: 'https://upload.pypi.org/legacy/'
+          });
+          const json_data = JSON.stringify({token: resp.data.value});
+          core.setOutput('oidc_token', json_data);
+    - name: Enviar distribuições do pacote para PyPI
+      uses: pypa/gh-action-pypi-publish@v1.8.11
       with:
         verbose: true
         packages-dir: dist/
+        user: __token__
+        password: ${{ steps.gerar_token_oidc.outputs.oidc_token }}
+

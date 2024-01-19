@@ -6,16 +6,10 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Upload PyPI
-
+name: Upload to PyPI
 on:
   release:
     types: [published]
-
-permissions:
-  contents: read
-  id-token: write
-
 jobs:
   pypi-publish:
     name: Upload release to PyPI
@@ -30,5 +24,4 @@ jobs:
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
         verbose: true
-        user: __token__
-        password: ${{ secrets.DEVPI_PASSWORD }}
+        packages-dir: dist/

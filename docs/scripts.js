@@ -27,6 +27,19 @@ $(document).ready(function(){
   _GenomeTypeSearch.style.display = 'none';
   var _mtGenomeSearchTax            = document.querySelector('#mtGenomeSearchTax');
   _mtGenomeSearchTax.style.display  = 'none';
+  var _txtGenomeMitochondrial            = document.querySelector('#txtGenomeMitochondrial');
+  _txtGenomeMitochondrial.style.display  = 'none';
+  var _cpGenomeSearchTax            = document.querySelector('#cpGenomeSearchTax');
+  _cpGenomeSearchTax.style.display  = 'none';
+  var _SearchGenesMitochondrialForm           = document.querySelector('#SearchGenesMitochondrialForm');
+  _SearchGenesMitochondrialForm.style.display = 'none';
+  var _SearchGenesMitochondrialTax           = document.querySelector('#SearchGenesMitochondrialTax');
+  _SearchGenesMitochondrialTax.style.display = 'none';
+  var _SearchGenesChloroplastForm           = document.querySelector('#SearchGenesChloroplastForm');
+  _SearchGenesChloroplastForm.style.display = 'none';
+
+  var _SearchGenesChloroplastTax          = document.querySelector('#SearchGenesChloroplastTax');
+  _SearchGenesChloroplastTax.style.display  = 'none';
 
 
   // Activate Tooltips
@@ -65,6 +78,64 @@ $(document).ready(function(){
   $('#mtGenomeBtn').click(function(){
     $('#GenomeTypeSearch').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
     $('#mtGenomeSearchTax').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).show();});
+    $('#SelectmtGenomeTax').val("nan").change();
+  });
+  $('#SelectmtGenomeTax').on('change', function () {
+    var labelTax    = $("#LabelmtGenomeTax");
+    var txtTax      = $("#txt_mt_Genome_Tax");
+    var btnSearch   = $("#btn_Search_GenBank_mt_Genome");
+    var resultQuery = $("#mtGenomeResultQuery");
+    var taxType     = $(this).val();
+  
+    if (taxType !== 'nan') {
+      labelTax.removeClass("bg-danger").addClass("bg-success").html("<b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b>");
+      txtTax.attr("placeholder", "Enter the " + taxType + " Name").val("").removeAttr("disabled");
+      btnSearch.addClass("disabled");
+      resultQuery.val("");
+      $("#txtFieldPMC").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+      //$("#txtGenomeMitochondrial").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    } else {
+      labelTax.removeClass("bg-success").addClass("bg-danger").html("<b>&nbsp;&nbsp;&#x2716;&nbsp;&nbsp;</b>");
+      txtTax.removeAttr("placeholder").addClass("disabled").val("").attr('disabled', 'disabled');
+      btnSearch.addClass("disabled");
+    }
+  });
+
+  
+
+  $('#chGenomeBtn').click(function(){
+    $('#GenomeTypeSearch').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $('#cpGenomeSearchTax').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).show();});
+    $('#SelectcpGenomeTax').val("nan").change();
+  });
+  $('#SelectcpGenomeTax').on('change', function () {
+    var labelTax    = $("#LabelcpGenomeTax");
+    var txtTax      = $("#txt_cp_Genome_Tax");
+    var btnSearch   = $("#btn_Search_GenBank_cp_Genome");
+    var resultQuery = $("#cpGenomeResultQuery");
+    var taxType     = $(this).val();
+  
+    if (taxType !== 'nan') {
+      labelTax.removeClass("bg-danger").addClass("bg-success").html("<b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b>");
+      txtTax.attr("placeholder", "Enter the " + taxType + " Name").val("").removeAttr("disabled");
+      btnSearch.addClass("disabled");
+      resultQuery.val("");
+      $("#txtFieldPMC").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+      //$("#txtGenomeMitochondrial").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    } else {
+      labelTax.removeClass("bg-success").addClass("bg-danger").html("<b>&nbsp;&nbsp;&#x2716;&nbsp;&nbsp;</b>");
+      txtTax.removeAttr("placeholder").addClass("disabled").val("").attr('disabled', 'disabled');
+      btnSearch.addClass("disabled");
+    }
+  });
+
+  $('#txt_cp_Genome_Tax').on('keyup', function () {
+    var txtTax = $(this).val();
+    $("#btn_Search_GenBank_cp_Genome").toggleClass("disabled", txtTax.length < 5 || txtTax === 'nan');
+    if ($("#btn_Search_GenBank_cp_Genome").hasClass("disabled")) {
+      $("#PMCResultQuery").val("");
+      $("#txtFieldPMC").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    }
   });
 
   $('#txt_mt_Genome_Tax').on('keyup', function () {
@@ -75,7 +146,189 @@ $(document).ready(function(){
       $("#txtFieldPMC").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
     }
   });
+
+  $('#btn_Search_GenBank_mt_Genome').click(function(){
+    setTimeout(() => {$("#ModalSearchGenBank").modal('show');}, 250);
+    var _specieName = $("#txt_mt_Genome_Tax").val();
+    var _fieldName  = $("#SelectmtGenomeTax").val();
+    var _Genome     = 'Mitochondrial'
+    var GenomeArray   = Genomes[_Genome];
+
+    var Query = '("'+ _specieName +'"[Organism] OR "'+ _specieName +'"[Title] OR "'+ _fieldName +'"[Organism]) AND ("mtGenome"[Title]';
+    for (var i = 0; i < GenomeArray.length; i++) {
+      var Query = Query + ' OR "' + GenomeArray[i] + '"[Title]';
+    }
+    var Query = Query + ') AND ("genome"[Title]) AND ("complete"[Title] OR "partial"[Title]) AND mitochondrion[filter]';
+    setTimeout(() => {
+      $("#ModalSearchGenBank").modal('hide');
+      $('#txtGenomeMitochondrial').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).show();});
+      $("#GenBankMitochondrialGenome").val(Query);
+      $("#toGenBank").attr('href', 'https://www.ncbi.nlm.nih.gov/nuccore/?term='+Query);
+    }, 5000);
+  });
+
+  $('#btn_Search_GenBank_cp_Genome').click(function(){
+    setTimeout(() => {$("#ModalSearchGenBank").modal('show');}, 250);
+    var _specieName = $("#txt_cp_Genome_Tax").val();
+    var _fieldName  = $("#SelectcpGenomeTax").val();
+    var _Genome     = 'Chloroplast'
+    var GenomeArray   = Genomes[_Genome];
+
+    var Query = '("'+ _specieName +'"[Organism] OR "'+ _specieName +'"[Title] OR "'+ _fieldName +'"[Organism]) AND ("mtGenome"[Title]';
+    for (var i = 0; i < GenomeArray.length; i++) {
+      var Query = Query + ' OR "' + GenomeArray[i] + '"[Title]';
+    }
+    var Query = Query + ') AND ("genome"[Title]) AND ("complete"[Title] OR "partial"[Title]) AND mitochondrion[filter]';
+    setTimeout(() => {
+      $("#ModalSearchGenBank").modal('hide');
+      $('#txtGenomeMitochondrial').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).show();});
+      $("#GenBankMitochondrialGenome").val(Query);
+      $("#toGenBank").attr('href', 'https://www.ncbi.nlm.nih.gov/nuccore/?term='+Query);
+    }, 5000);
+  });
+
+  $('#SearchGenesMitochondrial').click(function () {
+    var _geneName = $("#SelectSearchGenesMitochondrial").val();
+    $("#GenesTypeSearch").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $("#SearchGenesMitochondrialForm").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).show();});
+    $("#SelectSearchGenesMitochondrial").val("nan").change();
+    $("#SearchGenesMitochondrialGene").html(_geneName);
+  });
+
+  $('#SearchGenesChloroplast').click(function () {
+    var _geneName = $("#SelectSearchGenesChloroplast").val();
+    $("#GenesTypeSearch").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $("#SearchGenesChloroplastForm").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).show();});
+    $("#SelectSearchGenesChloroplast").val("nan").change();
+    $("#SearchGenesChloroplastGene").html(_geneName);
+  });
+
+  $('#SelectSearchGenesMitochondrial').on('change', function () {
+    var valSelect = $('#SelectSearchGenesMitochondrial').val();
+    var label     = $("#LabelSearchGenesMitochondrial");
+    if (valSelect !== 'nan') {
+      label.removeClass("bg-danger").addClass("bg-success").html("<b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b>");
+      $("#SearchGenesMitochondrialTax").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() { $(this).show(); });
+      $("#LabelSearchGenesMitochondrialTax").removeClass("bg-danger").addClass("bg-success").html("<b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b>");
+      $("#SelectGenesMitochondrialTax").val("nan").change();
+      $("#TxtGenesMitochondrialTax").val("");
+    } else {
+      label.removeClass("bg-success").addClass("bg-danger").html("<b>&nbsp;&nbsp;&#x2716;&nbsp;&nbsp;</b>");
+      $("#SearchGenesMitochondrialTax").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() { $(this).hide(); });
+      $("#LabelSearchGenesMitochondrialTax").removeClass("bg-success").addClass("bg-danger").html("<b>&nbsp;&nbsp;&#x2716;&nbsp;&nbsp;</b>");
+      $("#TxtGenesMitochondrialTax").val("");
+    }
+    $("#btnGenesMitochondrialTax").addClass("disabled");
+  });
+
+  $('#SelectGenesChloroplastTax').on('change', function () {
+    var valSelect = $('#SelectGenesChloroplastTax').val();
+    var label     = $("#LabelSearchGenesChloroplastTax");
+    var txtTax    = $("#TxtGenesChloroplastTax");
+    var btnSearch = $("#btnGenesChloroplastTax");
+
+    if (valSelect !== 'nan') {
+      label.removeClass("bg-danger").addClass("bg-success").html("<b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b>");
+      txtTax.attr("placeholder", "Enter the " + valSelect + " Name").val("").removeAttr("disabled");
+      btnSearch.addClass("disabled");
+    } else {
+      label.removeClass("bg-success").addClass("bg-danger").html("<b>&nbsp;&nbsp;&#x2716;&nbsp;&nbsp;</b>");
+      txtTax.removeAttr("placeholder").addClass("disabled").val("").attr('disabled', 'disabled');
+      btnSearch.addClass("disabled");
+    }
+  });
+
+  $('#SelectSearchGenesChloroplast').on('change', function () {
+    var valSelect = $('#SelectSearchGenesChloroplast').val();
+    var label     = $("#LabelSearchGenesChloroplast");
+    if (valSelect !== 'nan') {
+      label.removeClass("bg-danger").addClass("bg-success").html("<b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b>");
+      $("#SearchGenesChloroplastTax").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() { $(this).show(); });
+      $("#LabelSearchGenesChloroplastTax").removeClass("bg-danger").addClass("bg-success").html("<b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b>");
+      $("#SelectGenesChloroplastTax").val("nan").change();
+      $("#TxtGenesChloroplastTax").val("");
+    } else {
+      label.removeClass("bg-success").addClass("bg-danger").html("<b>&nbsp;&nbsp;&#x2716;&nbsp;&nbsp;</b>");
+      $("#SearchGenesChloroplastTax").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() { $(this).hide(); });
+      $("#LabelSearchGenesChloroplastTax").removeClass("bg-success").addClass("bg-danger").html("<b>&nbsp;&nbsp;&#x2716;&nbsp;&nbsp;</b>");
+      $("#TxtGenesChloroplastTax").val("");
+    }
+    $("#btnGenesChloroplastTax").addClass("disabled");
+  });
+
+  $('#TxtGenesChloroplastTax').on('keyup', function () {
+    var txtTax = $(this).val();
+    $("#btnGenesChloroplastTax").toggleClass("disabled", txtTax.length < 5 || txtTax === 'nan');
+    if ($("#btnGenesChloroplastTax").hasClass("disabled")) {
+      $("#GenBankChloroplastGenes").val("");
+      $("#txtFieldPMC").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    }
+  });
+
+  $("#btnGenesChloroplastTax").click(function () {
+    setTimeout(() => {$("#ModalSearchGenBank").modal('show');}, 250);
+    var _geneName   = $("#SelectSearchGenesChloroplast").val();
+    var _specieName = $("#TxtGenesChloroplastTax").val();
+    var _fieldName  = $("#SelectGenesChloroplastTax").val();
+    var _Genes      = ChloroplastGenes[_geneName];
+    var Query       = '("'+ _specieName +'"[Organism] OR "'+ _specieName +'"[Title] OR "'+ _fieldName +'"[Organism]) AND ("'+ _geneName +'"[Title]';
+    for (var i = 0; i < _Genes.length; i++) {
+      var Query = Query + ' OR "' + _Genes[i] + '"[Title]';
+    }
+    var Query = Query + ') AND ("genome"[Title]) AND ("complete"[Title] OR "partial"[Title]) AND mitochondrion[filter]';
+    setTimeout(() => {
+      $("#ModalSearchGenBank").modal('hide');
+      $('#txtGenomeMitochondrial').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).show();});
+      $("#GenBankMitochondrialGenome").val(Query);
+      $("#toGenBank").attr('href', 'https://www.ncbi.nlm.nih.gov/nuccore/?term='+Query);
+    }, 5000);
+  });
+
+  $('#SelectGenesMitochondrialTax').on('change', function () {
+
+    var valSelect = $('#SelectGenesMitochondrialTax').val();
+    var label     = $("#LabelSearchGenesMitochondrialTax");
+    var txtTax    = $("#TxtGenesMitochondrialTax");
+    var btnSearch = $("#btnGenesMitochondrialTax");
+
+    if (valSelect !== 'nan') {
+      label.removeClass("bg-danger").addClass("bg-success").html("<b>&nbsp;&nbsp;&#x2713;&nbsp;&nbsp;</b>");
+      txtTax.attr("placeholder", "Enter the " + valSelect + " Name").val("").removeAttr("disabled");
+      btnSearch.addClass("disabled");
+    } else {
+      label.removeClass("bg-success").addClass("bg-danger").html("<b>&nbsp;&nbsp;&#x2716;&nbsp;&nbsp;</b>");
+      txtTax.removeAttr("placeholder").addClass("disabled").val("").attr('disabled', 'disabled');
+      btnSearch.addClass("disabled");
+    }
+  });
+
+  $('#TxtGenesMitochondrialTax').on('keyup', function () {
+    var txtTax = $(this).val();
+    $("#btnGenesMitochondrialTax").toggleClass("disabled", txtTax.length < 5 || txtTax === 'nan');
+    if ($("#btnGenesMitochondrialTax").hasClass("disabled")) {
+      $("#GenBankMitochondrialGenes").val("");
+      $("#txtFieldPMC").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    }
+  });
   
+  $('#btnGenesMitochondrialTax').click(function () {
+    setTimeout(() => {$("#ModalSearchGenBank").modal('show');}, 250);
+    var _geneName   = $("#SelectSearchGenesMitochondrial").val();
+    var _specieName = $("#TxtGenesMitochondrialTax").val();
+    var _fieldName  = $("#SelectGenesMitochondrialTax").val();
+    var _Genes      = MitochondrialGenes[_geneName];
+    var Query       = '("'+ _specieName +'"[Organism] OR "'+ _specieName +'"[Title] OR "'+ _fieldName +'"[Organism]) AND ("'+ _geneName +'"[Title]';
+    for (var i = 0; i < _Genes.length; i++) {
+      var Query = Query + ' OR "' + _Genes[i] + '"[Title]';
+    }
+    var Query = Query + ') AND ("genome"[Title]) AND ("complete"[Title] OR "partial"[Title]) AND mitochondrion[filter]';
+    setTimeout(() => {
+      $("#ModalSearchGenBank").modal('hide');
+      $('#txtGenomeMitochondrial').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).show();});
+      $("#GenBankMitochondrialGenome").val(Query);
+      $("#toGenBank").attr('href', 'https://www.ncbi.nlm.nih.gov/nuccore/?term='+Query);
+    }, 5000);
+  });
   
 
   
@@ -220,89 +473,43 @@ $(document).ready(function(){
       $("#AlertPMCClipboard").toggle("slow").delay(5000).toggle("slow");
     }, 250);
   });
-  
 
 
-  
+  $('#resetBtn').click(function(){
+    // Hide all the divs
+    //$('.Welcome').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).show();});
+    //$('#dataForm').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).show();});
+    // change the values of the selects
+    $("#SelectSearchGenesMitochondrial").val("nan").change();
+    $("#SelectSearchGenesChloroplast").val("nan").change();
+    $("#SelectGenesMitochondrialTax").val("nan").change();
+    $("#SelectmtGenomeTax").val("nan").change();
+    $("#SelectcpGenomeTax").val("nan").change();
+    $("#SelectPubMedCentralSearch").val("nan").change();
+    $("#SelectPubMedCentralField").val("nan").change();
+    $("#SelectPubMedCentralTax").val("nan").change();
+    // Hide all the divs
+    //$('#TypeSearch').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $('#GenBankTypeSearch').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $('#GenesTypeSearch').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $('#SearchGenesMitochondrialForm').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $('#SearchGenesChloroplastForm').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $('#SearchGenesMitochondrialTax').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $('#SearchGenesChloroplastTax').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $('#GenomeTypeSearch').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $('#mtGenomeSearchTax').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $('#cpGenomeSearchTax').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $('#txtGenomeMitochondrial').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $('#PubMedCentralSearch').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $('#PubMedCentralSearchField').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $('#PubMedCentralSearchTax').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $('#AlertPMCClipboard').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
+    $('#txtFieldPMC').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
 
+    $('#TypeSearch').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).show();});
+    
+    
 
-  //$('#backStep1').click(function(){
-  //  console.log('backStep1');
-  //  $('#backStep1').tooltip('disable');
-  //  $("#st2_tooltip").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
-  //  $("#backStep1").animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).hide();});
-  //  
-  //    
-  //  
-  //});
-
-
-
-
-
-//  $("#Step1").change(function(){
-//    var StepOne = $("#Step1").val();
-//    if (StepOne != 'nan') {
-//      goStep2.removeClass('disabled');
-//      _goStep2.style.display = 'block';
-//      $('#st1_tooltip').tooltip('disable');
-//      $("#LabelStep1").addClass("bg-success");
-//      $("#iconStep1").removeClass("fa-xmark");
-//      $("#LabelStep1").removeClass("bg-danger");
-//      $("#iconStep1").addClass("fa-check");
-//      setTimeout(() => $('#goStep2').tooltip('show'), 500);
-//      setTimeout(() => $('#st1_tooltip').tooltip('hide'), 0);
-//    } else {
-//      goStep2.addClass('disabled');
-//      $("#LabelStep1").removeClass("bg-success");
-//      $("#LabelStep1").addClass("bg-danger");
-//      $("#iconStep1").removeClass("fa-check");
-//      $("#iconStep1").addClass("fa-xmark");
-//    }
-//  });
-//
-//
-//
-//
-//  $('#goStep2').click(function(){
-//    var StepOne = $("#Step1").val();
-//    if (StepOne == "Genes" || StepOne == "Genomes"){
-//      _text = "GenBank";
-//    } else {
-//      _text = "PubMedCentral";
-//    }
-//    _color = '#E3651D';
-//    var newProgressBar = '<div style="background-color: '+_color+';" class="progress-bar w-25">Search: '+StepOne+' ('+_text+')</div>';
-//    ProgressBar.append(newProgressBar);
-//    setTimeout(() => {$("#Step1").prop('disabled', true);}, 500);
-//    setTimeout(() => {_goStep2.style.display = 'none'}, 500);
-//    setTimeout(() => {_st2_tooltip.style.display = 'block';}, 750);
-//    setTimeout(() => {$("#Step2").val("nan").change()}, 750);
-//    setTimeout(() => {_backStep1.style.display = 'block'}, 1000);
-//    setTimeout(() => {_goStep3.style.display = 'block'}, 1000);
-//    setTimeout(() => $("#SearchType").text(StepOne), 1000);
-//  });
-//
-//  
-//  $("#Step2").change(function(){
-//    var StepTwo = $("#Step2").val();
-//    if (StepTwo != 'nan') {
-//      goStep3.removeClass('disabled');
-//      $('#st1_tooltip').tooltip('disable');
-//      $("#LabelStep2").addClass("bg-success");
-//      $("#iconStep2").removeClass("fa-xmark");
-//      $("#LabelStep2").removeClass("bg-danger");
-//      $("#iconStep2").addClass("fa-check");
-//      setTimeout(() => $('#goStep2').tooltip('show'), 500);
-//      setTimeout(() => $('#st1_tooltip').tooltip('hide'), 0);
-//
-//    } else {
-//      goStep3.addClass('disabled');
-//      $("#LabelStep2").removeClass("bg-success");
-//      $("#LabelStep2").addClass("bg-danger");
-//      $("#iconStep2").removeClass("fa-check");
-//      $("#iconStep2").addClass("fa-xmark");
-//    }
-//  });
+});
 
 });

@@ -116,3 +116,8 @@ const ChloroplastGenes = {
 "rrn5S": ['5S ribosomal RNA', 'Rrn5', 'S5 ribosomal RNA', 'ribosomal 5S RNA'],
 }
 
+const Genomes = {
+    "Mitochondrial" : ["complete genome", "complete mitochondrial genome", "mitochondrial genome", "partial genome", "partial mitochondrial genome", "incomplete genome", "incomplete mitochondrial genome", "mitochondrial genome, complete genome", "mitochondrial genome, complete sequence", "mitochondrial genome, complete", "mitochondrial genome, partial sequence", "mitochondrial genome, partial", "mitochondrial genome, incomplete sequence", "mitochondrial genome, incomplete", "mitochondrial genome, complete genome", "mitochondrial genome, complete sequence", "mitochondrial genome, complete", "mitochondrial genome, partial sequence", "mitochondrial genome, partial", "mitochondrial genome, incomplete sequence", "mitochondrial genome, incomplete"],
+    "Chloroplast" : ["complete genome", "complete chloroplast genome", "chloroplast genome", "partial genome", "partial chloroplast genome", "incomplete genome", "incomplete chloroplast genome", "chloroplast genome, complete genome", "chloroplast genome, complete sequence", "chloroplast genome, complete", "chloroplast genome, partial sequence", "chloroplast genome, partial", "chloroplast genome, incomplete sequence", "chloroplast genome, incomplete", "chloroplast genome, complete genome", "chloroplast genome, complete sequence", "chloroplast genome, complete", "chloroplast genome, partial sequence", "chloroplast genome, partial", "chloroplast genome, incomplete sequence", "chloroplast genome, incomplete"],
+    };
+    

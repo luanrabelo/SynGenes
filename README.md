@@ -42,7 +42,7 @@ Before installing **SynGenes**, ensure that you have the following prerequisites
   - `openpyxl`
 ***  
 ### Installation
-There are tree ways to install **SynGenes**:
+There are two ways to install **SynGenes**:
 
 1. **Through pip**:  Install **SynGenes** directly using pip:  
    ```bash  
@@ -57,7 +57,8 @@ There are tree ways to install **SynGenes**:
    pip install -r requirements.txt
    ```
   - This command will **clone the repository**, and then you should **navigate to the cloned directory** to **install SynGenes and its dependencies** using pip.
-&nbsp;  
+&nbsp;
+<!--- 
 3. Installation via **conda**:  You can also install **SynGenes** using conda with the following commands:  
    ```bash
    conda create -n SynGenes -c conda-forge -c bioconda SynGenes
@@ -65,6 +66,7 @@ There are tree ways to install **SynGenes**:
    ```
   - This method will set up **SynGenes** along with its **dependencies** in a **new conda environment**.
 &nbsp;  
+-->
 ***
 ## Functions  
 ### `__init__(self, **kwargs)`  

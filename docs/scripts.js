@@ -174,11 +174,11 @@ $(document).ready(function(){
     var _Genome     = 'Chloroplast'
     var GenomeArray   = Genomes[_Genome];
 
-    var Query = '("'+ _specieName +'"[Organism] OR "'+ _specieName +'"[Title] OR "'+ _fieldName +'"[Organism]) AND ("mtGenome"[Title]';
+    var Query = '("'+ _specieName +'"[Organism] OR "'+ _specieName +'"[Title] OR "'+ _fieldName +'"[Organism]) AND ("chloroplast"[Title]';
     for (var i = 0; i < GenomeArray.length; i++) {
       var Query = Query + ' OR "' + GenomeArray[i] + '"[Title]';
     }
-    var Query = Query + ') AND ("genome"[Title]) AND ("complete"[Title] OR "partial"[Title]) AND mitochondrion[filter]';
+    var Query = Query + ') AND ("genome"[Title]) AND ("complete"[Title] OR "partial"[Title]) AND chloroplast[filter]';
     setTimeout(() => {
       $("#ModalSearchGenBank").modal('hide');
       $('#txtGenomeMitochondrial').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).show();});
@@ -275,8 +275,8 @@ $(document).ready(function(){
     for (var i = 0; i < _Genes.length; i++) {
       var Query = Query + ' OR "' + _Genes[i] + '"[Title]';
     }
-    //var Query = Query + ') AND ("genome"[Title]) AND ("complete"[Title] OR "partial"[Title]) AND mitochondrion[filter]';
-    var Query = Query + ') AND mitochondrion[filter]';
+    //var Query = Query + ') AND ("genome"[Title]) AND ("complete"[Title] OR "partial"[Title]) AND chloroplast[filter]';
+    var Query = Query + ') AND chloroplast[filter]';
     setTimeout(() => {
       $("#ModalSearchGenBank").modal('hide');
       $('#txtGenomeMitochondrial').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).show();});

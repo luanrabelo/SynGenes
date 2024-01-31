@@ -275,7 +275,8 @@ $(document).ready(function(){
     for (var i = 0; i < _Genes.length; i++) {
       var Query = Query + ' OR "' + _Genes[i] + '"[Title]';
     }
-    var Query = Query + ') AND ("genome"[Title]) AND ("complete"[Title] OR "partial"[Title]) AND mitochondrion[filter]';
+    //var Query = Query + ') AND ("genome"[Title]) AND ("complete"[Title] OR "partial"[Title]) AND mitochondrion[filter]';
+    var Query = Query + ') AND mitochondrion[filter]';
     setTimeout(() => {
       $("#ModalSearchGenBank").modal('hide');
       $('#txtGenomeMitochondrial').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).show();});
@@ -321,7 +322,8 @@ $(document).ready(function(){
     for (var i = 0; i < _Genes.length; i++) {
       var Query = Query + ' OR "' + _Genes[i] + '"[Title]';
     }
-    var Query = Query + ') AND ("genome"[Title]) AND ("complete"[Title] OR "partial"[Title]) AND mitochondrion[filter]';
+    //var Query = Query + ') AND ("genome"[Title]) AND ("complete"[Title] OR "partial"[Title]) AND mitochondrion[filter]';
+    var Query = Query + ') AND mitochondrion[filter]';
     setTimeout(() => {
       $("#ModalSearchGenBank").modal('hide');
       $('#txtGenomeMitochondrial').animate({height: 'toggle', opacity: 'toggle'}, "slow", function() {$(this).show();});

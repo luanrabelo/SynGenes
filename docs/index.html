@@ -273,109 +273,25 @@
                         </select>
                     </div>
                 </div>
-
                 <div id="SearchGenesChloroplastForm" class="container-fluid mx-auto">
                     <div class="mb-5 mt-5">Choose a <b>Chloroplast</b> gene to <b>search</b> in <b>GenBank</b></div>
                     <div class="input-group w-100">
                         <label id="LabelSearchGenesChloroplast" class="input-group-text"></label>
                         <select id="SelectSearchGenesChloroplast" class="form-select form-select-lg">
-                            <option value="nan" selected>Choose a option</option>
-                            <optgroup label="ATP Synthase">
-                                <option value="atpA">atpA</option>
-                                <option value="atpB">atpB</option>
-                                <option value="atpE">atpE</option>
-                                <option value="atpF">atpF</option>
-                                <option value="atpH">atpH</option>
-                                <option value="atpI">atpI</option>
-                            </output>
-                            <optgroup label="Cytochrome b/6f Complex">
-                                <option value="petA">petA</option>
-                                <option value="petB">petB</option>
-                                <option value="petD">petD</option>
-                                <option value="petG">petG</option>
-                                <option value="petL">petL</option>
-                                <option value="petN">petN</option>
-                            </output>
-                            <optgroup label="DNA dependent RNA polymerase">
-                                <option value="rpoA">rpoA</option>
-                                <option value="rpoB">rpoB</option>
-                                <option value="rpoC1">rpoC1</option>
-                                <option value="rpoC2">rpoC2</option>
-                            </output>
-                            <optgroup label="Large Subunit of Ribosome">
-                                <option value="rpl2">rpl2</option>
-                                <option value="rpl14">rpl14</option>
-                                <option value="rpl16">rpl16</option>
-                                <option value="rpl20">rpl20</option>
-                                <option value="rpl22">rpl22</option>
-                                <option value="rpl23">rpl23</option>
-                                <option value="rpl32">rpl32</option>
-                                <option value="rpl33">rpl33</option>
-                                <option value="rpl36">rpl36</option>
-                            </output>
-                            <optgroup label="NADH-dehydrogenase">
-                                <option value="ndhA">ndhA</option>
-                                <option value="ndhB">ndhB</option>
-                                <option value="ndhC">ndhC</option>
-                                <option value="ndhD">ndhD</option>
-                                <option value="ndhE">ndhE</option>
-                                <option value="ndhF">ndhF</option>
-                                <option value="ndhG">ndhG</option>
-                                <option value="ndhH">ndhH</option>
-                                <option value="ndhI">ndhI</option>
-                                <option value="ndhJ">ndhJ</option>
-                                <option value="ndhK">ndhK</option>
-                            </output>
-                            <optgroup label="PhotoSystem I">
-                                <option value="psaA">psaA</option>
-                                <option value="psaB">psaB</option>
-                                <option value="psaC">psaC</option>
-                                <option value="psaI">psaI</option>
-                                <option value="psaJ">psaJ</option>
-                            </optgroup>
-                            <optgroup label="PhotoSystem II">
-                                <option value="psbA">psbA</option>
-                                <option value="psbB">psbB</option>
-                                <option value="psbC">psbC</option>
-                                <option value="psbD">psbD</option>
-                                <option value="psbE">psbE</option>
-                                <option value="psbF">psbF</option>
-                                <option value="psbH">psbH</option>
-                                <option value="psbI">psbI</option>
-                                <option value="psbJ">psbJ</option>
-                                <option value="psbK">psbK</option>
-                                <option value="psbL">psbL</option>
-                                <option value="psbM">psbM</option>
-                                <option value="psbN">psbN</option>
-                                <option value="psbZ">psbZ</option>
-                                <option value="ycf3">ycf3</option>
-                            </optgroup>
-                            <optgroup label="rRNA">
-                                <option value="rpoA">rpoA</option>
-                                <option value="rpoB">rpoB</option>
-                                <option value="rpoC1">rpoC1</option>
-                                <option value="rpoC2">rpoC2</option>
-                            </output>
-                            <optgroup label="Rubisco">
-                                <option value="rbcL">rbcL</option>
-                            </output>
-                            <optgroup label="Small  Subunit of Ribosome">
-                                <option value="rps2">rps2</option>
-                                <option value="rps3">rps3</option>
-                                <option value="rps4">rps4</option>
-                                <option value="rps7">rps7</option>
-                                <option value="rps8">rps8</option>
-                                <option value="rps11">rps11</option>
-                                <option value="rps12">rps12</option>
-                                <option value="rps14">rps14</option>
-                                <option value="rps15">rps15</option>
-                                <option value="rps16">rps16</option>
-                                <option value="rps18">rps18</option>
-                                <option value="rps19">rps19</option>
-                            </output>
                         </select>
                     </div>
                 </div>
+                <script>
+                    function gerarOptions(dicionario) {
+                        let options = '<option value="nan" selected>Choose a option</option>';
+                        for (let chave in dicionario) {
+                        //console.log(chave);
+                        options += `<option value="${chave}">${chave}</option>`;
+                        }
+                        return options;
+                        }
+                        document.getElementById('SelectSearchGenesChloroplast').innerHTML = gerarOptions(ChloroplastGenes);
+                </script>
 
                 <div id="SearchGenesMitochondrialTax" class="container-fluid mx-auto mt-5">
                     <div>Specify the <b>Species</b>, <b>Genus</b> or <b>Family</b> for a search for <b><span id="SearchGenesMitochondrialGene"></span></b> in <b>GenBank</b>.</div>
@@ -493,104 +409,24 @@
                             </optgroup>
                             <optgroup label=""></optgroup>
 
-                            <optgroup label="Chloroplast">
-                                <optgroup label="ATP Synthase">
-                                    <option value="atpA">atpA</option>
-                                    <option value="atpB">atpB</option>
-                                    <option value="atpE">atpE</option>
-                                    <option value="atpF">atpF</option>
-                                    <option value="atpH">atpH</option>
-                                    <option value="atpI">atpI</option>
-                                </output>
-                                <optgroup label="Cytochrome b/6f Complex">
-                                    <option value="petA">petA</option>
-                                    <option value="petB">petB</option>
-                                    <option value="petD">petD</option>
-                                    <option value="petG">petG</option>
-                                    <option value="petL">petL</option>
-                                    <option value="petN">petN</option>
-                                </output>
-                                <optgroup label="DNA dependent RNA polymerase">
-                                    <option value="rpoA">rpoA</option>
-                                    <option value="rpoB">rpoB</option>
-                                    <option value="rpoC1">rpoC1</option>
-                                    <option value="rpoC2">rpoC2</option>
-                                </output>
-                                <optgroup label="Large Subunit of Ribosome">
-                                    <option value="rpl2">rpl2</option>
-                                    <option value="rpl14">rpl14</option>
-                                    <option value="rpl16">rpl16</option>
-                                    <option value="rpl20">rpl20</option>
-                                    <option value="rpl22">rpl22</option>
-                                    <option value="rpl23">rpl23</option>
-                                    <option value="rpl32">rpl32</option>
-                                    <option value="rpl33">rpl33</option>
-                                    <option value="rpl36">rpl36</option>
-                                </output>
-                                <optgroup label="NADH-dehydrogenase">
-                                    <option value="ndhA">ndhA</option>
-                                    <option value="ndhB">ndhB</option>
-                                    <option value="ndhC">ndhC</option>
-                                    <option value="ndhD">ndhD</option>
-                                    <option value="ndhE">ndhE</option>
-                                    <option value="ndhF">ndhF</option>
-                                    <option value="ndhG">ndhG</option>
-                                    <option value="ndhH">ndhH</option>
-                                    <option value="ndhI">ndhI</option>
-                                    <option value="ndhJ">ndhJ</option>
-                                    <option value="ndhK">ndhK</option>
-                                </output>
-                                <optgroup label="PhotoSystem I">
-                                    <option value="psaA">psaA</option>
-                                    <option value="psaB">psaB</option>
-                                    <option value="psaC">psaC</option>
-                                    <option value="psaI">psaI</option>
-                                    <option value="psaJ">psaJ</option>
-                                </optgroup>
-                                <optgroup label="PhotoSystem II">
-                                    <option value="psbA">psbA</option>
-                                    <option value="psbB">psbB</option>
-                                    <option value="psbC">psbC</option>
-                                    <option value="psbD">psbD</option>
-                                    <option value="psbE">psbE</option>
-                                    <option value="psbF">psbF</option>
-                                    <option value="psbH">psbH</option>
-                                    <option value="psbI">psbI</option>
-                                    <option value="psbJ">psbJ</option>
-                                    <option value="psbK">psbK</option>
-                                    <option value="psbL">psbL</option>
-                                    <option value="psbM">psbM</option>
-                                    <option value="psbN">psbN</option>
-                                    <option value="psbZ">psbZ</option>
-                                    <option value="ycf3">ycf3</option>
-                                </optgroup>
-                                <optgroup label="rRNA">
-                                    <option value="rpoA">rpoA</option>
-                                    <option value="rpoB">rpoB</option>
-                                    <option value="rpoC1">rpoC1</option>
-                                    <option value="rpoC2">rpoC2</option>
-                                </output>
-                                <optgroup label="Rubisco">
-                                    <option value="rbcL">rbcL</option>
-                                </output>
-                                <optgroup label="Small  Subunit of Ribosome">
-                                    <option value="rps2">rps2</option>
-                                    <option value="rps3">rps3</option>
-                                    <option value="rps4">rps4</option>
-                                    <option value="rps7">rps7</option>
-                                    <option value="rps8">rps8</option>
-                                    <option value="rps11">rps11</option>
-                                    <option value="rps12">rps12</option>
-                                    <option value="rps14">rps14</option>
-                                    <option value="rps15">rps15</option>
-                                    <option value="rps16">rps16</option>
-                                    <option value="rps18">rps18</option>
-                                    <option value="rps19">rps19</option>
-                                </output>
+                            <optgroup label="Chloroplast", id="PMCGenesChloroplast">
+                                
+                                
                             </optgroup>
                         </select>
                         <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>-->
                 </div>
+                <script>
+                    function gerarOptionsPMC(dicionario) {
+                        let options = '';
+                        for (let chave in dicionario) {
+                        //console.log(chave);
+                        options += `<option value="${chave}">${chave}</option>`;
+                        }
+                        return options;
+                        }
+                        document.getElementById('PMCGenesChloroplast').innerHTML = gerarOptionsPMC(ChloroplastGenes);
+                </script>
 
                 <div id="PubMedCentralSearchField" class="mx-auto mt-5">
                     <div>Identify the field in which you wish to find the Gene (<b><span id="PubMedGenes"></span></b>) of interest using <b>SynGenes</b>.</div>

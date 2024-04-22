@@ -95,22 +95,11 @@ main{
 }
 
 footer {
-    left: 0;
-    bottom: 0;
     width: 100%;
     background-color: #191919;
     color: #FFFFFF;
     text-align: center;
     vertical-align: middle;
-    @media screen and (min-width: 768px) {
-        height: 20vh;
-    }
-    @media screen and (min-width: 992px) {
-        height: 15vh;
-    }
-    @media screen and (min-width: 1200px) {
-        height: 10vh;
-    }
     }
 footer a {
     color: #FFFFFF;

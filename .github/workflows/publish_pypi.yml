@@ -1,6 +1,8 @@
 name: Publish SynGenes Python Package
 
-on: [push, pull_request]
+on:
+  release:
+    types: [published]
 
 jobs:
   release-build:

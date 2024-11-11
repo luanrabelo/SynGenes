@@ -5,7 +5,7 @@ import subprocess
 
 __author__ = "Luan Rabelo"
 __license__ = "MIT"
-__version__ = "1.0.5"
+__version__ = "1.0.6"
 __maintainer__ = "Luan Rabelo"
 __email__ = "luanrabelo@outlook.com"
 __date__ = "2024/01/01"
@@ -575,13 +575,9 @@ class SynGenes:
                 f"{TerminalColors.End}"
                 )
             if organelle == 'mt':
-                _file       = pd.read_excel(
-                    f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx',
-                    sheet_name='Mitochondrial')
+                _file       = pd.read_excel(f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx', sheet_name='Mitochondrial')
             elif organelle == 'cp':
-                _file       = pd.read_excel(
-                    f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx',
-                    sheet_name='Chloroplast')
+                _file       = pd.read_excel(f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx', sheet_name='Chloroplast')
             else:
                 print(
                     f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
@@ -659,7 +655,7 @@ class SynGenes:
                 f"{TerminalColors.End}"
                 )
             sys.exit(1)
-        if list_query: # Check if _listQuery is not empty
+        if len(list_query) > 0: # Check if _listQuery is not empty
             data = ' OR '.join(list_query) # Return query for Entrez search in GenBank or PubMed
         else:
             print(
@@ -880,7 +876,7 @@ class SynGenes:
         """
         print(
             f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
-            f"{TerminalColors.Warning}"
+            f"{TerminalColors.Bold}"
             f"Please, cite the SynGenes database as:"
             f"Rabelo, L.P., Sodré, D., de Sousa, R.P.C. et al. "
             f"SynGenes: a Python class for standardizing nomenclatures of "

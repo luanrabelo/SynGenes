@@ -1,0 +1,36 @@
+# conda-recipe/meta.yaml
+package:
+  name: "SynGenes"               # Package name
+  version: "1.0.6"               # Package version
+
+source:
+  path: ../SynGenes/             # Path to the SynGenes source directory
+
+build:
+  noarch: python
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+
+requirements:
+  host:
+    - python >=3.6
+    - pip
+  run:
+    - python >=3.6
+    - requests
+    - pandas
+    - biopython
+    - openpyxl
+
+about:
+  home: "https://github.com/luanrabelo/SynGenes"
+  license: "MIT"
+  license_family: MIT
+  summary: "A Python class for standardizing mitochondrial and chloroplast gene nomenclatures."
+  description: |
+    **SynGenes** is a Python class designed to standardize gene nomenclatures for mitochondrial and chloroplast genes. It recognizes various nomenclature variations and converts them into a consistent, standardized format. This tool simplifies the integration and comparison of genetic data from different sources by unifying gene names.
+  dev_url: "https://github.com/luanrabelo/SynGenes"
+  doc_url: "https://github.com/luanrabelo/SynGenes#readme"
+
+extra:
+  recipe-maintainers:
+    - luanrabelo

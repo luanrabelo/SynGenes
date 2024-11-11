@@ -8,6 +8,8 @@
   </a>
 </p>
 
+[![Publish SynGenes Python Package](https://github.com/luanrabelo/SynGenes/actions/workflows/publish.yml/badge.svg)](https://github.com/luanrabelo/SynGenes/actions/workflows/publish.yml)
+
 # Contents Overview
 - [System Overview](#system-overview)
 - [License](#licence)

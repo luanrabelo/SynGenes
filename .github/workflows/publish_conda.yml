@@ -15,8 +15,12 @@ jobs:
         with:
           auto-update-conda: true
           python-version: '3.10'
-          environment-file: conda/meta.yaml
-          activate-environment: base
+
+      - name: Create Conda environment
+        run: conda env create --file conda/meta.yaml
+
+      - name: Activate Conda environment
+        run: source activate base
 
       - name: Install Conda Build
         run: conda install conda-build anaconda-client

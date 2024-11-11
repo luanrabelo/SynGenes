@@ -23,12 +23,11 @@ jobs:
         run: conda install -n base -c conda-forge conda-build anaconda-client
 
       - name: Build the Conda package
-        shell: bash -l {0}  # Utilizar um shell compatível com Conda
+        shell: bash -l {0}  # Garantir o shell correto
         env:
           CONDA_NO_PLUGINS: true
         run: |
-          conda activate syngenes-env
-          conda build conda-recipe
+          conda run -n syngenes-env conda build conda-recipe
 
       - name: Upload package to Anaconda
         env:

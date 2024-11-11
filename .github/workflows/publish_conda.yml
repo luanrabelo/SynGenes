@@ -20,7 +20,8 @@ jobs:
         run: conda env create --file environment.yml
 
       - name: Activate Conda environment
-        run: source activate syngenes-env
+        shell: bash -l {0}
+        run: conda activate syngenes-env
 
       - name: Install Conda Build
         run: conda install conda-build anaconda-client

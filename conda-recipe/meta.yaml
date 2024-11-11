@@ -1,19 +1,20 @@
 # conda-recipe/meta.yaml
 package:
-  name: "syngenes"               # Package name
-  version: "1.0.6"               # Package version
+  name: "syngenes"               # Nome do pacote
+  version: "1.0.6"               # Versão do pacote
 
 source:
-  path: SynGenes/
+  path: SynGenes/                 # Caminho para o código-fonte. Certifique-se de que o diretório está no mesmo nível que `meta.yaml`.
 
 build:
-  noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  noarch: python                  # Indica que o pacote não é específico de uma arquitetura
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"  # Usa o pip para instalar, o `--no-deps` é adequado para evitar conflito de dependências
 
 requirements:
   host:
     - python >=3.10
     - pip
+    - setuptools
   run:
     - python >=3.10
     - requests

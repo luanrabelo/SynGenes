@@ -16,18 +16,18 @@ jobs:
           auto-update-conda: true
           python-version: '3.10'
 
+      - name: Install Conda Build and Anaconda Client
+        run: conda install -n base -c conda-forge conda-build anaconda-client
+
       - name: Create Conda environment
         run: conda env create --file environment.yml
 
-      - name: Activate Conda environment
-        shell: bash -l {0}
-        run: conda activate syngenes-env
-
-      - name: Install Conda Build
-        run: conda install conda-build anaconda-client
-
       - name: Build the Conda package
-        run: CONDA_NO_PLUGINS=true conda-build conda-recipe
+        shell: bash -l {0}  # Garantir o shell correto para o Conda
+        env:
+          CONDA_NO_PLUGINS: true
+        run: |
+          conda build conda-recipe
 
       - name: Upload package to Anaconda
         env:

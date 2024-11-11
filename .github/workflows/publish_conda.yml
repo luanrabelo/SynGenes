@@ -27,7 +27,7 @@ jobs:
         run: conda install conda-build anaconda-client
 
       - name: Build the Conda package
-        run: conda build conda-recipe
+        run: CONDA_NO_PLUGINS=true conda build conda-recipe
 
       - name: Upload package to Anaconda
         env:

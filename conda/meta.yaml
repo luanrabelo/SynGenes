@@ -4,7 +4,7 @@ package:
   version: "1.0.6"               # Package version
 
 source:
-  path: ../SynGenes/             # Path to the SynGenes source directory
+  path: SynGenes/
 
 build:
   noarch: python
@@ -12,10 +12,10 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python >=3.10
     - pip
   run:
-    - python >=3.6
+    - python >=3.10
     - requests
     - pandas
     - biopython

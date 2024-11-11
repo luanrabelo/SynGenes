@@ -24,10 +24,12 @@ jobs:
         run: conda activate syngenes-env
 
       - name: Install Conda Build
-        run: conda install conda-build anaconda-client
+        run: conda install -c conda-forge conda-build anaconda-client
 
       - name: Build the Conda package
-        run: CONDA_NO_PLUGINS=true conda-build conda-recipe
+        env:
+          CONDA_NO_PLUGINS: true
+        run: conda build conda-recipe
 
       - name: Upload package to Anaconda
         env:

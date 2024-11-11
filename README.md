@@ -8,6 +8,12 @@
   </a>
 </p>
 
+<<<<<<< HEAD
+[![Publish SynGenes Python Package ](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_pypi.yml/badge.svg)](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_pypi.yml) [![Publish SynGenes Python Anaconda ](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_conda.yml/badge.svg)](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_conda.yml)
+=======
+[![Publish SynGenes Python Package](https://github.com/luanrabelo/SynGenes/actions/workflows/publish.yml/badge.svg)](https://github.com/luanrabelo/SynGenes/actions/workflows/publish.yml)
+>>>>>>> 9e2d39d397f46f82968ddc45efecad75b55bfaf9
+
 # Contents Overview
 - [System Overview](#system-overview)
 - [License](#licence)

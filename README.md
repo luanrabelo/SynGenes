@@ -64,6 +64,10 @@ There are two ways to install **SynGenes**:
 ```shell
 pip install SynGenes
 ```
+or
+```shell
+pip install SynGenes --upgrade
+```
 > [!NOTE]
 > This command will install **SynGenes** and its **dependencies** in your **Python environment**.
 &nbsp;  
@@ -90,7 +94,7 @@ If it does not exist, it will attempt to create the **SynGenes directory** and *
 If verbose is **True**, status messages will be printed in the terminal to inform the user about the progress of these operations.
 
 #### Parameters:
-- `verbose (bool)`: If `True`, messages will be printed during execution. The default is `True`.
+- `verbose (bool)`: If `True`, messages will be printed during execution. The default is `False`.
 
 #### Returns:
 - `None`
@@ -102,7 +106,7 @@ If verbose is **True**, status messages will be printed in the terminal to infor
 #### Usage Example:
 ```python
 from SynGenes import SynGenes
-sg = SynGenes(verbose=True)
+sg = SynGenes(verbose=False)
 ```
 &nbsp;  
 ### `update`
@@ -116,7 +120,7 @@ Then, the function attempts to **download the latest version of the database fro
 If the verbose parameter is set to **True**, the function will print messages to the console to inform the user of the progress, including the removal of the old database and the download of the new one.
 
 #### Parameters:
-- `verbose (bool)`: If `True`, messages will be printed during execution. The default is `True`.
+- `verbose (bool)`: If `True`, messages will be printed during execution. The default is `False`.
 
 #### Returns:
 - The updated `SynGenes` database saved in the `SynGenes` folder.
@@ -146,7 +150,7 @@ The function provides verbose output if the verbose parameter is set to **True**
 #### Parameters:
 - `geneName (str)`: The gene name to be corrected.
 - `type (str)`: The type of gene (`mt` for Mitochondrial, `cp` for Chloroplast). The default is `mt`.
-- `verbose (bool)`: If set to `True`, messages will be printed during execution. The default is `True`.
+- `verbose (bool)`: If set to `True`, messages will be printed during execution. The default is `False`.
 
 #### Returns:
 - `ShortName (str)`: The corrected gene name.
@@ -185,7 +189,7 @@ If the verbose parameter is **True**, the function will print informative messag
 - `geneName (str)`: The gene name to search. The gene name must be in the correct format; use the `fix_gene_name()` function to correct the gene name.
 - `type (str)`: The type of gene (`mt` for Mitochondrial, `cp` for Chloroplast). The default is `mt`.
 - `searchType (str)`: The type of search (Title, Abstract, All Fields, MeSH Terms). The default is All Fields.
-- `verbose (bool)`: If `True`, messages will be printed during execution. The default is `True`.
+- `verbose (bool)`: If `True`, messages will be printed during execution. The default is `False`.
 
 #### Returns:
 - `query (str)`: The query for Entrez search in GenBank or PubMed.
@@ -221,7 +225,7 @@ It also records the date when the file was updated. The verbose output will noti
 #### Parameters:
 - `fileName (str)`: The name of the JSON file. The default is `SynGenes.js`.
 - `pathSaveFile (str)`: The path where the JSON file will be saved. The default is the `SynGenes` folder in the current working directory.
-- `verbose (bool)`: If set to `True`, messages will be printed during execution. The default is `True`.
+- `verbose (bool)`: If set to `True`, messages will be printed during execution. The default is `False`.
 
 #### Returns:
 - A `SynGenes.js` file in the `SynGenes` folder.

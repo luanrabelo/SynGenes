@@ -1,12 +1,14 @@
 from setuptools import setup
 
-with open("README.md", "r") as fh:
+with open("README.md", "r", encoding="utf-8") as fh:
     Readme = fh.read()
 
 setup(
     name = 'SynGenes',
-    version = '1.0.2',
-    description = 'SynGenes is a Python class for standardizing Mitochondrial or Chloroplast gene nomenclatures, this class is capable of recognizing and converting the different nomenclature variations into a standardized form.',
+    version = '1.0.5',
+    description = (
+        'SynGenes is a Python class for standardizing mitochondrial/chloroplast gene nomenclatures.'
+        ),
     long_description = Readme,
     long_description_content_type="text/markdown",
     author = 'Luan Rabelo',

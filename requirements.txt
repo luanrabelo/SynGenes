@@ -1,4 +1,5 @@
 requests
 pandas
+biopython
 openpyxl
 SynGenes

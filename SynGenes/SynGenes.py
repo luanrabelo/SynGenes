@@ -1,19 +1,25 @@
-__author__      = "Luan Rabelo"
-__license__     = "MIT"
-__version__     = "1.0.2"
-__maintainer__  = "Luan Rabelo"
-__email__       = "luanrabelo@outlook.com"
-__date__        = "2024/01/01"
-__twitter__     = "lprabelo"
-__github__      = "luanrabelo/SynGenes"
-__status__      = "Stable"
-__tool__        = "SynGenes"
-
-import os 
+import os
 import sys
 import time
+import subprocess
+
+__author__ = "Luan Rabelo"
+__license__ = "MIT"
+__version__ = "1.0.5"
+__maintainer__ = "Luan Rabelo"
+__email__ = "luanrabelo@outlook.com"
+__date__ = "2024/01/01"
+__twitter__ = "lprabelo"
+__github__ = "luanrabelo/SynGenes"
+__status__ = "Stable"
+__tool__ = "SynGenes"
+__coffee__ = "https://www.buymeacoffee.com/lprabelo"
 
 class TerminalColors:
+    """
+    ### `TerminalColors`: a Python class for terminal colors.
+    ## `Created by Luan Rabelo, 2023`
+    """
     Header      = '\033[95m'
     Blue        = '\033[94m'
     Cyan        = '\033[96m'
@@ -26,58 +32,121 @@ class TerminalColors:
 
 try:
     import requests
-    print(f"{TerminalColors.Green}Module 'Requests' found and imported!{TerminalColors.End}")
+    print(
+        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+        f"{TerminalColors.Green}Module 'Requests' found and imported!{TerminalColors.End}"
+    )
 except ImportError:
-    print(f"{TerminalColors.Fail}Module 'Requests' not found, please install it with: pip install requests{TerminalColors.End}")
-    print(f"{TerminalColors.Warning}{TerminalColors.Underline}Do you want to install it now? (yes/no){TerminalColors.End}")
-    Choice = str(input())
-    if Choice.lower() == 'y' or Choice.lower() == 'yes':
-        os.system('pip install requests')
-        print(f"{TerminalColors.Green}Module 'Requests' installed successfully!{TerminalColors.End}")
+    print(
+        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+        f"{TerminalColors.Fail}Module 'Requests' not found! {TerminalColors.End}"
+        f"{TerminalColors.Warning}Please install it with: pip install requests{TerminalColors.End}"
+    )
+    choice = input(
+        f"{TerminalColors.Warning}{TerminalColors.Underline}"
+        "Do you want to install it now? (yes/no)"
+        f"{TerminalColors.End}"
+    ).strip().lower()
+    if choice in ['y', 'yes', 's']:
+        print(
+            f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+            f"{TerminalColors.Green}Installing 'Requests', please wait...{TerminalColors.End}"
+        )
         try:
+            subprocess.run(['pip', 'install', 'requests'], check=True)
+            print(
+                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                f"{TerminalColors.Green}"
+                f"Module 'Requests' installed successfully!"
+                f"{TerminalColors.End}"
+            )
             import requests
-            print(f"{TerminalColors.Green}Module 'Requests' found and imported!{TerminalColors.End}")
-        except ImportError:
-            print(f"{TerminalColors.Fail}Module 'Requests' not found, please reinstall it with: pip install requests{TerminalColors.End}")
-            sys.exit()
+            print(
+                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                f"{TerminalColors.Green}Module 'Requests' found and imported!{TerminalColors.End}"
+            )
+        except subprocess.CalledProcessError:
+            print(
+                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                f"{TerminalColors.Fail}Failed to install 'Requests'. "
+                f"Please try installing it manually with: pip install requests{TerminalColors.End}"
+            )
+            sys.exit(1)
     else:
-        print(f"{TerminalColors.Fail}Installation 'Requests' aborted!{TerminalColors.End}")
+        print(
+            f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+            f"{TerminalColors.Fail}Installation 'Requests' aborted!{TerminalColors.End}"
+        )
+        sys.exit(1)
 
 try:
     import pandas as pd
-    print(f"{TerminalColors.Green}Module 'Pandas' found and imported!{TerminalColors.End}")
+    print(
+        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+        f"{TerminalColors.Green}Module 'Pandas' found and imported!{TerminalColors.End}"
+    )
 except ImportError:
-    print(f"{TerminalColors.Fail}Module 'Pandas' not found, please install it with: pip install pandas{TerminalColors.End}")
-    print(f"{TerminalColors.Warning}{TerminalColors.Underline}Do you want to install it now? (yes/no){TerminalColors.End}")
-    Choice = str(input())
-    if Choice.lower() == 'y' or Choice.lower() == 'yes':
-        os.system('pip install pandas')
-        print(f"{TerminalColors.Green}Module 'Pandas' installed successfully!{TerminalColors.End}")
+    print(
+        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+        f"{TerminalColors.Fail}Module 'Pandas' not found! {TerminalColors.End}"
+        f"{TerminalColors.Warning}Please install it with: pip install pandas{TerminalColors.End}"
+    )
+    choice = input(
+        f"{TerminalColors.Warning}{TerminalColors.Underline}"
+        "Do you want to install it now? (yes/no)"
+        f"{TerminalColors.End}"
+    ).strip().lower()
+    if choice in ['y', 'yes', 's']:
+        print(
+            f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+            f"{TerminalColors.Green}Installing 'Pandas', please wait...{TerminalColors.End}"
+        )
         try:
+            subprocess.run(['pip', 'install', 'pandas'], check=True)
+            print(
+                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                f"{TerminalColors.Green}"
+                f"Module 'Pandas' installed successfully!"
+                f"{TerminalColors.End}"
+            )
             import pandas as pd
-            print(f"{TerminalColors.Green}Module 'Pandas' found and imported!{TerminalColors.End}")
-        except ImportError:
-            print(f"{TerminalColors.Fail}Module 'Pandas' not found, please reinstall it with: pip install pandas{TerminalColors.End}")
-            sys.exit()
+            print(
+                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                f"{TerminalColors.Green}Module 'Pandas' found and imported!{TerminalColors.End}"
+            )
+        except subprocess.CalledProcessError:
+            print(
+                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                f"{TerminalColors.Fail}"
+                f"Failed to install 'Pandas'. "
+                f"Please try installing it manually with: pip install pandas"
+                f"{TerminalColors.End}"
+            )
+            sys.exit(1)
     else:
-        print(f"{TerminalColors.Fail}Installation 'Pandas' aborted!{TerminalColors.End}")
+        print(
+            f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+            f"{TerminalColors.Fail}Installation 'Pandas' aborted!{TerminalColors.End}"
+        )
+        sys.exit(1)
 
 class SynGenes:
     """
-        ### `SynGenes`: a Python class for standardizing mitochondrial and chloroplast gene nomenclatures.
-        ## `Created by Luan Rabelo and Marcelo Vallinoto, 2023`
+        # `SynGenes`: a Python class for standardizing mitochondrial/chloroplast gene nomenclatures.
+        ## `Created by Luan Rabelo and Marcelo Vallinoto, 2024`
 
         ---
         This class is used to standardize mitochondrial and chloroplast gene nomenclatures.
-        It uses the `SynGenes` database to fix gene names and build queries for Entrez search in `GenBank` or `PubMedCentral`.
+        It uses the `SynGenes` database to fix gene names and 
+        build queries for Entrez search in `GenBank` or `PubMedCentral`.
         
         Functions:
-            - `updateSynGenes()`: Download SynGenes database from GitHub repository (stable branch).
-            - `fixGeneName()`: Fix gene name according to the SynGenes database.
-            - `buildQuery()`: Build a query for Entrez search.
-            - `buildJson()`: Build a JSON file with the SynGenes database.
-            - `citeSynGenes()`: Citation for SynGenes database.
-            - `versionSynGenes()`: Version of SynGenes database.
+            - `update()`: Download SynGenes database from GitHub repository (stable branch).
+            - `fix_gene_name()`: Fix gene name according to the SynGenes database.
+            - `build_query()`: Build a query for Entrez search.
+            - `build_json()`: Build a JSON file with the SynGenes database.
+            - `version_syngenes()`: Version of SynGenes database.
+            - `cite_syngenes()`: Citation for SynGenes database.
 
         Note:
             - This class requires the 'requests' and 'pandas' libraries to be imported.
@@ -89,21 +158,21 @@ class SynGenes:
         >>> # Start SynGenes class
         >>> sg = SynGenes()
         >>> # Update SynGenes database from GitHub repository (stable branch)
-        >>> sg.updateSynGenes()
+        >>> sg.update()
         >>> # Fix gene name according to the SynGenes database
-        >>> _gene = sg.fixGeneName(geneName='cytochrome c oxidase subunit I', type='mt')
+        >>> _gene = sg.fix_gene_name(geneName='cytochrome c oxidase subunit I', type='mt')
         >>> print(_gene) # return 'COI'
         >>> # Build a query for Entrez search
-        >>> _query = sg.buildQuery(geneName='COI', type='mt', searchType='Title')
-        >>> print(_query) # return '"COI"[Title] OR "cytochrome c oxidase subunit I"[Title] OR "cytochrome c oxidase subunit 1"[Title]...'
+        >>> _query = sg.build_query(geneName='COI', type='mt', searchType='Title')
+        >>> print(_query) # return '"COI"[Title] OR "cytochrome c oxidase subunit I"[Title]...'
         >>> # Build a JSON file with the SynGenes database
-        >>> sg.buildJson()
+        >>> sg.build_json()
         ```
         """
     # Link to SynGenes database in GitHub repository (stable branch)
-    dataLink = "https://raw.githubusercontent.com/luanrabelo/SynGenes/stable/dbSynGenes/SynGenes.xlsx"
+    link = "https://raw.githubusercontent.com/luanrabelo/SynGenes/stable/dbSynGenes/SynGenes.xlsx"
     # Current working directory path (where the script where imported is located)
-    cwdPath  = os.getcwd()
+    cwd_path = os.getcwd()
 
     def __init__(self, **kwargs):
         """
@@ -127,46 +196,85 @@ class SynGenes:
         >>> sg = SynGenes()
         ```
         """
-        Verbose = kwargs.get('verbose', True) # Get verbose from kwargs
-
-        if not os.path.exists(f'{SynGenes.cwdPath}/SynGenes/SynGenes.xlsx') or not os.path.isfile(f'{SynGenes.cwdPath}/SynGenes/SynGenes.xlsx'):
-            if Verbose == True:
-                print(f"{TerminalColors.Warning}SynGenes database not found in {SynGenes.cwdPath}{TerminalColors.End}!\n")
-                print(f"{TerminalColors.Warning}Creating folder 'SynGenes' in {SynGenes.cwdPath}{TerminalColors.End}")
+        verbose = kwargs.get('verbose', False) # Get verbose from kwargs
+        if not os.path.exists(
+            f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx'
+            ) or not os.path.isfile(
+                f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx'
+                ):
+            if verbose:
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Warning}"
+                    f"SynGenes database not found in {SynGenes.cwd_path}"
+                    f"{TerminalColors.End}!\n"
+                    )
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Warning}"
+                    f"Creating folder 'SynGenes' in {SynGenes.cwd_path}"
+                    f"{TerminalColors.End}"
+                    )
             try:
-                os.makedirs(f'{SynGenes.cwdPath}/SynGenes', exist_ok=True, mode=0o777)
-                if Verbose == True:
-                    print(f"{TerminalColors.Green}Folder 'SynGenes' was created successfully ({time.strftime('%Y/%m/%d - %H:%M:%S')})!\n{TerminalColors.End}")
-            except:
-                if Verbose == True:
-                    print(f"{TerminalColors.Fail}Error creating folder 'SynGenes'! Verify if you have permission to create folders in this directory.{TerminalColors.End}")
-                sys.exit()
-            if Verbose == True:
-                print(f'{TerminalColors.Warning}Downloading SynGenes database from https://github.com/luanrabelo/SynGenes, please wait...{TerminalColors.End}')
-            FileName = f'{SynGenes.cwdPath}/SynGenes/SynGenes.xlsx'
-            download = requests.get(SynGenes.dataLink, stream=True)
+                os.makedirs(f'{SynGenes.cwd_path}/SynGenes', exist_ok=True, mode=0o777)
+                if verbose:
+                    print(
+                        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                        f"{TerminalColors.Green}"
+                        f"Folder 'SynGenes' was created successfully!\n"
+                        f"{TerminalColors.End}"
+                        )
+            except PermissionError as e:
+                if verbose:
+                    print(
+                        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                        f"{TerminalColors.Fail}"
+                        f"Error creating folder 'SynGenes'!"
+                        f"Verify if you have permission to create folders in this directory."
+                        f"{e}"
+                        f"{TerminalColors.End}"
+                        )
+                sys.exit(1)
+            if verbose:
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f'{TerminalColors.Warning}'
+                    f"Downloading SynGenes database, please wait..."
+                    f'{TerminalColors.End}'
+                    )
+            file_name = f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx'
+            download = requests.get(SynGenes.link, stream=True, timeout=30)
             if download.ok:
-                with open(FileName, 'wb') as f:
+                with open(file_name, 'wb') as f:
                     for chunk in download.iter_content(chunk_size=1024*16):
                         if chunk:
                             f.write(chunk)
                             f.flush()
                             os.fsync(f.fileno())
-                if Verbose == True:
-                    print(f'{TerminalColors.Green}Downloaded SynGenes database successfully ({time.strftime("%Y/%m/%d - %H:%M:%S")})!\n{TerminalColors.End}')
+                if verbose:
+                    print(
+                        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                        f'{TerminalColors.Green}'
+                        f"Downloaded SynGenes database successfully!\n"
+                        f'{TerminalColors.End}')
             else:
-                if Verbose == True:
-                    print(f'{TerminalColors.Fail}Download SynGenes database failed: status code {download.status_code} - {download.text}{TerminalColors.End}')
-                sys.exit()
+                if verbose:
+                    print(
+                        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                        f'{TerminalColors.Fail}'
+                        f'Download database failed: {download.status_code} - {download.text}'
+                        f'{TerminalColors.End}'
+                        )
+                sys.exit(1)
 
-    def updateSynGenes(self, **kwargs):
+    def update(self, **kwargs):
         """
         ### Download `SynGenes` database from GitHub repository (stable branch).
         This function downloads the SynGenes database from the GitHub repository (stable branch) and saves it in the SynGenes folder.
         ---
     
         Parameters:
-            - `verbose (bool)`: Print messages (True or False). Default is True.
+            - `verbose (bool)`: Print messages (True or False). Default is False.
 
         Returns:
             - Downloaded SynGenes database in SynGenes folder.
@@ -179,54 +287,115 @@ class SynGenes:
         ```python
         >>> from SynGenes import SynGenes
         >>> sg = SynGenes()
-        >>> sg.updateSynGenes()
+        >>> sg.update()
         ```
         """
-        Verbose = kwargs.get('verbose', True) # Get verbose from kwargs
-
-        if os.path.exists(f'{SynGenes.cwdPath}/SynGenes/SynGenes.xlsx') or os.path.isfile(f'{SynGenes.cwdPath}/SynGenes/SynGenes.xlsx'):
-            if Verbose == True:
-                print(f"{TerminalColors.Warning}SynGenes database found in {SynGenes.cwdPath}{TerminalColors.End}!\n")
-                print(f"{TerminalColors.Warning}Removing old SynGenes database...{TerminalColors.End}")
+        verbose = kwargs.get('verbose', False) # Get verbose from kwargs
+        if os.path.exists(
+            f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx'
+            ) or os.path.isfile(
+                f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx'
+                ):
+            if verbose:
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Warning}"
+                    f"SynGenes database found in {SynGenes.cwd_path}"
+                    f"{TerminalColors.End}!\n"
+                    )
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Warning}"
+                    f"Removing old SynGenes database..."
+                    f"{TerminalColors.End}"
+                    )
             try:
-                os.remove(f'{SynGenes.cwdPath}/SynGenes/SynGenes.xlsx')
-                if Verbose == True:
-                    print(f"{TerminalColors.Green}Old SynGenes database removed successfully!\n{TerminalColors.End}")
-            except:
-                if Verbose == True:
-                    print(f"{TerminalColors.Fail}Error removing old SynGenes database! Verify if you have permission to remove files in this directory.{TerminalColors.End}")
-                sys.exit()
+                os.remove(f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx')
+                if verbose:
+                    print(
+                        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                        f"{TerminalColors.Green}"
+                        f"Old SynGenes database removed successfully!\n"
+                        f"{TerminalColors.End}"
+                        )
+            except PermissionError as e:
+                if verbose:
+                    print(
+                        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                        f"{TerminalColors.Fail}"
+                        f"Error removing old SynGenes database!"
+                        f"Verify if you have permission to remove files in this directory."
+                        f"{e}"
+                        f"{TerminalColors.End}"
+                        )
+                sys.exit(1)
         else:
-            if Verbose == True:
-                print(f"{TerminalColors.Warning}SynGenes database not found in {SynGenes.cwdPath}{TerminalColors.End}!\n")
-                print(f"{TerminalColors.Warning}Creating folder 'SynGenes' in {SynGenes.cwdPath}{TerminalColors.End}")
+            if verbose:
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Warning}"
+                    f"SynGenes database not found in {SynGenes.cwd_path}"
+                    f"{TerminalColors.End}!\n"
+                    )
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Warning}"
+                    f"Creating folder 'SynGenes' in {SynGenes.cwd_path}"
+                    f"{TerminalColors.End}"
+                    )
             try:
                 os.makedirs('SynGenes', exist_ok=True, mode=0o777)
-                if Verbose == True:
-                    print(f"{TerminalColors.Green}Folder 'SynGenes' created successfully ({time.strftime('%Y/%m/%d - %H:%M:%S')})!\n{TerminalColors.End}")
-            except:
-                if Verbose == True:
-                    print(f"{TerminalColors.Fail}Error creating folder 'SynGenes'! Verify if you have permission to create folders in this directory.{TerminalColors.End}")
-                sys.exit()
-
-        print(f'{TerminalColors.Warning}Downloading SynGenes database from https://github.com/luanrabelo/SynGenes, please wait...{TerminalColors.End}')
-        _fileName = f'{SynGenes.cwdPath}/SynGenes/SynGenes.xlsx'
-        download = requests.get(SynGenes.dataLink, stream=True)
+                if verbose:
+                    print(
+                        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                        f"{TerminalColors.Green}"
+                        f"Folder 'SynGenes' created successfully!\n"
+                        f"{TerminalColors.End}"
+                        )
+            except PermissionError as e:
+                if verbose:
+                    print(
+                        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                        f"{TerminalColors.Fail}"
+                        f"Error creating folder 'SynGenes'!"
+                        f"Verify if you have permission to create folders in this directory."
+                        f"{e}"
+                        f"{TerminalColors.End}"
+                        )
+                sys.exit(1)
+        print(
+            f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+            f'{TerminalColors.Warning}'
+            f'Downloading SynGenes database, please wait...'
+            f'{TerminalColors.End}'
+            )
+        file_name = f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx'
+        download = requests.get(SynGenes.link, stream=True, timeout=30)
         if download.ok:
-            with open(_fileName, 'wb') as f:
+            with open(file_name, 'wb') as f:
                 for chunk in download.iter_content(chunk_size=1024*16):
                     if chunk:
                         f.write(chunk)
                         f.flush()
                         os.fsync(f.fileno())
-            if Verbose == True:
-                print(f'{TerminalColors.Green}Downloaded SynGenes database successfully ({time.strftime("%Y/%m/%d - %H:%M:%S")})!\n{TerminalColors.End}')
+            if verbose:
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f'{TerminalColors.Green}'
+                    f'Downloaded SynGenes database successfully!\n'
+                    f'{TerminalColors.End}'
+                    )
         else:
-            if Verbose == True:
-                print(f'{TerminalColors.Fail}Download SynGenes database failed: status code {download.status_code} - {download.text}{TerminalColors.End}')
-            sys.exit()
+            if verbose:
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f'{TerminalColors.Fail}'
+                    f'Download database failed: {download.status_code} - {download.text}'
+                    f'{TerminalColors.End}'
+                    )
+            sys.exit(1)
 
-    def fixGeneName(self, **kwargs):
+    def fix_gene_name(self, **kwargs):
         """
         ### Fix Gene Name according to the `SynGenes` database.
         ---
@@ -234,7 +403,7 @@ class SynGenes:
         Parameters:
             - `geneName (str)`: The gene name to be corrected.
             - `type (str)`: Type of gene (mt = Mitochondrial, cp = Chloroplast). Default is mt.
-            - `verbose (bool)`: Print messages (True or False). Default is True.
+            - `verbose (bool)`: Print messages (True or False). Default is False.
 
         Returns:
             - `ShortName (str)`: Fixed gene name.
@@ -247,56 +416,100 @@ class SynGenes:
         ```python
         >>> from SynGenes import SynGenes
         >>> sg = SynGenes()
-        >>> _geneName = sg.fixGeneName(geneName='cytochrome c oxidase subunit I', type='mt')
+        >>> _geneName = sg.fix_gene_name(geneName='cytochrome c oxidase subunit I', type='mt')
         >>> print(_geneName)
         'COI'
         """
+        full_name = kwargs.get('geneName', '')      # Get geneName from kwargs
+        organelle = kwargs.get('type', 'mt')        # Get type from kwargs
+        verbose = kwargs.get('verbose', False)     # Get verbose from kwargs
 
-        FullName  = kwargs.get('geneName', '')      # Get geneName from kwargs
-        Organelle = kwargs.get('type', 'mt')        # Get type from kwargs
-        Verbose   = kwargs.get('verbose', True)     # Get verbose from kwargs
+        if organelle == 'mt': # mt = Mitochondrial
+            df = pd.DataFrame(
+                pd.read_excel(
+                    f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx',
+                    sheet_name="Mitochondrial", dtype=str)).reset_index()
+        elif organelle == 'cp': # cp = Chloroplast
+            df = pd.DataFrame(
+                pd.read_excel(
+                    f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx',
+                    sheet_name="Chloroplast", dtype=str)).reset_index()
+        else:
+            print(
+                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                f"{TerminalColors.Fail}"
+                f"Error! Organelle {organelle} not found in SynGenes database!"
+                f"{TerminalColors.End}"
+                )
+            print(
+                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                f"{TerminalColors.Warning}"
+                f"Please, insert a valid type!"
+                f"mt for Mitochondrial or cp for Chloroplast"
+                f"{TerminalColors.End}"
+                )
+            sys.exit(1) 
+        list_full_name = df['Full Name'].values.tolist()     # Convert DataFrame column to list
+        list_short_name = df['Short Name'].values.tolist()    # Convert DataFrame column to list
+        if verbose:
+            print(
+                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                f"{TerminalColors.Warning}"
+                f"Searching for '{full_name}' in SynGenes database..."
+                f"{TerminalColors.End}"
+                )
+        if full_name in list_full_name:
+            local = list_full_name.index(full_name)
+            short_name = list_short_name[local]
+            if verbose:
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Green}"
+                    f"Gene '{full_name}' found in SynGenes database!"
+                    f"{TerminalColors.End}"
+                    )
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Warning}"
+                    f"Gene '{full_name}' renamed to '{short_name}'!"
+                    f"{TerminalColors.End}"
+                    )
+        else:
+            short_name = full_name # If FullName not found in ListFullName, ShortName = FullName
+            if verbose:
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Fail}"
+                    f"'{short_name}' not found in SynGenes database!"
+                    f"{TerminalColors.End}"
+                    )
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Warning}"
+                    f"Adding '{short_name}' to SynGenes.log"
+                    f"{TerminalColors.End}"
+                    )
+            with open(f"{SynGenes.cwd_path}SynGenes.log", "a+", encoding="utf-8") as f:
+                f.write(f"{short_name}\n")
+            if verbose:
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Green}"
+                    f"Gene '{short_name}' added to SynGenes.log"
+                    f"{TerminalColors.End}"
+                    )
+        return str(short_name)
 
-        if Organelle == 'mt': # mt = Mitochondrial
-            df = pd.DataFrame(pd.read_excel(f'{SynGenes.cwdPath}/SynGenes/SynGenes.xlsx', sheet_name="Mitochondrial", dtype=str)).reset_index()
-        elif Organelle == 'cp': # cp = Chloroplast
-            df = pd.DataFrame(pd.read_excel(f'{SynGenes.cwdPath}/SynGenes/SynGenes.xlsx', sheet_name="Chloroplast", dtype=str)).reset_index()
-        else:
-            print(f"{TerminalColors.Fail}Error! Organelle {Organelle} not found in SynGenes database!{TerminalColors.End}")
-            print(f"{TerminalColors.Warning}Please, insert a valid type! mt for Mitochondrial or cp for Chloroplast{TerminalColors.End}")
-            sys.exit()
-                
-        ListFullName  = df['Full Name'].values.tolist()     # Convert DataFrame column to list
-        ListShortName = df['Short Name'].values.tolist()    # Convert DataFrame column to list
-        if Verbose == True:
-            print(f"{TerminalColors.Warning}Searching for '{FullName}' in SynGenes database...{TerminalColors.End}")
-        if FullName in ListFullName:
-            Local       = ListFullName.index(FullName)  # Get index of FullName in ListFullName
-            ShortName   = ListShortName[Local]          # Get ShortName in ListShortName using index of FullName
-            if Verbose == True:
-                print(f"{TerminalColors.Green}Gene '{FullName}' found in SynGenes database!{TerminalColors.End}")
-                print(f"{TerminalColors.Warning}Gene '{FullName}' renamed to '{ShortName}'!{TerminalColors.End}")
-        else:
-            ShortName = FullName # If FullName not found in ListFullName, ShortName = FullName
-            if Verbose == True:
-                print(f"{TerminalColors.Fail}'{ShortName}' not found in SynGenes database{TerminalColors.End}")
-                print(f"{TerminalColors.Warning}Adding '{ShortName}' to SynGenes.log{TerminalColors.End}")
-            with open(f"{SynGenes.cwdPath}SynGenes.log", "a+") as f:
-                f.write(f"{ShortName}\n")
-            if Verbose == True:
-                print(f"{TerminalColors.Green}Gene '{ShortName}' added to SynGenes.log{TerminalColors.End}")
-        
-        return str(ShortName)
-    
-    def buildQuery(self, **kwargs):
+    def build_query(self, **kwargs):
         """
         ### Build a `query` for Entrez search.
         ---
-
         Parameters:
-            - `geneName (str)`: Gene name to search. Gene Name must be in the correct format, use the function fixGeneName() to fix the gene name.
+            - `geneName (str)`: Gene name to search. 
+            - Gene Name must be in the correct format, use the function fix_gene_name() to fix.
             - `type (str)`: Type of gene (mt = Mitochondrial, cp = Chloroplast). Default is mt.
-            - `searchType (str)`: Type of search (Title, Abstract, All Fields, MeSH Terms). Default is All Fields.
-            - `verbose (bool)`: Print messages (True or False). Default is True.
+            - `searchType (str)`: Type of search (Title, Abstract, All Fields, MeSH Terms)
+            - `verbose (bool)`: Print messages (True or False). Default is False.
 
         Returns:
             - `query (str)`: Query for Entrez search in GenBank or PubMed.
@@ -309,62 +522,156 @@ class SynGenes:
         ```python
         >>> from SynGenes import SynGenes
         >>> sg = SynGenes()
-        >>> query = sg.buildQuery(geneName='cytochrome c oxidase subunit I', type='mt', searchType='Title')
+        >>> query = sg.build_query(
+                    geneName='cytochrome c oxidase subunit I',
+                    type='mt',
+                    searchType='Title'
+                    )
         >>> print(query)
-        '"COI"[Title] OR "cytochrome c oxidase subunit I"[Title] OR "cytochrome c oxidase subunit 1"[Title] OR "chytochrome c oxidase subunit I"[Title]...'
+        '"COI"[Title] OR "cytochrome c oxidase subunit I"[Title]...'
         ```
         """
-        _listGenes_mt   = ["12S", "16S", "ATP6", "ATP8", "COI", "COII", "COIII", "CYTB", "ND1", "ND2", "ND3", "ND4", "ND4L", "ND5", "ND6", "Control Region"]
-        _listGenes_cp   = ['accD', 'atpA', 'atpB', 'atpE', 'atpF', 'atpH', 'atpI', 'ccsA', 'cemA', 'chlB', 'chlL', 'chlN', 'clpP', 'clpP1', 'cysA', 'cysT', 'ftsH', 'infA', 'lhbA', 'matK', 'matk', 'ndhA', 'ndhB', 'ndhC', 'ndhD', 'ndhE', 'ndhF', 'ndhG', 'ndhH', 'ndhI', 'ndhJ', 'ndhK', 'pafI', 'pafII', 'pbf1', 'petA', 'petB', 'petD', 'petE', 'petG', 'petL', 'petN', 'psaA', 'psaB', 'psaC', 'psaI', 'psaJ', 'psaM', 'psb30', 'psbA', 'psbB', 'psbC', 'psbD', 'psbE', 'psbF', 'psbG', 'psbH', 'psbI', 'psbJ', 'psbK', 'psbL', 'psbM', 'psbN', 'psbT', 'psbZ', 'rbcL', 'rpl14', 'rpl16', 'rpl2', 'rpl20', 'rpl21', 'rpl22', 'rpl23', 'rpl32', 'rpl33', 'rpl36', 'rpoA', 'rpoB', 'rpoC1', 'rpoC2', 'rps11', 'rps12', 'rps14', 'rps15', 'rps16', 'rps18', 'rps19', 'rps2', 'rps3', 'rps4', 'rps7', 'rps8', 'rrn16S', 'rrn23S', 'rrn4.5S', 'rrn5S', 'tRNA-Asp', 'tRNA-Cys', 'tRNA-Gln', 'tRNA-Glu', 'tRNA-Gly', 'tRNA-Ile', 'tRNA-Leu', 'tRNA-Lys', 'tRNA-Met', 'tRNA-Phe', 'tRNA-Pro', 'tRNA-Ser', 'tRNA-Thr', 'tRNA-Trp', 'tRNA-Tyr', 'tRNA-Ala', 'tRNA-Val', 'tRNA-His', 'tRNA-Asn', 'tRNA-Arg', 'tRNA-Sec', 'ycf1', 'ycf12', 'ycf15', 'ycf2', 'ycf3', 'ycf4']
-        _listTypes      = ["Title", "Abstract", "All Fields", "MeSH Terms"]
+        list_genes_mt = [
+            "12S", "16S",
+            "ATP6", "ATP8",
+            "COI", "COII", "COIII",
+            "CYTB",
+            "ND1", "ND2", "ND3", "ND4", "ND4L", "ND5", "ND6",
+            "Control Region"
+            ]
+        list_genes_cp = [
+            'accD', 'atpA', 'atpB', 'atpE', 'atpF', 'atpH',
+            'atpI', 'ccsA', 'cemA', 'chlB', 'chlL', 'chlN',
+            'clpP', 'clpP1', 'cysA', 'cysT', 'ftsH', 'infA',
+            'lhbA', 'matK', 'matk', 'ndhA', 'ndhB', 'ndhC',
+            'ndhD', 'ndhE', 'ndhF', 'ndhG', 'ndhH', 'ndhI',
+            'ndhJ', 'ndhK', 'pafI', 'pafII', 'pbf1', 'petA',
+            'petB', 'petD', 'petE', 'petG', 'petL', 'petN',
+            'psaA', 'psaB', 'psaC', 'psaI', 'psaJ', 'psaM',
+            'psb30', 'psbA', 'psbB', 'psbC', 'psbD', 'psbE',
+            'psbF', 'psbG', 'psbH', 'psbI', 'psbJ', 'psbK',
+            'psbL', 'psbM', 'psbN', 'psbT', 'psbZ', 'rbcL',
+            'rpl14', 'rpl16', 'rpl2', 'rpl20', 'rpl21',
+            'rpl22', 'rpl23', 'rpl32', 'rpl33', 'rpl36',
+            'rpoA', 'rpoB', 'rpoC1', 'rpoC2', 'rps11',
+            'rps12', 'rps14', 'rps15', 'rps16', 'rps18',
+            'rps19', 'rps2', 'rps3', 'rps4', 'rps7', 'rps8',
+            'rrn16S', 'rrn23S', 'rrn4.5S', 'rrn5S', 'ycf1', 
+            'ycf12', 'ycf15', 'ycf2', 'ycf3', 'ycf4'
+            ]
+        list_types = ["Title", "Abstract", "All Fields", "MeSH Terms"]
 
-        _listQuery      = []                                            # List of queries
-        _geneName       = str(kwargs.get('geneName', ''))               # Get geneName from kwargs
-        _organelle      = str(kwargs.get('type', "mt"))                 # Get type from kwargs and convert to lowercase
-        _strTypes       = str(kwargs.get('searchType', "All Fields"))   # Get searchType from kwargs
-        _verbose        = kwargs.get('verbose', True)                   # Get verbose from kwargs
+        list_query = []
+        gene_name = str(kwargs.get('geneName', ''))
+        organelle = str(kwargs.get('type', "mt"))
+        str_types = str(kwargs.get('searchType', "All Fields"))
+        verbose = kwargs.get('verbose', False)
 
-        if _geneName in _listGenes_mt or _geneName in _listGenes_cp: # Check if geneName is in the correct format
-            print(f"{TerminalColors.Warning}Gene '{_geneName}' is already in the correct format!{TerminalColors.End}")
-            if _organelle == 'mt':
-                _file       = pd.read_excel(f'{SynGenes.cwdPath}/SynGenes/SynGenes.xlsx', sheet_name='Mitochondrial')
-            elif _organelle == 'cp':
-                _file       = pd.read_excel(f'{SynGenes.cwdPath}/SynGenes/SynGenes.xlsx', sheet_name='Chloroplast')
+        if gene_name in list_genes_mt or gene_name in list_genes_cp:
+            print(
+                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                f"{TerminalColors.Warning}"
+                f"Gene '{gene_name}' is already in the correct format!"
+                f"{TerminalColors.End}"
+                )
+            if organelle == 'mt':
+                _file       = pd.read_excel(
+                    f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx',
+                    sheet_name='Mitochondrial')
+            elif organelle == 'cp':
+                _file       = pd.read_excel(
+                    f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx',
+                    sheet_name='Chloroplast')
             else:
-                print(f"{TerminalColors.Fail}Please, insert a valid type! mt for Mitochondrial or cp for Chloroplast{TerminalColors.End}")
-                sys.exit()
-
-            if _strTypes in _listTypes:
-                if _verbose == True:
-                    print(f"{TerminalColors.Warning}Type '{_strTypes}' is already in the correct format!{TerminalColors.End}")
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Fail}"
+                    f"Please, insert a valid type! mt for Mitochondrial or cp for Chloroplast"
+                    f"{TerminalColors.End}"
+                    )
+                sys.exit(1)
+            if str_types in list_types:
+                if verbose:
+                    print(
+                        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                        f"{TerminalColors.Warning}"
+                        f"Type '{str_types}' is already in the correct format!"
+                        f"{TerminalColors.End}"
+                        )
                 else:
-                    if _verbose == True:
-                        print(f"{TerminalColors.Warning}Type '{_strTypes}' is not in the correct format!{TerminalColors.End}")
-                        print(f"{TerminalColors.Warning}Correct format is {_listTypes}{TerminalColors.End}")
-                    sys.exit()
-
+                    if verbose:
+                        print(
+                            f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                            f"{TerminalColors.Warning}"
+                            f"Type '{str_types}' is not in the correct format!"
+                            f"{TerminalColors.End}"
+                            )
+                        print(
+                            f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                            f"{TerminalColors.Warning}"
+                            f"Correct format is {list_types}"
+                            f"{TerminalColors.End}"
+                            )
+                    sys.exit(1)
                 for index, row in _file.iterrows():
-                    if row['Short Name'] == _geneName and row['Short Name'] not in _listQuery:
-                        fullName = row['Full Name']
-                        _listQuery.append(f'"{fullName}"[{_strTypes}]')
+                    if row['Short Name'] == gene_name and row['Short Name'] not in list_query:
+                        if verbose:
+                            print(
+                                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                                f"{TerminalColors.Warning}"
+                                f"{index}: Searching for '{gene_name}' in SynGenes database..."
+                                f"{TerminalColors.End}"
+                                )
+                        full_name = row['Full Name']
+                        list_query.append(f'"{full_name}"[{str_types}]')
             else:
-                if _verbose == True:
-                    print(f"{TerminalColors.Warning}Type '{_strTypes}' is not in the correct format!{TerminalColors.End}")
-                    print(f"{TerminalColors.Warning}Correct format is {_listTypes}{TerminalColors.End}")
-                sys.exit()
+                if verbose:
+                    print(
+                        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                        f"{TerminalColors.Warning}"
+                        f"Type '{str_types}' is not in the correct format!"
+                        f"{TerminalColors.End}"
+                        )
+                    print(
+                        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                        f"{TerminalColors.Warning}"
+                        f"Correct format is {list_types}"
+                        f"{TerminalColors.End}"
+                        )
+                sys.exit(1)
         else:
-            print(f"{TerminalColors.Warning}Gene '{_geneName}' is not in the correct format!{TerminalColors.End}")
-            print(f"{TerminalColors.Warning}Correct format is {_listGenes_mt} to Mitochondrial genes!{TerminalColors.End}")
-            print(f"{TerminalColors.Warning}Correct format is {_listGenes_cp} to Chloroplast genes!{TerminalColors.End}")
-            sys.exit()
-        
-        if _listQuery: # Check if _listQuery is not empty
-            return ' OR '.join(_listQuery) # Return query for Entrez search in GenBank or PubMed
+            print(
+                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                f"{TerminalColors.Warning}"
+                f"Gene '{gene_name}' is not in the correct format!"
+                f"{TerminalColors.End}"
+                )
+            print(
+                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                f"{TerminalColors.Warning}"
+                f"Correct format is {list_genes_mt} to Mitochondrial genes!"
+                f"{TerminalColors.End}"
+                )
+            print(
+                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                f"{TerminalColors.Warning}"
+                f"Correct format is {list_genes_cp} to Chloroplast genes!"
+                f"{TerminalColors.End}"
+                )
+            sys.exit(1)
+        if list_query: # Check if _listQuery is not empty
+            data = ' OR '.join(list_query) # Return query for Entrez search in GenBank or PubMed
         else:
-            print(f"{TerminalColors.Warning}No results found for '{_geneName}' in SynGenes database!{TerminalColors.End}")
-            return "" # Return empty string
+            print(
+                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                f"{TerminalColors.Warning}"
+                f"No results found for '{gene_name}' in SynGenes database!"
+                f"{TerminalColors.End}"
+                )
+            data = ""
+        return data # Return empty string
         
-    def buildJson(self, **kwargs):
+    def build_json(self, **kwargs):
         """
         ### Build a JSON file with the data of SynGenes database.
         ---
@@ -372,7 +679,7 @@ class SynGenes:
         Parameters:
             - `fileName (str)`: Name of the JSON file. Default is SynGenes.js
             - `pathSaveFile (str)`: Path to save the JSON file. Default is SynGenes folder, in the current working directory.
-            - `verbose (bool)`: Print messages (True or False). Default is True.
+            - `verbose (bool)`: Print messages (True or False). Default is False.
 
         Returns:
             - `SynGenes.js` file in SynGenes folder.
@@ -385,71 +692,170 @@ class SynGenes:
         ```python
         >>> from SynGenes import SynGenes
         >>> sg = SynGenes()
-        >>> sg.buildJson()
+        >>> sg.build_json()
         ```
         """
-        _list           = []
-        _fileName       = kwargs.get('fileName', 'SynGenes.js')
-        _pathSaveFile   = kwargs.get('pathSaveFile', f'{SynGenes.cwdPath}')
-        _verbose        = kwargs.get('verbose', True)
-
-        _listGenes_mt   = ["12S", "16S", "ATP6", "ATP8", "COI", "COII", "COIII", "CYTB", "ND1", "ND2", "ND3", "ND4", "ND4L", "ND5", "ND6", "Control Region"]
-        _listGenes_cp   = ['accD', 'atpA', 'atpB', 'atpE', 'atpF', 'atpH', 'atpI', 'ccsA', 'cemA', 'chlB', 'chlL', 'chlN', 'clpP', 'clpP1', 'cysA', 'cysT', 'ftsH', 'infA', 'lhbA', 'matK', 'matk', 'ndhA', 'ndhB', 'ndhC', 'ndhD', 'ndhE', 'ndhF', 'ndhG', 'ndhH', 'ndhI', 'ndhJ', 'ndhK', 'pafI', 'pafII', 'pbf1', 'petA', 'petB', 'petD', 'petE', 'petG', 'petL', 'petN', 'psaA', 'psaB', 'psaC', 'psaI', 'psaJ', 'psaM', 'psb30', 'psbA', 'psbB', 'psbC', 'psbD', 'psbE', 'psbF', 'psbG', 'psbH', 'psbI', 'psbJ', 'psbK', 'psbL', 'psbM', 'psbN', 'psbT', 'psbZ', 'rbcL', 'rpl14', 'rpl16', 'rpl2', 'rpl20', 'rpl21', 'rpl22', 'rpl23', 'rpl32', 'rpl33', 'rpl36', 'rpoA', 'rpoB', 'rpoC1', 'rpoC2', 'rps11', 'rps12', 'rps14', 'rps15', 'rps16', 'rps18', 'rps19', 'rps2', 'rps3', 'rps4', 'rps7', 'rps8', 'rrn16S', 'rrn23S', 'rrn4.5S', 'rrn5S']
-
-        if _verbose == True:
-            print(f"{TerminalColors.Warning}Creating JSON file...{TerminalColors.End}")
-        if os.path.exists(f'{_pathSaveFile}/{_fileName}') or os.path.isfile(f'{_pathSaveFile}/{_fileName}'):
-            if _verbose == True:
-                print(f"{TerminalColors.Warning}JSON file found in {_pathSaveFile}{TerminalColors.End}!\n")
-                print(f"{TerminalColors.Warning}Removing old JSON file...{TerminalColors.End}")
+        list_data = []
+        file_name = kwargs.get('fileName', 'SynGenes.js')
+        path_save_file = kwargs.get('pathSaveFile', f'{SynGenes.cwd_path}')
+        verbose = kwargs.get('verbose', False)
+        list_genes_mt = [
+            "12S", "16S",
+            "ATP6", "ATP8",
+            "COI", "COII", "COIII",
+            "CYTB",
+            "ND1", "ND2", "ND3", "ND4", "ND4L", "ND5", "ND6",
+            "Control Region"
+            ]
+        list_genes_cp = [
+            'accD', 'atpA', 'atpB', 'atpE', 'atpF', 'atpH',
+            'atpI', 'ccsA', 'cemA', 'chlB', 'chlL', 'chlN',
+            'clpP', 'clpP1', 'cysA', 'cysT', 'ftsH', 'infA',
+            'lhbA', 'matK', 'matk', 'ndhA', 'ndhB', 'ndhC',
+            'ndhD', 'ndhE', 'ndhF', 'ndhG', 'ndhH', 'ndhI',
+            'ndhJ', 'ndhK', 'pafI', 'pafII', 'pbf1', 'petA',
+            'petB', 'petD', 'petE', 'petG', 'petL', 'petN',
+            'psaA', 'psaB', 'psaC', 'psaI', 'psaJ', 'psaM',
+            'psb30', 'psbA', 'psbB', 'psbC', 'psbD', 'psbE',
+            'psbF', 'psbG', 'psbH', 'psbI', 'psbJ', 'psbK',
+            'psbL', 'psbM', 'psbN', 'psbT', 'psbZ', 'rbcL',
+            'rpl14', 'rpl16', 'rpl2', 'rpl20', 'rpl21',
+            'rpl22', 'rpl23', 'rpl32', 'rpl33', 'rpl36',
+            'rpoA', 'rpoB', 'rpoC1', 'rpoC2', 'rps11',
+            'rps12', 'rps14', 'rps15', 'rps16', 'rps18',
+            'rps19', 'rps2', 'rps3', 'rps4', 'rps7', 'rps8',
+            'rrn16S', 'rrn23S', 'rrn4.5S', 'rrn5S', 'ycf1', 
+            'ycf12', 'ycf15', 'ycf2', 'ycf3', 'ycf4'
+            ]
+        if verbose:
+            print(
+                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                f"{TerminalColors.Warning}"
+                f"Creating JSON file..."
+                f"{TerminalColors.End}"
+                )
+        if os.path.exists(
+            f'{path_save_file}/{file_name}'
+            ) or os.path.isfile(
+                f'{path_save_file}/{file_name}'
+                ):
+            if verbose:
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Warning}"
+                    f"JSON file found in {path_save_file}"
+                    f"{TerminalColors.End}!\n"
+                    )
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Warning}"
+                    f"Removing old JSON file..."
+                    f"{TerminalColors.End}"
+                    )
             try:
-                os.remove(f'{_pathSaveFile}/{_fileName}')
-                if _verbose == True:
-                    print(f"{TerminalColors.Green}Old JSON file removed successfully!\n{TerminalColors.End}")
-            except:
-                print(f"{TerminalColors.Fail}Error removing old JSON file! Verify if you have permission to remove files in this directory.{TerminalColors.End}")
-                sys.exit()
+                os.remove(f'{path_save_file}/{file_name}')
+                if verbose:
+                    print(
+                        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                        f"{TerminalColors.Green}"
+                        f"Old JSON file removed successfully!\n"
+                        f"{TerminalColors.End}"
+                        )
+            except PermissionError as e:
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Fail}"
+                    f"Error removing old JSON file!"
+                    f"{e}"
+                    f"Verify if you have permission to remove files in this directory."
+                    f"{TerminalColors.End}"
+                    )
+                sys.exit(1)
         else:
-            if _verbose == True:
-                print(f"{TerminalColors.Warning}JSON file not found in {_pathSaveFile}{TerminalColors.End}!\n")
-                print(f"{TerminalColors.Warning}Creating folder 'json' in {_pathSaveFile}{TerminalColors.End}")
+            if verbose:
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Warning}"
+                    f"JSON file not found in {path_save_file}"
+                    f"{TerminalColors.End}!\n"
+                    )
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Warning}"
+                    f"Creating folder 'json' in {path_save_file}"
+                    f"{TerminalColors.End}"
+                    )
             try:
-                os.makedirs(f'{_pathSaveFile}', exist_ok=True, mode=0o777)
-                if _verbose == True:
-                    print(f"{TerminalColors.Green}Folder 'json' created successfully ({time.strftime('%Y/%m/%d - %H:%M:%S')})!\n{TerminalColors.End}")
-            except:
-                print(f"{TerminalColors.Fail}Error creating folder 'json'! Verify if you have permission to create folders in this directory.{TerminalColors.End}")
-                sys.exit()
-        if _verbose == True:
-            print(f'{TerminalColors.Warning}Creating JSON file in {_pathSaveFile}, please wait...{TerminalColors.End}')
-        with open(f'{_pathSaveFile}/{_fileName}', 'a+') as f:
+                os.makedirs(f'{path_save_file}', exist_ok=True, mode=0o777)
+                if verbose:
+                    print(
+                        f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                        f"{TerminalColors.Green}"
+                        f"Folder 'json' created successfully!\n"
+                        f"{TerminalColors.End}"
+                        )
+            except PermissionError as e:
+                print(
+                    f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                    f"{TerminalColors.Fail}"
+                    f"Error creating folder 'json'!"
+                    f"Verify if you have permission to create folders in this directory."
+                    f"{e}"
+                    f"{TerminalColors.End}"
+                    )
+                sys.exit(1)
+        if verbose:
+            print(
+                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                f'{TerminalColors.Warning}'
+                f"Creating JSON file in {path_save_file}, please wait..."
+                f"{TerminalColors.End}"
+                )
+        with open(f'{path_save_file}/{file_name}', 'a+', encoding='utf-8') as f:
             f.write('const MitochondrialGenes = {\n')
-            _file = pd.read_excel(f'{SynGenes.cwdPath}/SynGenes/SynGenes.xlsx', sheet_name='Mitochondrial')
-            for i in _listGenes_mt:
-                for index, row in _file.iterrows():
+            file = pd.read_excel(f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx', sheet_name='Mitochondrial')
+            for i in list_genes_mt:
+                for index, row in file.iterrows():
                     if row['Short Name'] == i:
-                        _list.append(row['Full Name'])
-                f.write(f'"{i}": {_list},\n')
-                _list.clear()
+                        if verbose:
+                            print(
+                                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                                f"{TerminalColors.Warning}"
+                                f"{index}: Searching for '{i}' in SynGenes database..."
+                                f"{TerminalColors.End}"
+                                )
+                        list_data.append(row['Full Name'])
+                f.write(f'"{i}": {list_data},\n')
+                list_data.clear()
             f.write('};\n\n')
 
             f.write('const ChloroplastGenes = {\n')
-            _file = pd.read_excel(f'{SynGenes.cwdPath}/SynGenes/SynGenes.xlsx', sheet_name='Chloroplast')
-            for i in _listGenes_cp:
-                for index, row in _file.iterrows():
+            file = pd.read_excel(f'{SynGenes.cwd_path}/SynGenes/SynGenes.xlsx', sheet_name='Chloroplast')
+            for i in list_genes_cp:
+                for index, row in file.iterrows():
                     if row['Short Name'] == i:
-                        _list.append(row['Full Name'])
-                f.write(f'"{i}": {_list},\n')
-                _list.clear()
+                        if verbose:
+                            print(
+                                f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+                                f"{TerminalColors.Warning}"
+                                f"{index}: Searching for '{i}' in SynGenes database..."
+                                f"{TerminalColors.End}"
+                                )
+                        list_data.append(row['Full Name'])
+                f.write(f'"{i}": {list_data},\n')
+                list_data.clear()
             f.write('};\n\n')
-
             # Write date to JSON file
             _date = time.strftime("%Y/%m/%d - %H:%M:%S")
             f.write(f'const updateDate = "{_date}"\n')
+        print(
+            f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+            f'{TerminalColors.Green}'
+            f'JSON file created successfully!\n'
+            f'{TerminalColors.End}'
+            )
 
-        print(f'{TerminalColors.Green}JSON file created successfully ({time.strftime("%Y/%m/%d - %H:%M:%S")})!\n{TerminalColors.End}')
-
-    def citeSynGenes(self):
+    def cite_syngenes(self):
         """
         ### Citation for `SynGenes` database.
         ---
@@ -467,15 +873,24 @@ class SynGenes:
         ```python
         >>> from SynGenes import SynGenes
         >>> sg = SynGenes()
-        >>> howCite = sg.citeSynGenes()
+        >>> howCite = sg.cite_syngenes()
         >>> print(howCite)
         ''
         ```
         """
-        print(f"{TerminalColors.Warning}Please, cite the SynGenes database as:{TerminalColors.End}")
-        print(f"{TerminalColors.Warning}...{TerminalColors.End}")
+        print(
+            f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+            f"{TerminalColors.Warning}"
+            f"Please, cite the SynGenes database as:"
+            f"Rabelo, L.P., Sodré, D., de Sousa, R.P.C. et al. "
+            f"SynGenes: a Python class for standardizing nomenclatures of "
+            f"mitochondrial and chloroplast genes and a web form for enhancing searches "
+            f"for evolutionary analyses. BMC Bioinformatics 25, 160 (2024). "
+            f"https://doi.org/10.1186/s12859-024-05781-y"
+            f"{TerminalColors.End}"
+            )
 
-    def versionSynGenes(self):
+    def version_syngenes(self):
         """
         ### Version of `SynGenes` database.
         ---
@@ -493,9 +908,14 @@ class SynGenes:
         ```python
         >>> from SynGenes import SynGenes
         >>> sg = SynGenes()
-        >>> version = sg.versionSynGenes()
+        >>> version = sg.version_syngenes()
         >>> print(version)
         '1.0'
         ```
         """
-        print(f"{TerminalColors.Warning}SynGenes version {__version__}{TerminalColors.End}")
+        print(
+            f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
+            f"{TerminalColors.Warning}"
+            f"SynGenes: version {__version__}"
+            f"{TerminalColors.End}"
+            )

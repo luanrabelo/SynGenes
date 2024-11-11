@@ -1,6 +1,6 @@
 # conda-recipe/meta.yaml
 package:
-  name: "SynGenes"               # Package name
+  name: "syngenes"               # Package name
   version: "1.0.6"               # Package version
 
 source:

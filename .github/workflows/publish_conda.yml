@@ -15,19 +15,15 @@ jobs:
         with:
           auto-update-conda: true
           python-version: '3.10'
+          environment-file: conda/setup-miniconda-patched-meta.yaml
+          activate-environment: base
+          auto-activate-base: true
 
-      - name: Install Conda Build and Anaconda Client
-        run: conda install -n base -c conda-forge conda-build anaconda-client
-
-      - name: Create Conda environment
-        run: conda env create --file environment.yml
+      - name: Install Conda Build
+        run: conda install -c conda-forge conda-build
 
       - name: Build the Conda package
-        shell: bash -l {0}  # Garantir o shell correto para o Conda
-        env:
-          CONDA_NO_PLUGINS: true
-        run: |
-          conda build conda-recipe
+        run: conda build conda-recipe
 
       - name: Upload package to Anaconda
         env:
@@ -35,3 +31,4 @@ jobs:
         run: |
           anaconda login --token $ANACONDA_API_TOKEN
           anaconda upload --skip-existing /home/runner/miniconda3/conda-bld/noarch/*.tar.bz2
+          

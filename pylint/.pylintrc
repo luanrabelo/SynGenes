@@ -6,6 +6,9 @@ disable=
     E0401,  # Unable to import
     C0103,
     W0718,
+    R0912,
+    R0915,
+    C0304
 
 [FORMAT]
 max-line-length = 150  # Set this to your preferred maximum line length

@@ -20,9 +20,6 @@ class TerminalColors:
     ### `TerminalColors`: a Python class for terminal colors.
     ## `Created by Luan Rabelo, 2023`
     """
-    Header      = '\033[95m'
-    Blue        = '\033[94m'
-    Cyan        = '\033[96m'
     Green       = '\033[92m'
     Warning     = '\033[93m'
     Fail        = '\033[91m'
@@ -270,7 +267,8 @@ class SynGenes:
     def update(self, **kwargs):
         """
         ### Download `SynGenes` database from GitHub repository (stable branch).
-        This function downloads the SynGenes database from the GitHub repository (stable branch) and saves it in the SynGenes folder.
+        This function downloads the SynGenes database from the
+        GitHub repository (stable branch) and saves it in the SynGenes folder.
         ---
     
         Parameters:
@@ -448,7 +446,7 @@ class SynGenes:
                 f"mt for Mitochondrial or cp for Chloroplast"
                 f"{TerminalColors.End}"
                 )
-            sys.exit(1) 
+            sys.exit(1)
         list_full_name = df['Full Name'].values.tolist()     # Convert DataFrame column to list
         list_short_name = df['Short Name'].values.tolist()    # Convert DataFrame column to list
         if verbose:
@@ -666,7 +664,7 @@ class SynGenes:
                 )
             data = ""
         return data # Return empty string
-        
+
     def build_json(self, **kwargs):
         """
         ### Build a JSON file with the data of SynGenes database.

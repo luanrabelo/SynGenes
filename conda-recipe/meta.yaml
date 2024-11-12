@@ -4,7 +4,7 @@ package:
   version: "1.0.6"               # Versão do pacote
 
 source:
-  path: SynGenes/                 # Caminho para o código-fonte. Certifique-se de que o diretório está no mesmo nível que `meta.yaml`.
+  path: ../SynGenes/                 # Caminho para o código-fonte. Certifique-se de que o diretório está no mesmo nível que `meta.yaml`.
 
 build:
   noarch: python                  # Indica que o pacote não é específico de uma arquitetura

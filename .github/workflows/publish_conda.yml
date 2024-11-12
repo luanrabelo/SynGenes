@@ -21,8 +21,8 @@ jobs:
         with:
           auto-update-conda: true
           python-version: '3.10'
-          environment-file: 'conda/setup-miniconda-patched-meta.yaml'  # Arquivo do ambiente
-          activate-environment: 'syngenes-env'  # Novo ambiente específico
+          environment-file: 'conda-recipe/meta.yaml'
+          activate-environment: 'syngenes-env'
 
       - name: Install Conda Build
         run: conda install -n syngenes-env -c conda-forge conda-build

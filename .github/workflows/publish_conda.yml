@@ -14,7 +14,7 @@ jobs:
         run: |
           wget https://repo.anaconda.com/archive/Anaconda3-2023.07-1-Linux-x86_64.sh -O ~/anaconda.sh
           bash ~/anaconda.sh -b -p $HOME/anaconda
-          echo "$HOME/anaconda/bin" >> $GITHUB_PATH  # Adiciona o Anaconda ao PATH
+          echo "$HOME/anaconda/bin" >> $GITHUB_PATH
 
       - name: Update Conda and Install Conda Build
         run: |
@@ -23,7 +23,7 @@ jobs:
 
       - name: Verify Conda Build Installation
         run: |
-          $HOME/anaconda/bin/conda list conda-build  # Verifica se o conda-build está instalado
+          $HOME/anaconda/bin/conda list conda-build
 
       - name: Build the Conda package using conda-build executable
         env:
@@ -35,5 +35,4 @@ jobs:
         env:
           ANACONDA_API_TOKEN: ${{ secrets.ANACONDA_API_TOKEN }}
         run: |
-          $HOME/anaconda/bin/anaconda login --token $ANACONDA_API_TOKEN
           $HOME/anaconda/bin/anaconda upload --skip-existing $HOME/anaconda/conda-bld/noarch/*.tar.bz2

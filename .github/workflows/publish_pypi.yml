@@ -1,4 +1,4 @@
-name: Publish SynGenes in PYPI%20
+name: Publish SynGenes in PyPi
 
 on:
   release:

@@ -1,4 +1,4 @@
-name: Publish SynGenes in Anaconda%20
+name: Publish SynGenes in Anaconda
 
 on:
   release:

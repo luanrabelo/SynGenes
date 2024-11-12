@@ -10,34 +10,33 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Set up Miniconda
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          auto-update-conda: true
-          python-version: '3.10'
-          environment-file: 'environment.yml'  # Certifique-se de ter um environment.yml no repositório
+      - name: Download and Install Anaconda
+        run: |
+          wget https://repo.anaconda.com/archive/Anaconda3-2023.07-1-Linux-x86_64.sh -O ~/anaconda.sh
+          bash ~/anaconda.sh -b -p $HOME/anaconda
+          echo "$HOME/anaconda/bin" >> $GITHUB_PATH  # Adiciona o Anaconda ao PATH
+        shell: bash
 
-      - name: Verify Conda and Python Version
+      - name: Update Conda
+        run: conda update -n base -c defaults conda
+
+      - name: Verify Conda and Conda Build Installation
         run: |
           conda --version
-          python --version
-
-      - name: Install Conda Build and Anaconda Client
-        run: conda install -n base -c conda-forge conda-build anaconda-client
-
-      - name: Verify Conda Build Installation
-        run: conda list conda-build
+          conda list conda-build  # Verifica se o conda-build está instalado
+        shell: bash
 
       - name: Build the Conda package
-        shell: bash -l {0}
         env:
           CONDA_NO_PLUGINS: true
         run: |
           conda build conda-recipe
+        shell: bash
 
       - name: Upload package to Anaconda
         env:
           ANACONDA_API_TOKEN: ${{ secrets.ANACONDA_API_TOKEN }}
         run: |
           anaconda login --token $ANACONDA_API_TOKEN
-          anaconda upload --skip-existing /home/runner/miniconda3/conda-bld/noarch/*.tar.bz2
+          anaconda upload --skip-existing $HOME/anaconda/conda-bld/noarch/*.tar.bz2
+        shell: bash

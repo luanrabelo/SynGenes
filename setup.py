@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name = 'SynGenes',
-    version = '1.0.6',
+    version = '1.1.0',
     description = (
         'SynGenes is a Python class for standardizing mitochondrial/chloroplast gene nomenclatures.'
         ),

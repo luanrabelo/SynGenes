@@ -5,7 +5,7 @@ import subprocess
 
 __author__ = "Luan Rabelo"
 __license__ = "MIT"
-__version__ = "1.0.6"
+__version__ = "1.1.0"
 __maintainer__ = "Luan Rabelo"
 __email__ = "luanrabelo@outlook.com"
 __date__ = "2024/01/01"

@@ -1,0 +1,11 @@
+[MESSAGES CONTROL]
+disable=
+    C0301,  # Line too long
+    C0114,  # Missing module docstring
+    C0116,  # Missing function or method docstring
+    E0401,  # Unable to import
+    C0103,
+    W0718,
+
+[FORMAT]
+max-line-length = 150  # Set this to your preferred maximum line length

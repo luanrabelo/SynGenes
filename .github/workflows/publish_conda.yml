@@ -1,6 +1,8 @@
 name: Publish Python package to Anaconda
 
-on: [push, pull_request]
+on:
+  release:
+    types: [published]
 
 jobs:
   build-and-upload:

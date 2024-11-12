@@ -8,7 +8,7 @@
   </a>
 </p>
 
-[![Publish SynGenes Python Package   ](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_pypi.yml/badge.svg)](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_pypi.yml) [![Publish SynGenes Python Anaconda   ](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_conda.yml/badge.svg)](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_conda.yml)
+[![Published in](https://img.shields.io/badge/Published_in-BMC%20Bioinformatics-blue)](https://doi.org/10.1186/s12859-024-05781-y) [![Publish SynGenes in PYPI   ](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_pypi.yml/badge.svg)](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_pypi.yml) [![Publish SynGenes in Anaconda   ](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_conda.yml/badge.svg)](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_conda.yml) [![Pylint](https://github.com/luanrabelo/SynGenes/actions/workflows/pylint.yml/badge.svg)](https://github.com/luanrabelo/SynGenes/actions/workflows/pylint.yml)
 
 # Contents Overview
 - [System Overview](#system-overview)
@@ -244,7 +244,8 @@ sg = SynGenes()
 sg.build_json()
 ```
 &nbsp;  
-### `version_syngenes(self)`
+### `version_syngenes`
+#### `version_syngenes(self)`
 ##### [:rocket: Go to Contents Overview](#contents-overview)
 Displays the current version of the **SynGenes** database.  
 
@@ -268,7 +269,8 @@ print(version)
 # Output: '1.0'
 ```
 &nbsp;
-### `cite_syngenes(self)`
+### `cite_syngenes`
+#### `cite_syngenes(self)`
 ##### [:rocket: Go to Contents Overview](#contents-overview)
 Provides the citation format for the **SynGenes** database.  
 

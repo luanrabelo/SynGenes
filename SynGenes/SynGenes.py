@@ -447,8 +447,8 @@ class SynGenes:
                 f"{TerminalColors.End}"
                 )
             sys.exit(1)
-        list_full_name = df['Full Name'].values.tolist()     # Convert DataFrame column to list
-        list_short_name = df['Short Name'].values.tolist()    # Convert DataFrame column to list
+        list_full_name = df['Full Name'].values.tolist()  # Convert DataFrame column to list
+        list_short_name = df['Short Name'].values.tolist()  # Convert DataFrame column to list
         if verbose:
             print(
                 f"{time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())}: "
@@ -669,10 +669,10 @@ class SynGenes:
         """
         ### Build a JSON file with the data of SynGenes database.
         ---
-
         Parameters:
             - `fileName (str)`: Name of the JSON file. Default is SynGenes.js
-            - `pathSaveFile (str)`: Path to save the JSON file. Default is SynGenes folder, in the current working directory.
+            - `pathSaveFile (str)`: Path to save the JSON file.
+            Default is SynGenes folder, in the current working directory.
             - `verbose (bool)`: Print messages (True or False). Default is False.
 
         Returns:

@@ -8,7 +8,8 @@ disable=
     W0718,
     R0912,
     R0915,
-    C0304
+    C0304,
+    R0903,
 
 [FORMAT]
 max-line-length = 150  # Set this to your preferred maximum line length

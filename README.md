@@ -8,7 +8,7 @@
   </a>
 </p>
 
-[![Published in](https://img.shields.io/badge/Published_in-BMC%20Bioinformatics-blue)](https://doi.org/10.1186/s12859-024-05781-y) [![Publish SynGenes in PYPI   ](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_pypi.yml/badge.svg)](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_pypi.yml) [![Publish SynGenes in Anaconda   ](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_conda.yml/badge.svg)](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_conda.yml) [![Pylint](https://github.com/luanrabelo/SynGenes/actions/workflows/pylint.yml/badge.svg)](https://github.com/luanrabelo/SynGenes/actions/workflows/pylint.yml)
+[![Published in%20](https://img.shields.io/badge/Published_in-BMC%20Bioinformatics-blue)](https://doi.org/10.1186/s12859-024-05781-y) [![Publish SynGenes in PYPI%20](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_pypi.yml/badge.svg)](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_pypi.yml) [![Publish SynGenes in Anaconda%20](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_conda.yml/badge.svg)](https://github.com/luanrabelo/SynGenes/actions/workflows/publish_conda.yml) [![Pylint%20](https://github.com/luanrabelo/SynGenes/actions/workflows/pylint.yml/badge.svg)](https://github.com/luanrabelo/SynGenes/actions/workflows/pylint.yml)
 
 # Contents Overview
 - [System Overview](#system-overview)
